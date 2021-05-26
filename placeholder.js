@@ -27,7 +27,7 @@ define(function (require) {
 
         this.onClick = () => {
 
-            this.disabled = 'disabled';
+            //this.disabled = 'disabled';
 
             var s = $scope.viewStats.get_selected_orders();
             
@@ -41,14 +41,15 @@ define(function (require) {
                 alert('you can generate labels for 30 orders maximum');
                 return;
             }
-            _this.isEnabled = (itemKey) => {
+            
+            /*_this.isEnabled = (itemKey) => {
                 return false;
             };
             setTimeout(function () {
                 _this.isEnabled = (itemKey) => {
                     return true;
                 }
-            }, 60000);
+            }, 60000);*/
 
             let url = 'https://www.google.com/';
             // url += s.map(x => x.id).join('&ids=');
