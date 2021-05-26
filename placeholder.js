@@ -11,7 +11,7 @@ define(function (require) {
             var items = [{
                 text: "Print Invoices",  // Button name
                 key: "placeholderPrintInvoiceTemplate",  // Button id (unique)
-                icon: "fa fa-cubes",  // Button icon
+                icon: "fa fa-print",  // Button icon
                 content: {
                     moduleName: "placeholderPrintInvoiceTemplate",
                     controlName: "placeholderPrintInvoiceTemplate"
