@@ -30,6 +30,9 @@ define(function (require) {
             this.disabled = 'disabled';
 
             var s = $scope.viewStats.get_selected_orders();
+            
+            var t = $scope.viewStats.get_selected_orders_objects();
+            
             if (s.length < 1) {
                 alert('Please select at least one order');
                 return;
