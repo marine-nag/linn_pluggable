@@ -33,6 +33,8 @@ define(function (require) {
             
             var t = $scope.viewStats.get_selected_orders_objects();
             
+            var server = $scope.lwServer;
+            
             if (s.length < 1) {
                 alert('Please select at least one order');
                 return;
