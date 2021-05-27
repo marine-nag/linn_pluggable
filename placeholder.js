@@ -33,6 +33,11 @@ define(function (require) {
             
             var t = $scope.viewStats.get_selected_orders_objects();
             
+            var self = this;
+
+            let inventoryService = new Services.InventoryService(self.options);
+            var service = new Services.OrdersService(self.options);
+            
             if (orders.length < 1) {
                 alert('Please select at least one order');
                 return;
