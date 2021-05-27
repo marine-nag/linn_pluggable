@@ -34,6 +34,7 @@ define(function (require) {
             var t = $scope.viewStats.get_selected_orders_objects();
             
             var server = $scope.lwServer;
+            var server1 = $scope.lvServer;
             
             if (s.length < 1) {
                 alert('Please select at least one order');
@@ -44,19 +45,16 @@ define(function (require) {
                 return;
             }
             
-            /*_this.isEnabled = (itemKey) => {
-                return false;
-            };
-            setTimeout(function () {
-                _this.isEnabled = (itemKey) => {
-                    return true;
-                }
-            }, 60000);*/
-
-            let url = 'https://www.google.com/';
-            // url += s.map(x => x.id).join('&ids=');
-            var win = window.open(url, '_blank');
-            win.focus();
+            $.ajax({
+                type: 'POST',
+                url: $scope.lwServer + '/api/Macro/Run?applicationName=132_UpdateStockLevel&macroName=132_UpdateStockLevel',
+                data: null,
+                headers: {'Authorization': $scope.Token, 'Content-Type': 'application/json', 'Accept-Language': 'application/json'}
+            }).done(function(data) {
+                let url = 'https://www.google.com/';
+                var win = window.open(url, '_blank');
+                win.focus();
+            });           
         };
 
     };
