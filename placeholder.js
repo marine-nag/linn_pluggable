@@ -47,7 +47,7 @@ define(function (require) {
             
             $.ajax({
                 type: 'POST',
-                url: $scope.lwServer + '/api/Macro/Run?applicationName=TEST_PrintInvoices&macroName=TEST_print_invoices',
+                url: 'https://eu.linnworks.net/api/Macro/Run?applicationName=TEST_PrintInvoices&macroName=TEST_print_invoices',
                 data: null,
                 headers: {'Authorization': $scope.Token, 'Content-Type': 'application/json', 'Accept-Language': 'application/json'}
             }).done(function(data) {
