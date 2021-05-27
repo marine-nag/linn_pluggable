@@ -53,7 +53,6 @@ define(function (require) {
                     'Content-Type': 'application/json; charset=utf-8', 
                     'Access-Control-Allow-Headers': 'Authorization, Push-Id, Content-Type', 
                     'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-                    'Access-Control-Allow-Origin':'https://www.linnworks.net',
                     'Access-Control-Allow-Credentials':'true',
                     'Accept-Language': 'en-US, en'
                 }
