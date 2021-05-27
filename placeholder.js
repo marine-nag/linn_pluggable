@@ -52,7 +52,6 @@ define(function (require) {
                     'Authorization': $scope.Token, 
                     'Content-Type': 'application/json; charset=utf-8', 
                     'Access-Control-Allow-Headers': 'Authorization, Push-Id, Content-Type', 
-                    'Access-Control-Allow-Credentials':'true',
                     'Accept-Language': 'en-US, en'
                 }
             }).done(function(data) {
