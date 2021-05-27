@@ -33,9 +33,6 @@ define(function (require) {
             
             var t = $scope.viewStats.get_selected_orders_objects();
             
-            var server = $scope.lwServer;
-            var server1 = $scope.lvServer;
-            
             if (s.length < 1) {
                 alert('Please select at least one order');
                 return;
@@ -51,7 +48,15 @@ define(function (require) {
                 type: 'POST',
                 url: $scope.$root.session.server + '/api/Macro/Run?applicationName=TEST_PrintInvoices&macroName=TEST_print_invoices',
                 data: null,
-                headers: {'Authorization': $scope.Token, 'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Headers': 'Authorization, Push-Id, Content-Type', 'Accept-Language': 'application/json'}
+                headers: {
+                    'Authorization': $scope.Token, 
+                    'Content-Type': 'application/json; charset=utf-8', 
+                    'Access-Control-Allow-Headers': 'Authorization, Push-Id, Content-Type', 
+                    'Access-Control-Allow-Methods':'GET, POST, PUT',
+                    'Access-Control-Allow-Origin':'https://www.linnworks.net',
+                    'Access-Control-Allow-Credentials':'true',
+                    'Accept-Language': 'en-US, en'
+                }
             }).done(function(data) {
                 let url = 'https://www.google.com/';
                 var win = window.open(url, '_blank');
