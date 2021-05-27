@@ -46,7 +46,7 @@ define(function (require) {
             }
             
             var y = $scope.Token;
-            var y2 = $scope.server;
+            var y2 = $scope.session.server;
             
             $.ajax({
                 type: 'POST',
