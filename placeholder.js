@@ -46,11 +46,10 @@ define(function (require) {
             }
             
             var y = $scope.Token;
-            var y2 = $scope.$root.session.server;
-            
+        
             $.ajax({
                 type: 'POST',
-                url: 'https://eu.linnworks.net/api/Macro/Run?applicationName=TEST_PrintInvoices&macroName=TEST_print_invoices',
+                url: $scope.$root.session.server + '/api/Macro/Run?applicationName=TEST_PrintInvoices&macroName=TEST_print_invoices',
                 data: null,
                 headers: {'Authorization': $scope.Token, 'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Headers': 'Authorization, Push-Id, Content-Type', 'Accept-Language': 'application/json'}
             }).done(function(data) {
