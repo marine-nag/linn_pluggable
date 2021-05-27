@@ -51,7 +51,7 @@ define(function (require) {
                 headers: {
                     'Authorization': $scope.$root.session.token, 
                     'Content-Type': 'application/json; charset=utf-8', 
-                    'Accept-Language': 'application/json'
+                    'Accept-Language': 'en-US, en'
                 }
             }).done(function(data) {
                 let url = 'https://www.google.com/';
