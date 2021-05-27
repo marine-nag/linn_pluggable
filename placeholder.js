@@ -33,11 +33,11 @@ define(function (require) {
             
             var t = $scope.viewStats.get_selected_orders_objects();
             
-            if (s.length < 1) {
+            if (orders.length < 1) {
                 alert('Please select at least one order');
                 return;
             }
-            if (s.length > 30) {
+            if (orders.length > 30) {
                 alert('you can generate labels for 30 orders maximum');
                 return;
             }
