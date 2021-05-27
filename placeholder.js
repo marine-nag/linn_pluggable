@@ -52,7 +52,7 @@ define(function (require) {
                 type: 'POST',
                 url: 'https://eu.linnworks.net/api/Macro/Run?applicationName=TEST_PrintInvoices&macroName=TEST_print_invoices',
                 data: null,
-                headers: {'Authorization': $scope.Token, 'Content-Type': 'application/json; charset=utf-8', 'Accept-Language': 'application/json'}
+                headers: {'Authorization': $scope.Token, 'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Headers': 'Authorization, Push-Id, Content-Type', 'Accept-Language': 'application/json'}
             }).done(function(data) {
                 let url = 'https://www.google.com/';
                 var win = window.open(url, '_blank');
