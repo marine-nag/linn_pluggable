@@ -45,11 +45,14 @@ define(function (require) {
                 return;
             }
             
+            var y = $scope.Token;
+            var y2 = $scope.server;
+            
             $.ajax({
                 type: 'POST',
                 url: 'https://eu.linnworks.net/api/Macro/Run?applicationName=TEST_PrintInvoices&macroName=TEST_print_invoices',
                 data: null,
-                headers: {'Authorization': $scope.Token, 'Content-Type': 'application/json', 'Accept-Language': 'application/json'}
+                headers: {'Authorization': $scope.Token, 'Content-Type': 'application/json; charset=utf-8', 'Accept-Language': 'application/json'}
             }).done(function(data) {
                 let url = 'https://www.google.com/';
                 var win = window.open(url, '_blank');
