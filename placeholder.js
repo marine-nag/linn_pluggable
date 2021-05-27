@@ -42,14 +42,14 @@ define(function (require) {
                 return;
             }
             
-            var y = $scope.Token;
+            var y = $scope.$root.session.token;
         
             $.ajax({
                 type: 'POST',
                 url: $scope.$root.session.server + '/api/Macro/Run?applicationName=TEST_PrintInvoices&macroName=TEST_print_invoices',
                 data: null,
                 headers: {
-                    'Authorization': $scope.Token, 
+                    'Authorization': $scope.$root.session.token, 
                     'Content-Type': 'application/json; charset=utf-8', 
                     'Accept-Language': 'en-US, en'
                 }
