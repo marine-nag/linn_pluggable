@@ -29,7 +29,7 @@ define(function (require) {
 
             //this.disabled = 'disabled';
 
-            var s = $scope.viewStats.get_selected_orders();
+            var orders = $scope.viewStats.get_selected_orders();
             
             var t = $scope.viewStats.get_selected_orders_objects();
             
@@ -43,11 +43,18 @@ define(function (require) {
             }
             
             var y = $scope.$root.session.token;
-        
+            
+            var arrIds = [];
+            
+            orders.forEach(function(item){
+                    arrIds.push(item.id);        
+                }
+            );
+            
             $.ajax({
                 type: 'POST',
                 url: $scope.$root.session.server + '/api/Macro/Run?applicationName=TEST_PrintInvoices&macroName=TEST_print_invoices',
-                data: null,
+                data: arrIds,
                 headers: {
                     'Authorization': $scope.$root.session.token, 
                     'Content-Type': 'application/json; charset=utf-8', 
