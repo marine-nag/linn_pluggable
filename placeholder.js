@@ -7,7 +7,7 @@ define(function (require) {
     
     var placeHolder = function ($scope, $element, controlService) {
 
-        const _this = this;
+        //const _this = this;
         this.getItems = () => {
             var items = [{
                 text: "Print Invoices",  // Button name
@@ -38,8 +38,7 @@ define(function (require) {
 
             //let inventoryService = new Services.InventoryService(self.options);
             //var service = new Services.OrdersService(self.options);
-           
-            
+                
             if (orders.length < 1) {
                 alert('Please select at least one order');
                 return;
@@ -61,8 +60,9 @@ define(function (require) {
             var itemsGr = $element;
             
             $scope.getOrderDataBySomeID();
-            
-            ///======
+        };
+        
+         ///======
             // Try to get data by macros with type API
             $scope.getOrderDataBySomeID = function(){  
                 
@@ -89,10 +89,8 @@ define(function (require) {
                     win.focus();
                 }); 
             };
-        };
-
     };
-
+   
     placeholderManager.register("OpenOrders_OrderControlButtons", placeHolder);
 
 });
