@@ -77,6 +77,12 @@ define(function (require) {
                         
                         alert('Something there! Notes: ' + orders.length);
                         
+                        // GET Order Extended Properties
+                        serviceOrder.getExtendedProperties(orderIDs[0], function(orderExtProps) {
+                            var o = orderExtProps;
+                        });
+                        
+                        
                         //================
                         // GET StockItems data (suppliers, images, etc....) 
                         var itemID = orderObjects[0].Items[0].ItemId;
@@ -90,6 +96,18 @@ define(function (require) {
                             
                                 serviceInv.GetInventoryItemImages(itemID, function (resultImg) {
                                     var t = resultImg;
+                                });
+                                
+                                // GET required extended props of items
+                                var ext_props = ['patch_name', 'customs_name', 'country_of_original'];
+                                serviceInv.GetInventoryItemExtendedProperties(itemID, ext_props, function(itemExtProps) {
+                                    var t2 = itemExtProps;
+                                });
+                                
+                                // GET required supplier of item
+                                serviceInv.GetStockSupplierStat(itemID, function(suppliers) {
+                                    alert('Get suppliers');
+                                    var suppl = suppliers;
                                 });
                             } 
                             else 
