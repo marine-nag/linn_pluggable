@@ -66,7 +66,7 @@ define(function (require) {
             // Try to get data by macros with type API
             $scope.getOrderDataBySomeID = function(){  
                 
-                var service1 = new Services.OrdersService($scope.options);
+                const service1 = new Services.OrdersService();
                  
                 
             var orders = $scope.viewStats.get_selected_orders();
@@ -79,8 +79,7 @@ define(function (require) {
             
                 var desc = service1.GetOrdersById(arr);
                 
-                
-                $.ajax({
+                /*$.ajax({
                     type: 'POST',
                     url: $scope.$root.session.server + '/api/Macro/Run?applicatioName=TEST_PrintInvoices&macroName=TEST_print_invoices',
                     data: arrIds,
@@ -93,7 +92,7 @@ define(function (require) {
                     let url = 'https://www.google.com/';
                     var win = window.open(url, '_blank');
                     win.focus();
-                }); 
+                }); */
             };
     };
    
