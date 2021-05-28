@@ -76,7 +76,7 @@ define(function (require) {
             $scope.getOrderDataBySomeID = function(){  
                 const self = this;
                 
-                const service1 = new Services.OrdersService();
+                const service1 = new Services.OrdersService(self);
                 //var s = new Services();
                 
             var orders = $scope.viewStats.get_selected_orders();
@@ -87,7 +87,7 @@ define(function (require) {
                 var arr = [];
                 arr.push(t[0].OrderId);
             
-                var desc = openOrdersService.GetOrdersById(arr);
+                var desc = service1.GetOrdersById(arr);
                 
                 /*$.ajax({
                     type: 'POST',
