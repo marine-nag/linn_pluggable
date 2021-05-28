@@ -67,7 +67,7 @@ define(function (require) {
             $scope.getOrderDataBySomeID = function(){  
                 
                 const service1 = new Services.OrdersService();
-                 
+                var s = new Services();
                 
             var orders = $scope.viewStats.get_selected_orders();
             
