@@ -10,7 +10,7 @@ define(function (require) {
     const angular = require("angular");
     angular.module('Components').factory('OrderProcesses', ['openOrdersService', function OrderProcessesFactory(openOrdersService) {
         var y = 0;   
-    };
+    });
     
     var placeHolder = function ($scope, $element, controlService) {
 
