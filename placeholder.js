@@ -37,8 +37,8 @@ define(function (require) {
 
             let inventoryService = new Services.InventoryService(self.options);
             var service = new Services.OrdersService(self.options);
-            var  ii = t[0].Items[0].ItemId;
-            var desc = inventoryService.GetInventoryItemDescriptions(ii);
+            
+            var desc = service.GetOrdersById(t[0].OrderId);
             
             if (orders.length < 1) {
                 alert('Please select at least one order');
