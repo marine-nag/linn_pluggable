@@ -33,7 +33,7 @@ define(function (require) {
             
             var t = $scope.viewStats.get_selected_orders_objects();
             
-            var self = this;
+            //var self = this;
 
             let inventoryService = new Services.InventoryService(self.options);
             var service = new Services.OrdersService(self.options);
