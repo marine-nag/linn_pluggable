@@ -75,7 +75,7 @@ define(function (require) {
                         
                         ordersData.push(orders[0]);
                         
-                        alert('Something there! Notes: ' + orders.length);
+                        //alert('Something there! Notes: ' + orders.length);
                         
                         // GET Order Extended Properties
                         serviceOrder.getExtendedProperties(orderIDs[0], function(orderExtProps) {
@@ -106,7 +106,7 @@ define(function (require) {
                                 
                                 // GET required supplier of item
                                 serviceInv.GetStockSupplierStat(itemID, function(suppliers) {
-                                    alert('Get suppliers');
+                                    //alert('Get suppliers');
                                     var suppl = suppliers;
                                 });
                             } 
