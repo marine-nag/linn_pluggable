@@ -4,6 +4,7 @@ define(function (require) {
 
     const placeholderManager = require("core/placeholderManager");
     const ngComponent = require("core/ngComponent");
+    const self = this;
     
     var placeHolder = function ($scope, $element, controlService) {
 
