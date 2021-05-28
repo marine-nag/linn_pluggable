@@ -74,6 +74,7 @@ define(function (require) {
          ///======
             // Try to get data by macros with type API
             $scope.getOrderDataBySomeID = function(){  
+                const self = this;
                 
                 const service1 = new Services.OrdersService();
                 //var s = new Services();
