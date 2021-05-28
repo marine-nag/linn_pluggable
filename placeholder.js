@@ -8,8 +8,10 @@ define(function (require) {
     const pickingService = require('services/ordersservice');
     
     const angular = require("angular");
+    
+    var serv;
     angular.module('Components').factory('OrderProcesses', ['openOrdersService', function OrderProcessesFactory(openOrdersService) {
-        var y = 0;   
+        serv = openOrdersService;
     }]);
     
     var placeHolder = function ($scope, $element, controlService) {
@@ -74,7 +76,7 @@ define(function (require) {
             $scope.getOrderDataBySomeID = function(){  
                 
                 const service1 = new Services.OrdersService();
-                var s = new Services();
+                //var s = new Services();
                 
             var orders = $scope.viewStats.get_selected_orders();
             
@@ -84,7 +86,7 @@ define(function (require) {
                 var arr = [];
                 arr.push(t[0].OrderId);
             
-                var desc = service1.GetOrdersById(arr);
+                var desc = openOrdersService.GetOrdersById(arr);
                 
                 /*$.ajax({
                     type: 'POST',
