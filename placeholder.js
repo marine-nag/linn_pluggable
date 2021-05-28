@@ -8,7 +8,7 @@ define(function (require) {
     const pickingService = require('services/ordersservice');
     
     var ordersData = [];
-    var itemData = [];
+    var itemData = [];    
     
     var placeHolder = function ($scope, $element, controlService) {
 
@@ -55,6 +55,7 @@ define(function (require) {
                 const serviceOrder = new Services.OrdersService(self);
                 const serviceInv = new Services.InventoryService(self);
                 
+                const dash = new Services.DashboardsService(self);
                 //var orders = $scope.viewStats.get_selected_orders();
             
                 var orderObjects = $scope.viewStats.get_selected_orders_objects();
