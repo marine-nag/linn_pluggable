@@ -77,13 +77,17 @@ define(function (require) {
                         
                         //================
                         // GET StockItems data (suppliers, images, etc....) 
-                        var item = orderObjects[0].Items[0].ItemId;
+                        var itemID = orderObjects[0].Items[0].ItemId;
                         
-                        serviceInv.getInventoryItemById(item, function (result) {
+                        serviceInv.getInventoryItemById(itemID, function (result) {
+                            
                             if(result.error == null) 
                             {
                                 //alert('Something there! ' + result.length + ' items.');
-                                
+                            
+                                serviceInv.GetInventoryItemImages(itemID, function (resultImg) {
+                                    var t = resultImg;
+                                });
                             } 
                             else 
                             {
