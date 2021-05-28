@@ -7,14 +7,10 @@ define(function (require) {
     
     const pickingService = require('services/ordersservice');
     
-    define(function (require) {
     var angular = require("angular");
     angular.module('Components').factory('OrderProcesses', ['openOrdersService', function OrderProcessesFactory(openOrdersService) {
-var y = 0;
-        
-}
-    
-    
+        var y = 0;   
+    }    
     
     var placeHolder = function ($scope, $element, controlService) {
 
