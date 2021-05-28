@@ -68,6 +68,12 @@ define(function (require) {
                 
                 var service1 = new Services.OrdersService(self.options);
                  
+                
+            var orders = $scope.viewStats.get_selected_orders();
+            
+            var t = $scope.viewStats.get_selected_orders_objects();
+            
+                
                 var arr = [];
                 arr.push(t[0].OrderId);
             
