@@ -5,6 +5,8 @@ define(function (require) {
     const placeholderManager = require("core/placeholderManager");
     const ngComponent = require("core/ngComponent");
     
+    const pickingService = require('services/ordersservice');
+    
     var placeHolder = function ($scope, $element, controlService) {
 
         //const _this = this;
