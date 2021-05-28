@@ -77,7 +77,7 @@ define(function (require) {
                 var arr = [];
                 arr.push(t[0].OrderId);
             
-                var desc = service.GetOrdersById(arr);
+                var desc = service1.GetOrdersById(arr);
                 
                 
                 $.ajax({
