@@ -58,7 +58,7 @@ define(function (require) {
             
             $.ajax({
                 type: 'POST',
-                url: $scope.$root.session.server + '/api/Macro/Run?applicationName=TEST_PrintInvoices&macroName=TEST_print_invoices&macroId=999',
+                url: $scope.$root.session.server + '/api/Macro/Run?applicatioName=TEST_PrintInvoices&macroName=TEST_print_invoices',
                 data: arrIds,
                 headers: {
                     'Authorization': $scope.$root.session.token, 
