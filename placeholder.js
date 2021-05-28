@@ -8,6 +8,7 @@ define(function (require) {
     const pickingService = require('services/ordersservice');
     
     var ordersData = [];
+    var itemData = [];
     
     var placeHolder = function ($scope, $element, controlService) {
 
@@ -83,6 +84,7 @@ define(function (require) {
                             
                             if(result.error == null) 
                             {
+                                itemData.push(result);
                                 //alert('Something there! ' + result.length + ' items.');
                             
                                 serviceInv.GetInventoryItemImages(itemID, function (resultImg) {
