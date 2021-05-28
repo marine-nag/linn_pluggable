@@ -87,21 +87,23 @@ define(function (require) {
                 var arr = [];
                 arr.push(t[0].OrderId);
             
-                var desc = serviceInv.getInventoryItemById(t[0].Items[0].ItemId, function (result) {
-                    if(result.error == null) 
-                    {
-                        alert('Something there! ' + result.length + ' items.');
-                    } 
-                    else 
-                    {
-                        alert('Errors!');
-                    }
-                });
+               
                 
                 var desc2 = serviceOrder.GetOrdersById(arr, function (result) {
                     if(result.error == null) 
                     {
                         alert('Something there! ');
+                        var item = t[0].Items[0].ItemId;
+                         var desc = serviceInv.getInventoryItemById(item, function (result) {
+                            if(result.error == null) 
+                            {
+                                alert('Something there! ' + result.length + ' items.');
+                            } 
+                            else 
+                            {
+                                alert('Errors!');
+                            }
+                        });
                     } 
                     else 
                     {
