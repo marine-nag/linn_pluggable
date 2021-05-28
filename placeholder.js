@@ -87,7 +87,7 @@ define(function (require) {
                 var arr = [];
                 arr.push(t[0].OrderId);
             
-                var desc = serviceInv.GetInventoryItemById(t[0].Items[0].ItemId, function (result) {
+                var desc = serviceInv.getInventoryItemById(t[0].Items[0].ItemId, function (result) {
                     if(result.error == null) 
                     {
                         alert('Something there! ' + result.length + ' items.');
