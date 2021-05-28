@@ -76,20 +76,38 @@ define(function (require) {
             $scope.getOrderDataBySomeID = function(){  
                 const self = this;
                 
-                const service1 = new Services.OrdersService(self);
+                const serviceOrder = new Services.OrdersService(self);
+                const serviceInv = new Services.InventoryService(self);
                 //var s = new Services();
                 
-            var orders = $scope.viewStats.get_selected_orders();
+                var orders = $scope.viewStats.get_selected_orders();
             
-            var t = $scope.viewStats.get_selected_orders_objects();
+                var t = $scope.viewStats.get_selected_orders_objects();
             
-                
                 var arr = [];
                 arr.push(t[0].OrderId);
             
-                var desc = service1.GetOrdersById(arr, function (result) {
-                                 alert('Something there!');
-                            });
+                var desc = serviceInv.GetInventoryItemById(t[0].Items[0].ItemId, function (result) {
+                    if(result.error == null) 
+                    {
+                        alert('Something there! ' + result.length + ' items.');
+                    } 
+                    else 
+                    {
+                        alert('Errors!');
+                    }
+                });
+                
+                var desc2 = serviceOrder.GetOrdersById(arr, function (result) {
+                    if(result.error == null) 
+                    {
+                        alert('Something there! ');
+                    } 
+                    else 
+                    {
+                        alert('Errors!');
+                    }
+                 });
                 
                 /*$.ajax({
                     type: 'POST',
