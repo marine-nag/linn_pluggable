@@ -4,7 +4,6 @@ define(function (require) {
 
     const placeholderManager = require("core/placeholderManager");
     const ngComponent = require("core/ngComponent");
-    const self = this;
     
     var placeHolder = function ($scope, $element, controlService) {
 
@@ -67,7 +66,7 @@ define(function (require) {
             // Try to get data by macros with type API
             $scope.getOrderDataBySomeID = function(){  
                 
-                var service1 = new Services.OrdersService(self.options);
+                var service1 = new Services.OrdersService($scope.options);
                  
                 
             var orders = $scope.viewStats.get_selected_orders();
