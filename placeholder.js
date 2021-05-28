@@ -7,7 +7,7 @@ define(function (require) {
     
     const pickingService = require('services/ordersservice');
     
-    const angular = require("angular");
+    var ordersData = [];
     
     var placeHolder = function ($scope, $element, controlService) {
 
@@ -31,44 +31,24 @@ define(function (require) {
         };
 
         this.onClick = () => {
-
-            //this.disabled = 'disabled';
-
             var orders = $scope.viewStats.get_selected_orders();
-            
-            var t = $scope.viewStats.get_selected_orders_objects();
-            
-            //var self = this;
-
-            //let inventoryService = new Services.InventoryService(self.options);
-            //var service = new Services.OrdersService(self.options);
-                
+ 
             if (orders.length < 1) {
                 alert('Please select at least one order');
                 return;
             }
-            if (orders.length > 30) {
-                alert('you can generate labels for 30 orders maximum');
+            
+            /*if (orders.length > 30) {
+                alert('You can generate labels for 30 orders maximum');
                 return;
-            }
-            
-            var y = $scope.$root.session.token;
-            
-            var arrIds = [];
-            
-            orders.forEach(function(item){
-                    arrIds.push(item.id);        
-                }
-            );
-          
-            var itemsGr = $element;
+            }*/
             
             $scope.getOrderDataBySomeID();
         };
         
          ///======
-            // Try to get data by macros with type API
-            $scope.getOrderDataBySomeID = function(){  
+        // Try to get data by macros with type API
+        $scope.getOrderDataBySomeID = function(){  
                 const self = this;
                 
                 const serviceOrder = new Services.OrdersService(self);
@@ -84,15 +64,26 @@ define(function (require) {
                     orderIDs.push(orderObjects[0].OrderId);
                 });
                 
-                var desc2 = serviceOrder.GetOrdersById(orderIDs, function (orders) {
-                    if(orders.error == null) 
+                //===============
+                // GET Orders data (order Notes, etc....) 
+                serviceOrder.GetOrdersById(orderIDs, function (result) {
+                    if(result.error == null) 
                     {
-                        alert('Something there! Notes: ');
+                        var orders = result.result;
+                        
+                        ordersData.push(orders[0]);
+                        
+                        alert('Something there! Notes: ' + orders.length);
+                        
+                        //================
+                        // GET StockItems data (suppliers, images, etc....) 
                         var item = orderObjects[0].Items[0].ItemId;
-                         var desc = serviceInv.getInventoryItemById(item, function (result) {
+                        
+                        serviceInv.getInventoryItemById(item, function (result) {
                             if(result.error == null) 
                             {
                                 //alert('Something there! ' + result.length + ' items.');
+                                
                             } 
                             else 
                             {
