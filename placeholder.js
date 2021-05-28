@@ -9,11 +9,6 @@ define(function (require) {
     
     const angular = require("angular");
     
-    var serv;
-    angular.module('Components').factory('OrderProcesses', ['openOrdersService', function OrderProcessesFactory(openOrdersService) {
-        serv = openOrdersService;
-    }]);
-    
     var placeHolder = function ($scope, $element, controlService) {
 
         //const _this = this;
@@ -78,26 +73,26 @@ define(function (require) {
                 
                 const serviceOrder = new Services.OrdersService(self);
                 const serviceInv = new Services.InventoryService(self);
-                //var s = new Services();
                 
-                var orders = $scope.viewStats.get_selected_orders();
+                //var orders = $scope.viewStats.get_selected_orders();
             
-                var t = $scope.viewStats.get_selected_orders_objects();
+                var orderObjects = $scope.viewStats.get_selected_orders_objects();
             
-                var arr = [];
-                arr.push(t[0].OrderId);
-            
+                var orderIDs = [];
                
+                orderObjects.forEach(function(item) {
+                    orderIDs.push(orderObjects[0].OrderId);
+                });
                 
-                var desc2 = serviceOrder.GetOrdersById(arr, function (result) {
-                    if(result.error == null) 
+                var desc2 = serviceOrder.GetOrdersById(orderIDs, function (orders) {
+                    if(orders.error == null) 
                     {
-                        alert('Something there! ');
-                        var item = t[0].Items[0].ItemId;
+                        alert('Something there! Notes: ');
+                        var item = orderObjects[0].Items[0].ItemId;
                          var desc = serviceInv.getInventoryItemById(item, function (result) {
                             if(result.error == null) 
                             {
-                                alert('Something there! ' + result.length + ' items.');
+                                //alert('Something there! ' + result.length + ' items.');
                             } 
                             else 
                             {
