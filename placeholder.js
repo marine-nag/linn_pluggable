@@ -3,7 +3,8 @@
 define(function (require) {
 
     const placeholderManager = require("core/placeholderManager");
-
+    const ngComponent = require("core/ngComponent");
+    
     var placeHolder = function ($scope, $element, controlService) {
 
         const _this = this;
