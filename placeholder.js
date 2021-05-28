@@ -36,13 +36,9 @@ define(function (require) {
             
             //var self = this;
 
-            let inventoryService = new Services.InventoryService(self.options);
-            var service = new Services.OrdersService(self.options);
-            
-            var arr = [];
-            arr.push(t[0].OrderId);
-            
-            var desc = service.GetOrdersById(arr);
+            //let inventoryService = new Services.InventoryService(self.options);
+            //var service = new Services.OrdersService(self.options);
+           
             
             if (orders.length < 1) {
                 alert('Please select at least one order');
@@ -61,21 +57,38 @@ define(function (require) {
                     arrIds.push(item.id);        
                 }
             );
+          
+            var itemsGr = $element;
             
-            $.ajax({
-                type: 'POST',
-                url: $scope.$root.session.server + '/api/Macro/Run?applicatioName=TEST_PrintInvoices&macroName=TEST_print_invoices',
-                data: arrIds,
-                headers: {
-                    'Authorization': $scope.$root.session.token, 
-                    'Content-Type': 'application/json; charset=utf-8', 
-                    'Accept-Language': 'en-US, en'
-                }
-            }).done(function(data) {
-                let url = 'https://www.google.com/';
-                var win = window.open(url, '_blank');
-                win.focus();
-            });           
+            $scope.getOrderDataBySomeID();
+            
+            ///======
+            // Try to get data by macros with type API
+            $scope.getOrderDataBySomeID = function(){  
+                
+                var service1 = new Services.OrdersService(self.options);
+                 
+                var arr = [];
+                arr.push(t[0].OrderId);
+            
+                var desc = service.GetOrdersById(arr);
+                
+                
+                $.ajax({
+                    type: 'POST',
+                    url: $scope.$root.session.server + '/api/Macro/Run?applicatioName=TEST_PrintInvoices&macroName=TEST_print_invoices',
+                    data: arrIds,
+                    headers: {
+                        'Authorization': $scope.$root.session.token, 
+                        'Content-Type': 'application/json; charset=utf-8', 
+                        'Accept-Language': 'en-US, en'
+                    }
+                }).done(function(data) {
+                    let url = 'https://www.google.com/';
+                    var win = window.open(url, '_blank');
+                    win.focus();
+                }); 
+            };
         };
 
     };
