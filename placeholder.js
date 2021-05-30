@@ -156,6 +156,30 @@ define(function (require) {
                                              ]
                                             ]
                                         }
+                                    },
+                                    {
+                                      width: 297.6377952755905,
+                                      table: {
+                                        headerRows: 2,
+                                        widths: [ 148.81889763779526, 148.81889763779526 ],
+                                        heights: [
+                                          83.90551181102362,
+                                          83.90551181102362,
+                                          83.90551181102362,
+                                          83.90551181102362,
+                                          83.90551181102362
+                                        ],
+                                        body: [
+                                          [ { text: '206', colSpan: 2 } ],
+                                          [
+                                            { text: 'Név', colspan: 1 },
+                                            { text: 'Csoport', colspan: 1 }
+                                          ],
+                                          [ { text: 'U', colspan: 1 }, { text: '-', colspan: 1 } ],
+                                          [ { text: 'Q', colspan: 1 }, { text: '-', colspan: 1 } ],
+                                          [ { text: 'I', colspan: 1 }, { text: '-', colspan: 1 } ]
+                                        ]
+                                      }
                                     }
                                   ],
                                   content: [
