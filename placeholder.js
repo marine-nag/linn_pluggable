@@ -151,35 +151,11 @@ define(function (require) {
                                                  {
                                                      text: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunk",
                                                      margin: [15, 3, 0, 17]
-                                                     , noWrap: false,  alignment: 'justify', height: 400
+                                                     , noWrap: true,  alignment: 'justify', height: 400
                                                  }
                                              ]
                                             ]
                                         }
-                                    },
-                                    {
-                                      width: 297.6377952755905,
-                                      table: {
-                                        headerRows: 2,
-                                        widths: [ 148.81889763779526, 148.81889763779526 ],
-                                        heights: [
-                                          83.90551181102362,
-                                          83.90551181102362,
-                                          83.90551181102362,
-                                          83.90551181102362,
-                                          83.90551181102362
-                                        ],
-                                        body: [
-                                          [ { text: '206', colSpan: 2 } ],
-                                          [
-                                            { text: 'Név', colspan: 1 },
-                                            { text: 'Csoport', colspan: 1 }
-                                          ],
-                                          [ { text: 'U', colspan: 1 }, { text: '-', colspan: 1 } ],
-                                          [ { text: 'Q', colspan: 1 }, { text: '-', colspan: 1 } ],
-                                          [ { text: 'I', colspan: 1 }, { text: '-', colspan: 1 } ]
-                                        ]
-                                      }
                                     }
                                   ],
                                   content: [
