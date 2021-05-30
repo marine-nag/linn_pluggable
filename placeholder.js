@@ -131,6 +131,16 @@ define(function (require) {
                                   },
                                    content: [
                                     {
+                                      toc: {
+                                        title: {text: 'INDEX', style: 'header'}
+                                      }
+                                    },
+                                    {
+                                      text: 'This is a header',
+                                      style: 'header',
+                                      tocItem: true
+                                    },
+                                    {
                                       layout: 'lightHorizontalLines', // optional
                                       table: {
                                         // headers are automatically repeated if the table spans over multiple pages
