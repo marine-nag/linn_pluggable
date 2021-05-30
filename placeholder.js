@@ -5,7 +5,7 @@ define(function (require) {
     const ngComponent = require("core/ngComponent");
     
     //import jsPDF from 'jspdf';
-    const jspdf = require ('jspdf');
+    //const jspdf = require ('jspdf');
 
     const pickingService = require('services/ordersservice');
     
