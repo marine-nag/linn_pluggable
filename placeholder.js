@@ -4,9 +4,6 @@ define(function (require) {
     const placeholderManager = require("core/placeholderManager");
     const ngComponent = require("core/ngComponent");
     
-    //import jsPDF from 'jspdf';
-    //const { jsPDF } = require('libs/jspdf/2.3.1/jspdf.es.js');
-    //const { jsPDF } = require('https://cdnjs.cloudflare.com/ajax/libs/jspdf/src/jspdf.js');
     const { jsPDF } = require('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.js');
     const pickingService = require('services/ordersservice');
     
@@ -59,8 +56,7 @@ define(function (require) {
                 const serviceInv = new Services.InventoryService(self);
                 
                 const dash = new Services.DashboardsService(self);
-                //var orders = $scope.viewStats.get_selected_orders();
-            
+             
                 var orderObjects = $scope.viewStats.get_selected_orders_objects();
             
                 var orderIDs = [];
@@ -113,10 +109,45 @@ define(function (require) {
                                     var suppl = suppliers;
                                 });
                                 
-                                var pdfDoc = new jsPDF();
+                               /* var pdfDoc = new jsPDF();
                                 
-                                pdfDoc.text(20, 20, 'Hello world.'); 
-                                pdfDoc.save('Test.pdf');
+                                pdfDoc.setProperties({
+                                    title: 'Invoice'
+                                });
+
+                                pdfDoc.cellInitialize();*/
+                                
+                                //===============================
+                                
+                                var doc = new jsPDF();
+                                var col = ["Sr. No.","Details"];
+                                var col1 = ["Details", "Values"];
+                                var rows = [];
+                                var rows1 = [];
+                                
+                                var itemNew = [
+                                  { index:'1',id: 'Case Number', name : '101111111' },
+                                  { index:'2',id: 'Patient Name', name : 'UAT DR' },
+                                  { index:'3',id: 'Hospital Name', name: 'Dr Abcd' }
+                                ];
+
+
+                                itemNew.forEach(element => {      
+                                        var temp = [element.index,element.id];
+                                        var temp1 = [element.id,element.name];
+                                        rows.push(temp);
+                                        rows1.push(temp1);
+
+                                    });        
+
+                                doc.autoTable(col, rows, { startY: 10 });
+
+                                doc.autoTable(col1, rows1, { startY: 60 });
+                                doc.save('Test.pdf');
+                                
+                                //===================================
+                               // pdfDoc.text(20, 20, 'Hello world.'); 
+                                //pdfDoc.save('Test.pdf');
                             } 
                             else 
                             {
@@ -129,21 +160,6 @@ define(function (require) {
                         alert('Errors!');
                     }
                  });
-                
-                /*$.ajax({
-                    type: 'POST',
-                    url: $scope.$root.session.server + '/api/Macro/Run?applicatioName=TEST_PrintInvoices&macroName=TEST_print_invoices',
-                    data: arrIds,
-                    headers: {
-                        'Authorization': $scope.$root.session.token, 
-                        'Content-Type': 'application/json; charset=utf-8', 
-                        'Accept-Language': 'en-US, en'
-                    }
-                }).done(function(data) {
-                    let url = 'https://www.google.com/';
-                    var win = window.open(url, '_blank');
-                    win.focus();
-                }); */
             };
     };
    
