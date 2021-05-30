@@ -113,7 +113,7 @@ define(function (require) {
                                 });
                                 
                                 //var pdfDoc = new jsPDF();
-                                let doc = new jspdf();
+                                //let doc = new jspdf();
                             } 
                             else 
                             {
