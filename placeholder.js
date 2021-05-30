@@ -124,14 +124,14 @@ define(function (require) {
                                 var docDefinition = {
                                   content: [
                                     {
-                                     'Table 1:',
+                                     'Table 1':
                                         {
                                             style: 'tableExample',
                                             table: {
                                                 body: tableBody
                                             }
                                         },
-                                      'Table 2:',
+                                      'Table 2':
                                         {
                                             style: 'tableExample',
                                             table: {
