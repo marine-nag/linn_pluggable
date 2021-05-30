@@ -5,7 +5,8 @@ define(function (require) {
     const ngComponent = require("core/ngComponent");
     
     //import jsPDF from 'jspdf';
-    
+    const jspdf = require ('jspdf');
+
     const pickingService = require('services/ordersservice');
     
     var ordersData = [];
@@ -112,7 +113,7 @@ define(function (require) {
                                 });
                                 
                                 //var pdfDoc = new jsPDF();
-
+                                let doc = new jspdf();
                             } 
                             else 
                             {
