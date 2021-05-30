@@ -112,7 +112,7 @@ define(function (require) {
                                     var suppl = suppliers;
                                 });
                                 
-                                //var pdfDoc = new jsPDF();
+                                var pdfDoc = new jsPDF();
                                 //let doc = new jspdf();
                             } 
                             else 
