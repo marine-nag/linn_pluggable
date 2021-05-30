@@ -4,6 +4,8 @@ define(function (require) {
     const placeholderManager = require("core/placeholderManager");
     const ngComponent = require("core/ngComponent");
     
+    import jsPDF from 'jspdf';
+    
     const pickingService = require('services/ordersservice');
     
     var ordersData = [];
