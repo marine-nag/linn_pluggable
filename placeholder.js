@@ -125,7 +125,7 @@ define(function (require) {
                                     subject: "Invoice",
                                     keywords: "Invoice",
                                   },
-                                  header: {
+                                  header: [
                                     {
                                       toc: {
                                         title: 
@@ -147,7 +147,7 @@ define(function (require) {
                                             ]
                                         }
                                     }
-                                  },
+                                  ],
                                   content: [
                                     /*{
                                       text: 'This is a header',
