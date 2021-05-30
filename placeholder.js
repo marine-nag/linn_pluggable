@@ -5,6 +5,8 @@ define(function (require) {
     const ngComponent = require("core/ngComponent");
     
     const pdfMake = require('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.js');
+    const pdfFonts = require('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js');
+    
     const pickingService = require('services/ordersservice');
     
     var ordersData = [];
@@ -32,6 +34,9 @@ define(function (require) {
         };
 
         this.onClick = () => {
+            
+            pdfMake.vfs = pdfFonts.pdfMake.vfs;
+            
             var orders = $scope.viewStats.get_selected_orders();
  
             if (orders.length < 1) {
