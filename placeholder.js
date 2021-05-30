@@ -6,8 +6,8 @@ define(function (require) {
     
     //import jsPDF from 'jspdf';
     //const { jsPDF } = require('libs/jspdf/2.3.1/jspdf.es.js');
-    const { jsPDF } = require('https://cdnjs.cloudflare.com/ajax/libs/jspdf/src/jspdf.js');
-    
+    //const { jsPDF } = require('https://cdnjs.cloudflare.com/ajax/libs/jspdf/src/jspdf.js');
+    const jsPDF = require('ajax/libs/jspdf/src/jspdf.js');
     const pickingService = require('services/ordersservice');
     
     var ordersData = [];
