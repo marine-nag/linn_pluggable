@@ -122,22 +122,28 @@ define(function (require) {
                                         ];
                                 
                                 var docDefinition = {
+                                  info: {
+                                    title:
+                                      "Invoice",
+                                    author: "",
+                                    subject: "Invoice",
+                                    keywords: "Invoice",
+                                  },
                                   content: [
                                     {
-                                     'Table 1':
-                                        {
-                                            style: 'tableExample',
-                                            table: {
-                                                body: tableBody
-                                            }
-                                        },
-                                      'Table 2':
-                                        {
-                                            style: 'tableExample',
-                                            table: {
-                                                body: tableBody
-                                            }
-                                        }
+                                      toc: {
+                                        id: 'mainToc',
+                                        title: {text: 'INDEX', style: 'header'}
+                                      },
+                                      toc: {
+                                        id: 'subToc',
+                                        title: {text: 'SUB INDEX', style: 'header'}
+                                      }
+                                    },
+                                    {
+                                      text: 'This is a header',
+                                      style: 'header',
+                                      tocItem: ['mainToc', 'subToc']
                                     }
                                   ]
                                 };
