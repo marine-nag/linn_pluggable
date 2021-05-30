@@ -4,7 +4,7 @@ define(function (require) {
     const placeholderManager = require("core/placeholderManager");
     const ngComponent = require("core/ngComponent");
     
-    const { pdfMake } = require('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.js');
+    const pdfMake = require('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.js');
     const pickingService = require('services/ordersservice');
     
     var ordersData = [];
