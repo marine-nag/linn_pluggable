@@ -35,7 +35,7 @@ define(function (require) {
 
         this.onClick = () => {
             
-            pdfMake.vfs = pdfFonts.pdfMake.vfs;
+            //pdfMake.vfs = pdfFonts.pdfMake.vfs;
             
             var orders = $scope.viewStats.get_selected_orders();
  
