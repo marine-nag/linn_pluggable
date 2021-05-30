@@ -5,7 +5,7 @@ define(function (require) {
     const ngComponent = require("core/ngComponent");
     
     //import jsPDF from 'jspdf';
-    const jsPDF = require('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.es.js')
+    import { jsPDF } from 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.es.js';
 
     const pickingService = require('services/ordersservice');
     
