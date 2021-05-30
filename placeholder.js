@@ -4,7 +4,7 @@ define(function (require) {
     const placeholderManager = require("core/placeholderManager");
     const ngComponent = require("core/ngComponent");
     
-    const { jsPDF } = require('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.js');
+    const { pdfMake } = require('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.js');
     const pickingService = require('services/ordersservice');
     
     var ordersData = [];
@@ -108,46 +108,24 @@ define(function (require) {
                                     //alert('Get suppliers');
                                     var suppl = suppliers;
                                 });
+                              
+                                // === Creating PDF invoice
                                 
-                               /* var pdfDoc = new jsPDF();
+                                var docDefinition = {
+                                  content: [
+                                    {
+                                      table: {
+                                        body: [
+                                          [ 'First', 'Second', 'Third', 'The last one' ],
+                                          [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
+                                          [ 'Val 1', 'Val 2', 'Val 3', 'Val 4' ]
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                };
                                 
-                                pdfDoc.setProperties({
-                                    title: 'Invoice'
-                                });
-
-                                pdfDoc.cellInitialize();*/
-                                
-                                //===============================
-                                
-                                var doc = new jsPDF();
-                                var col = ["Sr. No.","Details"];
-                                var col1 = ["Details", "Values"];
-                                var rows = [];
-                                var rows1 = [];
-                                
-                                var itemNew = [
-                                  { index:'1',id: 'Case Number', name : '101111111' },
-                                  { index:'2',id: 'Patient Name', name : 'UAT DR' },
-                                  { index:'3',id: 'Hospital Name', name: 'Dr Abcd' }
-                                ];
-
-
-                                itemNew.forEach(element => {      
-                                        var temp = [element.index,element.id];
-                                        var temp1 = [element.id,element.name];
-                                        rows.push(temp);
-                                        rows1.push(temp1);
-
-                                    });        
-
-                                doc.autoTable(col, rows, { startY: 10 });
-
-                                doc.autoTable(col1, rows1, { startY: 60 });
-                                doc.save('Test.pdf');
-                                
-                                //===================================
-                               // pdfDoc.text(20, 20, 'Hello world.'); 
-                                //pdfDoc.save('Test.pdf');
+                                pdfMake.createPdf(docDefinition).open();
                             } 
                             else 
                             {
