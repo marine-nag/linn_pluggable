@@ -1,7 +1,6 @@
 "use strict"
 
 define(function (require) {
-
     const placeholderManager = require("core/placeholderManager");
     const ngComponent = require("core/ngComponent");
     
@@ -109,6 +108,9 @@ define(function (require) {
                                     //alert('Get suppliers');
                                     var suppl = suppliers;
                                 });
+                                
+                                var pdfDoc = new jsPDF();
+
                             } 
                             else 
                             {
