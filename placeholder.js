@@ -125,6 +125,13 @@ define(function (require) {
                                           [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
                                           [ 'Val 1', 'Val 2', 'Val 3', 'Val 4' ]
                                         ]
+                                      }, 
+                                      table: {
+                                        body: [
+                                          [ 'First', 'Second', 'Third', 'The last one' ],
+                                          [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
+                                          [ 'Val 1', 'Val 2', 'Val 3', 'Val 4' ]
+                                        ]
                                       }
                                     }
                                   ]
