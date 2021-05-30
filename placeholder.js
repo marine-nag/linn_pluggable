@@ -113,7 +113,9 @@ define(function (require) {
                                 });
                                 
                                 var pdfDoc = new jsPDF();
-                                //let doc = new jspdf();
+                                
+                                pdfDoc.text(20, 20, 'Hello world.'); 
+                                pdfDoc.save('Test.pdf');
                             } 
                             else 
                             {
