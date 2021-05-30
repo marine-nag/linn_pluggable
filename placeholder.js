@@ -115,24 +115,29 @@ define(function (require) {
                                 });
                               
                                 // === Creating PDF invoice
+                                var tableBody =  [
+                                          [ 'First', 'Second', 'Third', 'The last one' ],
+                                          [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
+                                          [ 'Val 1', 'Val 2', 'Val 3', 'Val 4' ]
+                                        ];
                                 
                                 var docDefinition = {
                                   content: [
                                     {
-                                      table: {
-                                        body: [
-                                          [ 'First', 'Second', 'Third', 'The last one' ],
-                                          [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
-                                          [ 'Val 1', 'Val 2', 'Val 3', 'Val 4' ]
-                                        ]
-                                      }, 
-                                      table: {
-                                        body: [
-                                          [ 'First', 'Second', 'Third', 'The last one' ],
-                                          [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
-                                          [ 'Val 1', 'Val 2', 'Val 3', 'Val 4' ]
-                                        ]
-                                      }
+                                     'Table 1:',
+                                        {
+                                            style: 'tableExample',
+                                            table: {
+                                                body: tableBody
+                                            }
+                                        },
+                                      'Table 2:',
+                                        {
+                                            style: 'tableExample',
+                                            table: {
+                                                body: tableBody
+                                            }
+                                        }
                                     }
                                   ]
                                 };
