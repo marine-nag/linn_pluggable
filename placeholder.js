@@ -4,7 +4,7 @@ define(function (require) {
     const placeholderManager = require("core/placeholderManager");
     const ngComponent = require("core/ngComponent");
     
-    import jsPDF from 'jspdf';
+    //import jsPDF from 'jspdf';
     
     const pickingService = require('services/ordersservice');
     
@@ -111,7 +111,7 @@ define(function (require) {
                                     var suppl = suppliers;
                                 });
                                 
-                                var pdfDoc = new jsPDF();
+                                //var pdfDoc = new jsPDF();
 
                             } 
                             else 
