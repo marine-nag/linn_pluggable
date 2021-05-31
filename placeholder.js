@@ -194,7 +194,7 @@ define(function (require) {
                                             body: [  
                                                 ['Product', 'Price', 'Quantity', 'Amount'],  
                                                 
-                                                [{ text: 'Total Amount', colSpan: 3 }, {}, {}, `${((Math.random() * 1000).toFixed(0))}`]  
+                                                [{ text: 'Total Amountljklkfldflkfk \n sdfjlgsdklfgklsdsdfg', colSpan: 3 }, {}, {}, `${((Math.random() * 1000).toFixed(0))}`]  
                                             ]  
                                         }  
                                     }  
