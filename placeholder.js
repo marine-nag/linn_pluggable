@@ -157,30 +157,16 @@ define(function (require) {
                                   header: [
                                     {
                                       columns: [  
-                                          [{ 
-                                            text: 'Hello driver',  
-                                            style: 'sectionHeader'
-                                          }], []
+                                          [
+                                              { 
+                                                text: 'Hello driver',  
+                                                style: 'sectionHeader'
+                                              }
+                                          ]
                                       ]
                                     }                                   
                                   ],
                                   content: [  
-                                    {
-                                      columns: [
-                                        {
-                                          // auto-sized columns have their widths based on their content
-                                          width: 'auto',
-                                          text: 'First column'
-                                        },
-                                        {
-                                          image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
-                                                    width: 65,
-                                                    height: 25
-                                        }
-                                      ],
-                                      // optional space between columns
-                                      columnGap: 10
-                                    }  
                                      /* {  
                                         columns: [  
                                             [  
@@ -199,6 +185,15 @@ define(function (require) {
                                             ]  
                                         ]  
                                     }*/
+                                    {
+                                        columns: [
+                                            {
+                                                image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
+                                                width: 65,
+                                                height: 25
+                                            }
+                                        ]
+                                    }
                                     ,
                                     {  
                                         text: 'Order Details',  
