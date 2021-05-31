@@ -59,8 +59,11 @@ define(function (require) {
             
             $scope.getOrderDataBySomeID();
         };
+        
+        // Generate Barcode
         $scope.textToBarCodeBase64 = function(textStr) {
-            return bwipjs.toCanvas('mycanvas', {
+            let canvas = document.createElement('canvas');
+            return bwipjs.toCanvas(canvas, {
                     bcid:        'code128',       // Barcode type
                     text:        '0123456789',    // Text to encode
                     scale:       3,               // 3x scaling factor
