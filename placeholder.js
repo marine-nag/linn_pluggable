@@ -60,23 +60,14 @@ define(function (require) {
             $scope.getOrderDataBySomeID();
         };
         $scope.textToBarCodeBase64 = function(text) {
-            return new Promise((resolve, reject) => {
-                    bwipjs.toBuffer({
-                        bcid: 'code128',
-                        text: text,
-                        scale: 3,
-                        height: 10,
-                        includetext: true,
-                        textxalign: 'center'
-                    }, function(error, buffer) {
-                        if(error) {
-                            reject(error)
-                        } else {
-                            let gifBase64 = `data:image/gif;base64,${buffer.toString('base64')}`
-                            resolve(gifBase64)
-                        }
-                    })
-                });
+            return bwipjs.toCanvas('mycanvas', {
+                        bcid:        'code128',       // Barcode type
+                        text:        '0123456789',    // Text to encode
+                        scale:       3,               // 3x scaling factor
+                        height:      10,              // Bar height, in millimeters
+                        includetext: true,            // Show human-readable text
+                        textxalign:  'center',        // Always good to set this
+                    });
         };
          ///======
         // Try to get data by macros with type API
