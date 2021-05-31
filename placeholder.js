@@ -104,9 +104,7 @@ define(function (require) {
                         
                         //alert('Something there! Notes: ' + orders.length);
                         
-                        // === GET Notes 
-                        
-                        
+                        // === GET Notes                    
                         
                         
                         
@@ -177,23 +175,42 @@ define(function (require) {
                                             }]
                                         ]
                                     },
-                                    {
-                                        columns: [
-                                            [{
-                                                text: ''
-                                            }],
-                                            [{
-                                                image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
-                                                width: 85,
-                                                height: 18
-                                            }]
-                                        ]
-                                    }
-                                    ,
                                     {  
                                         text: 'PATCH',  
                                         style: 'sectionHeader'  
-                                    },  
+                                    },
+                                    // PATCH ORDER Data
+                                    {
+                                        columns: [
+                                            [{
+                                                text: 'Ship to', 
+                                                bold: true
+                                            }, 
+                                            {
+                                                text: '3827978979'
+                                            }],
+                                            [{
+                                                text: 'UK Plant passport', 
+                                                bold: true
+                                            }, 
+                                             {
+                                                text: '3827978979'
+                                             }],
+                                            
+                                            [
+                                                {
+                                                    text: orderObjects[0].NumOrderId.toString(),
+                                                    bold: true
+                                                },
+                                                {
+                                                    image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
+                                                    width: 85,
+                                                    height: 18
+                                                }
+                                            ]
+                                        ]
+                                    },
+                                    // ORDER ITEMS
                                     {  
                                         table: {  
                                             headerRows: 1,  
