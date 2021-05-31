@@ -74,7 +74,7 @@ define(function (require) {
             });
             
             var t = canvas.toDataURL('image/png');
-            return t.replace('data:image/png;base64,','');
+            return t;
         };
          ///======
         // Try to get data by macros with type API
