@@ -38,7 +38,8 @@ define(function (require) {
             GiftNote = '';
             ShipTo = '';
             PrintedDate = new Date();
-            
+            CarrierName = '';
+            Barcode = '';
         }
         
         this.onClick = () => {
@@ -88,6 +89,12 @@ define(function (require) {
                         ordersData.push(orders[0]);
                         
                         //alert('Something there! Notes: ' + orders.length);
+                        
+                        // === GET Notes 
+                        
+                        
+                        
+                        
                         
                         // GET Order Extended Properties
                         serviceOrder.getExtendedProperties(orderIDs[0], function(orderExtProps) {
@@ -142,8 +149,10 @@ define(function (require) {
                                             style: 'sectionHeader'
                                           }
                                       }
-                                    }
-                                    
+                                    },
+                                    {
+                                        image : this.textToBase64Barcode(“123456789”)
+                                    }                                    
                                   ],
                                   content: [  
                                     {  
