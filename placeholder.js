@@ -165,7 +165,25 @@ define(function (require) {
                                     }                                   
                                   ],
                                   content: [  
-                                    {  
+                                       {  
+                                          columns: [  
+                                                [  
+                                                    {  
+                                                        text: 'Customer NAme',  
+                                                        bold: true,  
+                                                        style: 'sectionHeader'
+                                                    }
+                                                ],  [],
+                                                [  
+                                                    {
+                                                        image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
+                                                        width: 65,
+                                                        height: 25
+                                                    }
+                                                ]  
+                                            ]  
+                                      },
+                                      {  
                                         columns: [  
                                             [  
                                                 {  
@@ -173,7 +191,7 @@ define(function (require) {
                                                     bold: true,  
                                                     style: 'sectionHeader'
                                                 }
-                                            ],  
+                                            ],  [],
                                             [  
                                                 {
                                                     image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
@@ -190,7 +208,7 @@ define(function (require) {
                                     {  
                                         table: {  
                                             headerRows: 1,  
-                                            widths: ['*', 'auto', 'auto', 'auto'],  
+                                            widths: ['*', '*'],  
                                             body: [  
                                                 ['Product', 'Price', 'Quantity', 'Amount'],  
                                                 
