@@ -34,10 +34,10 @@ define(function (require) {
         };
         
         class OrderVM {
-            string DeliveryNote;
-            string GiftNote;
-            //ShipTo: string;
-            //PrintedDate: Date;
+            DeliveryNote = '';
+            GiftNote = '';
+            ShipTo = '';
+            PrintedDate = new Date();
             
         }
         
