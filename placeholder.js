@@ -146,7 +146,7 @@ define(function (require) {
                                 // === Creating PDF invoice
                               
                                 
-                                var docDefinition = {
+                                 var docDefinition = {
                                   info: {
                                     title:
                                       "Invoice",
@@ -154,16 +154,44 @@ define(function (require) {
                                     subject: "Invoice",
                                     keywords: "Invoice",
                                   },
+                                  header: [
+                                    {
+                                      columns: [  
+                                          [{ 
+                                            text: 'Hello driver',  
+                                            style: 'sectionHeader'
+                                          }], []
+                                      ]
+                                    }                                   
+                                  ],
                                   content: [  
+                                       {  
+                                          columns: [  
+                                                [  
+                                                    {  
+                                                        text: 'Customer NAme',  
+                                                        bold: true,  
+                                                        style: 'sectionHeader'
+                                                    }
+                                                ],  [],
+                                                [  
+                                                    {
+                                                        image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
+                                                        width: 65,
+                                                        height: 25
+                                                    }
+                                                ]  
+                                            ]  
+                                      },
                                       {  
                                         columns: [  
                                             [  
                                                 {  
-                                                    text: 'Hello driver',  
+                                                    text: 'Customer NAme',  
                                                     bold: true,  
                                                     style: 'sectionHeader'
                                                 }
-                                            ],  
+                                            ],  [],
                                             [  
                                                 {
                                                     image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
@@ -198,6 +226,7 @@ define(function (require) {
                                         }  
                                     }  
                                 };
+                                
                                 
                                 pdfMake.createPdf(docDefinition).open();
                             } 
