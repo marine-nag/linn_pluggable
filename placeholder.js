@@ -163,7 +163,8 @@ define(function (require) {
                                                 style: 'sectionHeader'
                                               }
                                           ]
-                                      ]
+                                      ],
+                                        margin: [72,40]
                                     }                                   
                                   ],
                                   content: [  
