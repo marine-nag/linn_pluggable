@@ -143,6 +143,7 @@ define(function (require) {
                               
                                 // === Creating PDF invoice
                               
+                                var date = new Date();
                                 
                                  var docDefinition = {
                                   info: {
@@ -188,14 +189,25 @@ define(function (require) {
                                             }, 
                                             {
                                                 text: '3827978979'
+                                            },
+                                             {
+                                                text: 'Printed date', 
+                                                bold: true
+                                            }, 
+                                            {
+                                                text: date.toDateString()
                                             }],
+                                            
                                             [{
                                                 text: 'UK Plant passport', 
                                                 bold: true
                                             }, 
-                                             {
+                                            {
                                                 text: '3827978979'
-                                             }],
+                                            }, 
+                                            {
+                                                text: '3827978979'
+                                            }],
                                             
                                             [
                                                 {
