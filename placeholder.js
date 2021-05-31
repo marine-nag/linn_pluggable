@@ -160,7 +160,7 @@ define(function (require) {
                                           [{ 
                                             text: 'Hello driver',  
                                             style: 'sectionHeader'
-                                          }]
+                                          }], []
                                       ]
                                     }                                   
                                   ],
@@ -172,20 +172,13 @@ define(function (require) {
                                                     text: 'Customer NAme',  
                                                     bold: true,  
                                                     style: 'sectionHeader'
-                                                },  
-                                                { text: '' },  
-                                                { text: '' },  
-                                               
+                                                }
                                             ],  
                                             [  
                                                 {
                                                     image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
                                                     width: 65,
                                                     height: 25
-                                                } , 
-                                                {  
-                                                    text: `Date: ${new Date().toLocaleString()}`,  
-                                                    alignment: 'right'  
                                                 }
                                             ]  
                                         ]  
