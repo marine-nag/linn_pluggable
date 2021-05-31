@@ -164,10 +164,7 @@ define(function (require) {
                                             style: 'sectionHeader'
                                           }
                                       }
-                                    },
-                                    {
-                                        image : $scope.textToBarCodeBase64('123456789')
-                                    }                                    
+                                    }                                   
                                   ],
                                   content: [  
                                     {  
@@ -211,10 +208,7 @@ define(function (require) {
                                                 [{ text: 'Total Amountljklkfldflkfk \n sdfjlgsdklfgklsdsdfg', colSpan: 3 }, {}, {}, `${((Math.random() * 1000).toFixed(0))}`]  
                                             ]  
                                         }  
-                                    },
-                                    {
-                                        image : $scope.textToBarCodeBase64('123456789')
-                                    }    
+                                    }   
                                   ],  
                                   styles: {  
                                         sectionHeader: {  
