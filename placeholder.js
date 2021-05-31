@@ -167,7 +167,7 @@ define(function (require) {
                                         columns: [
                                             [{
                                                 text: 'NOTE 1',
-                                                style: 'sectionNotes'
+                                                style: 'sectionNotes', height: 600
                                             }], 
                                             [{
                                                 text: 'NOTE 2',
