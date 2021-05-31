@@ -32,7 +32,15 @@ define(function (require) {
         this.isEnabled = (itemKey) => {
             return true;
         };
-
+        
+        class OrderVM {
+            DeliveryNote: string;
+            GiftNote: string;
+            ShipTo: string;
+            PrintedDate: Date;
+            
+        }
+        
         this.onClick = () => {
             
             //pdfMake.vfs = pdfFonts.pdfMake.vfs;
