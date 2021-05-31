@@ -134,7 +134,8 @@ define(function (require) {
                                             style: 'header' 
                                           }
                                       }
-                                    },
+                                    }
+                                    /*,
                                     {
                                         table: 
                                         {
@@ -156,30 +157,56 @@ define(function (require) {
                                              ]
                                             ]
                                         }
-                                    }
+                                    }*/
                                   ],
-                                  content: [
-                                    /*{
-                                      text: 'This is a header',
-                                      style: 'header',
-                                      tocItem: true
-                                    },*/
-                                    {
-                                      layout: 'lightHorizontalLines', // optional
-                                      table: {
-                                        // headers are automatically repeated if the table spans over multiple pages
-                                        // you can declare how many rows should be treated as headers
-                                        headerRows: 1,
-                                        widths: [ '*', 'auto', 100, '*' ],
-
-                                        body: [
-                                          [ 'First', 'Second', 'Third', 'The last one' ],
-                                          [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
-                                          [ { text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4' ]
-                                        ]
-                                      }
-                                    }
-                                  ]
+                                  content: [  
+                                    {  
+                                        columns: [  
+                                            [  
+                                                {  
+                                                    text: 'Customer NAme',  
+                                                    bold: true  
+                                                },  
+                                                { text: '' },  
+                                                { text: '' },  
+                                                { text: '' }  
+                                            ],  
+                                            [  
+                                                {  
+                                                    text: `Date: ${new Date().toLocaleString()}`,  
+                                                    alignment: 'right'  
+                                                },  
+                                                {  
+                                                    text: `Bill No : ${((Math.random() * 1000).toFixed(0))}`,  
+                                                    alignment: 'right'  
+                                                }  
+                                            ]  
+                                        ]  
+                                    },
+                                    {  
+                                        text: 'Order Details',  
+                                        style: 'sectionHeader'  
+                                    },  
+                                    {  
+                                        table: {  
+                                            headerRows: 1,  
+                                            widths: ['*', 'auto', 'auto', 'auto'],  
+                                            body: [  
+                                                ['Product', 'Price', 'Quantity', 'Amount'],  
+                                                
+                                                [{ text: 'Total Amount', colSpan: 3 }, {}, {}, `${((Math.random() * 1000).toFixed(0))}`]  
+                                            ]  
+                                        }  
+                                    }  
+                                  ],  
+                                  styles: {  
+                                        sectionHeader: {  
+                                            bold: true,  
+                                            decoration: 'underline',  
+                                            fontSize: 14,  
+                                            margin: [0, 15, 0, 15]  
+                                        }  
+                                    }  
                                 };
                                 
                                 pdfMake.createPdf(docDefinition).open();
