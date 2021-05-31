@@ -160,7 +160,7 @@ define(function (require) {
                                         title: 
                                           { 
                                             text: 'Hello driver',  
-                                            style: 'sectionHeader'
+                                            style: 'sectionHeader',  margin: [0, 15, 0, 15]  
                                           }
                                       }
                                     }                                   
@@ -181,17 +181,13 @@ define(function (require) {
                                             [  
                                                 {
                                                     image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
-                                                    width: 50,
+                                                    width: 65,
                                                     height: 25
                                                 } , 
                                                 {  
                                                     text: `Date: ${new Date().toLocaleString()}`,  
                                                     alignment: 'right'  
-                                                },  
-                                                {  
-                                                    text: `Bill No : ${((Math.random() * 1000).toFixed(0))}`,  
-                                                    alignment: 'right'  
-                                                }  
+                                                }
                                             ]  
                                         ]  
                                     },
