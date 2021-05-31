@@ -236,7 +236,7 @@ define(function (require) {
                                             {
                                                 text: 'sxcvmlerj',
                                                 alignment: 'left'
-                                            }]
+                                            }],
                                             
                                             //
                                             [
