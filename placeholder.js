@@ -6,7 +6,7 @@ define(function (require) {
     
     const pdfMake = require('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.js');
     const pdfFonts = require('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js');
-    var JsBarcode = require('https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.4/JsBarcode.all.js');
+    var JsBarcode = require('https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.4/barcodes/JsBarcode.ean-upc.min.js');
     
     var ordersData = [];
     var itemData = [];    
