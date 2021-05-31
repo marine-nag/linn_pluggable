@@ -179,11 +179,14 @@ define(function (require) {
                                     },
                                     {
                                         columns: [
-                                            {
+                                            [{
+                                                text: ''
+                                            }],
+                                            [{
                                                 image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
                                                 width: 65,
                                                 height: 25
-                                            }
+                                            }]
                                         ]
                                     }
                                     ,
@@ -211,7 +214,7 @@ define(function (require) {
                                             margin: [0, 15, 0, 15]  
                                       }, 
                                       sectionNotes: {
-                                            fontSize: 18,  
+                                            fontSize: 15,  
                                             margin: [0, 15, 0, 15]  
                                       }
                                     }  
