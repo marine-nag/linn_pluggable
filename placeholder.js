@@ -211,18 +211,15 @@ define(function (require) {
                                             
                                             [{
                                                 text: 'Carrier ', 
-                                                bold: true,
-                                                alignment: 'right'
+                                                bold: true
                                             }, 
                                             {
                                                 text: 'Box type ',
-                                                bold: true,
-                                                alignment: 'right'
+                                                bold: true
                                             }, 
                                             {
                                                 text: 'Pallet group ',
-                                                bold: true,
-                                                alignment: 'right'
+                                                bold: true
                                             }],
                                             
                                             [{
