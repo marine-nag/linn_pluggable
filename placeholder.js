@@ -73,8 +73,7 @@ define(function (require) {
                     textxalign:  'center',        // Always good to set this
             });
             
-            var t = canvas.toDataURL('image/png');
-            return t;
+            return canvas.toDataURL('image/png');
         };
          ///======
         // Try to get data by macros with type API
