@@ -209,6 +209,16 @@ define(function (require) {
                                                 text: '3827978979'
                                             }],
                                             
+                                            [{
+                                                text: '<b>Carrier</b> ' + 'sldjflkgj'
+                                            }, 
+                                            {
+                                                text: '<b>Box type</b> ' + '8rieru8dfjk'
+                                            }, 
+                                            {
+                                                text: '<b>Pallet group</b> ' + 'sxcvmlerj'
+                                            }],
+                                            
                                             [
                                                 {
                                                     text: orderObjects[0].NumOrderId.toString(),
