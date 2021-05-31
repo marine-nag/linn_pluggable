@@ -260,11 +260,11 @@ define(function (require) {
                                     {  
                                         table: {  
                                             headerRows: 1,  
-                                            //widths: ['*', '*'],  
+                                            widths: ['*', '*', '10%', '', ''],  
                                             body: [  
-                                                ['Product', 'Quantity'],  
+                                                ['Image', 'Item', 'Qty', 'UK Plant passport', 'Supplier document'],  
                                                 
-                                                [{ text: 'Total Amountljklkfldflkfk \n sdfjlgsdklfgklsdsdfg' }, `${((Math.random() * 1000).toFixed(0))}`]  
+                                                ['', '', '', '', 'sdfgsdfgl;df \n']  
                                             ]  
                                         }  
                                     }   
