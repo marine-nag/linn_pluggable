@@ -179,7 +179,7 @@ define(function (require) {
                                                 { text: '' },  
                                                ,
                                                 {
-                                                    image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId).toString(),
+                                                    image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
                                                     width: 50,
                                                     height: 25
                                                 }  
