@@ -202,11 +202,11 @@ define(function (require) {
                                     {  
                                         table: {  
                                             headerRows: 1,  
-                                            widths: ['*', '*'],  
+                                            //widths: ['*', '*'],  
                                             body: [  
-                                                ['Product', 'Price', 'Quantity', 'Amount'],  
+                                                ['Product', 'Quantity'],  
                                                 
-                                                [{ text: 'Total Amountljklkfldflkfk \n sdfjlgsdklfgklsdsdfg', colSpan: 3 }, {}, {}, `${((Math.random() * 1000).toFixed(0))}`]  
+                                                [{ text: 'Total Amountljklkfldflkfk \n sdfjlgsdklfgklsdsdfg' }, `${((Math.random() * 1000).toFixed(0))}`]  
                                             ]  
                                         }  
                                     }   
