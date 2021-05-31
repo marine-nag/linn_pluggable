@@ -176,14 +176,14 @@ define(function (require) {
                                                 },  
                                                 { text: '' },  
                                                 { text: '' },  
-                                               ,
+                                               
+                                            ],  
+                                            [  
                                                 {
                                                     image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
                                                     width: 50,
                                                     height: 25
-                                                }  
-                                            ],  
-                                            [  
+                                                } , 
                                                 {  
                                                     text: `Date: ${new Date().toLocaleString()}`,  
                                                     alignment: 'right'  
