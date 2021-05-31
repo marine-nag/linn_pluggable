@@ -210,15 +210,35 @@ define(function (require) {
                                             }],
                                             
                                             [{
-                                                text: '<b>Carrier</b> ' + 'sldjflkgj'
+                                                text: 'Carrier ', 
+                                                bold: true,
+                                                alignment: 'right'
                                             }, 
                                             {
-                                                text: '<b>Box type</b> ' + '8rieru8dfjk'
+                                                text: 'Box type ',
+                                                bold: true,
+                                                alignment: 'right'
                                             }, 
                                             {
-                                                text: '<b>Pallet group</b> ' + 'sxcvmlerj'
+                                                text: 'Pallet group ',
+                                                bold: true,
+                                                alignment: 'right'
                                             }],
                                             
+                                            [{
+                                                text: 'sldjflkgj',
+                                                alignment: 'left'
+                                            }, 
+                                            {
+                                                text: '8rieru8dfjk',
+                                                alignment: 'left'
+                                            }, 
+                                            {
+                                                text: 'sxcvmlerj',
+                                                alignment: 'left'
+                                            }]
+                                            
+                                            //
                                             [
                                                 {
                                                     text: orderObjects[0].NumOrderId.toString(),
