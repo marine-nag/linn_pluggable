@@ -134,52 +134,57 @@ define(function (require) {
                                             style: 'header' 
                                           }
                                       }
-                                    },
-                                    {
-                                        table: 
-                                        {
-                                            headerRows: 1,
-                                            heights: [820, 820],
-                                            minHeight: 420,
-                                            body: [
-                                             [ 
-                                                 { 
-                                                     text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-                                                     margin: [15, 3, 0, 17]
-                                                     ,height: 400
-                                                 }, 
-                                                 {
-                                                     text: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunk",
-                                                     margin: [15, 3, 0, 90]
-                                                     , noWrap: true,  alignment: 'justify', height: 400
-                                                 }
-                                             ]
-                                            ]
-                                        }
                                     }
+                                    
                                   ],
-                                  content: [
-                                    /*{
-                                      text: 'This is a header',
-                                      style: 'header',
-                                      tocItem: true
-                                    },*/
-                                    {
-                                      layout: 'lightHorizontalLines', // optional
-                                      table: {
-                                        // headers are automatically repeated if the table spans over multiple pages
-                                        // you can declare how many rows should be treated as headers
-                                        headerRows: 1,
-                                        widths: [ '*', 'auto', 100, '*' ],
-
-                                        body: [
-                                          [ 'First', 'Second', 'Third', 'The last one' ],
-                                          [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
-                                          [ { text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4' ]
-                                        ]
-                                      }
-                                    }
-                                  ]
+                                  content: [  
+                                    {  
+                                        columns: [  
+                                            [  
+                                                {  
+                                                    text: 'Customer NAme',  
+                                                    bold: true  
+                                                },  
+                                                { text: '' },  
+                                                { text: '' },  
+                                                { text: '' }  
+                                            ],  
+                                            [  
+                                                {  
+                                                    text: `Date: ${new Date().toLocaleString()}`,  
+                                                    alignment: 'right'  
+                                                },  
+                                                {  
+                                                    text: `Bill No : ${((Math.random() * 1000).toFixed(0))}`,  
+                                                    alignment: 'right'  
+                                                }  
+                                            ]  
+                                        ]  
+                                    },
+                                    {  
+                                        text: 'Order Details',  
+                                        style: 'sectionHeader'  
+                                    },  
+                                    {  
+                                        table: {  
+                                            headerRows: 1,  
+                                            widths: ['*', 'auto', 'auto', 'auto'],  
+                                            body: [  
+                                                ['Product', 'Price', 'Quantity', 'Amount'],  
+                                                
+                                                [{ text: 'Total Amountljklkfldflkfk \n sdfjlgsdklfgklsdsdfg', colSpan: 3 }, {}, {}, `${((Math.random() * 1000).toFixed(0))}`]  
+                                            ]  
+                                        }  
+                                    }  
+                                  ],  
+                                  styles: {  
+                                        sectionHeader: {  
+                                            bold: true,  
+                                            decoration: 'underline',  
+                                            fontSize: 14,  
+                                            margin: [0, 15, 0, 15]  
+                                        }  
+                                    }  
                                 };
                                 
                                 pdfMake.createPdf(docDefinition).open();
