@@ -166,7 +166,7 @@ define(function (require) {
                                     {
                                         columns: [
                                             [{
-                                                text: 'NOTE 1',
+                                                text: 'NOTE 1 kjlksjkldfg sdfkjsdl sdlfjlsdkjerf  lskdfjlaskjferlklerkjtlsekr sldfkvdflkvdlfkvbsdlf selrijueritueroiuldkf sldkfgjlsdfkgjdlsfk lkdfjglsdkfjg ldkfjlsdfjgkldf sldfjsio xoiv xoicvuzo ;ll;klkopiopio',
                                                 style: 'sectionNotes', maxHeight: 600
                                             }], 
                                             [{
