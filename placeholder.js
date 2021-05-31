@@ -154,7 +154,7 @@ define(function (require) {
                                       }
                                     },
                                     {
-                                        image : $scope.textToBase64Barcode(“123456789”)
+                                        image : $scope.textToBase64Barcode('123456789')
                                     }                                    
                                   ],
                                   content: [  
