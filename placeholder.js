@@ -66,7 +66,7 @@ define(function (require) {
             
             bwipjs.toCanvas(canvas, {
                     bcid:        'code128',       // Barcode type
-                    text:        '0123456789',    // Text to encode
+                    text:        textStr,    // Text to encode
                     scale:       3,               // 3x scaling factor
                     height:      10,              // Bar height, in millimeters
                     includetext: true,            // Show human-readable text
@@ -179,9 +179,9 @@ define(function (require) {
                                                 { text: '' },  
                                                ,
                                                 {
-                                                    image : $scope.textToBarCodeBase64('123456789'),
-                                                    width: 100,
-                                                    height: 50
+                                                    image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId),
+                                                    width: 50,
+                                                    height: 25
                                                 }  
                                             ],  
                                             [  
