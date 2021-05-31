@@ -180,8 +180,8 @@ define(function (require) {
                                                ,
                                                 {
                                                     image : $scope.textToBarCodeBase64('123456789'),
-                                                    width: 400,
-                                                    height: 200
+                                                    width: 100,
+                                                    height: 50
                                                 }  
                                             ],  
                                             [  
