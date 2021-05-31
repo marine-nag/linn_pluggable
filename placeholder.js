@@ -156,13 +156,12 @@ define(function (require) {
                                   },
                                   header: [
                                     {
-                                      toc: {
-                                        title: 
-                                          { 
+                                      columns: [  
+                                          [{ 
                                             text: 'Hello driver',  
-                                            style: 'sectionHeader',  margin: [0, 15, 0, 15]  
-                                          }
-                                      }
+                                            style: 'sectionHeader'
+                                          }]
+                                      ]
                                     }                                   
                                   ],
                                   content: [  
@@ -210,8 +209,8 @@ define(function (require) {
                                   styles: {  
                                         sectionHeader: {  
                                             bold: true,  
-                                            decoration: 'underline',  
-                                            fontSize: 14,  
+                                            //decoration: 'underline',  
+                                            fontSize: 18,  
                                             margin: [0, 15, 0, 15]  
                                         }  
                                     }  
