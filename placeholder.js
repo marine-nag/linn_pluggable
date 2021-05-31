@@ -155,24 +155,6 @@ define(function (require) {
                                     keywords: "Invoice",
                                   },
                                   content: [  
-                                     /* {  
-                                        columns: [  
-                                            [  
-                                                {  
-                                                    text: 'Customer NAme',  
-                                                    bold: true,  
-                                                    style: 'sectionHeader'
-                                                }
-                                            ],  [],
-                                            [  
-                                                {
-                                                    image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
-                                                    width: 65,
-                                                    height: 25
-                                                }
-                                            ]  
-                                        ]  
-                                    }*/
                                     {
                                           columns: [  
                                           [
@@ -181,6 +163,18 @@ define(function (require) {
                                                 style: 'sectionHeader'
                                               }
                                           ]
+                                        ]
+                                    },
+                                    {
+                                        columns: [
+                                            [{
+                                                text: 'NOTE 1',
+                                                style: 'sectionNotes'
+                                            }], 
+                                            [{
+                                                text: 'NOTE 2',
+                                                style: 'sectionNotes'
+                                            }]
                                         ]
                                     },
                                     {
@@ -194,7 +188,7 @@ define(function (require) {
                                     }
                                     ,
                                     {  
-                                        text: 'Order Details',  
+                                        text: 'PATCH',  
                                         style: 'sectionHeader'  
                                     },  
                                     {  
@@ -215,7 +209,11 @@ define(function (require) {
                                             //decoration: 'underline',  
                                             fontSize: 18,  
                                             margin: [0, 15, 0, 15]  
-                                        }  
+                                      }, 
+                                      sectionNotes: {
+                                            fontSize: 18,  
+                                            margin: [0, 15, 0, 15]  
+                                      }
                                     }  
                                 };
                                 
