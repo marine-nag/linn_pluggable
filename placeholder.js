@@ -260,7 +260,7 @@ define(function (require) {
                                     {  
                                         table: {  
                                             headerRows: 1,  
-                                            widths: ['*', '*', '10%', '', ''],  
+                                            //widths: ['*', '*', '10%', '', ''],  
                                             body: [  
                                                 ['Image', 'Item', 'Qty', 'UK Plant passport', 'Supplier document'],  
                                                 
