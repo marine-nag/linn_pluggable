@@ -247,6 +247,11 @@ define(function (require) {
                                                     width: 85,
                                                     height: 18, 
                                                     alignment: 'center'
+                                                },
+                                                {
+                                                    text: 'Parcel 1 of 2',
+                                                    bold: true, 
+                                                    alignment: 'center'
                                                 }
                                             ]
                                         ]
