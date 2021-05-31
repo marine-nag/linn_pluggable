@@ -206,7 +206,8 @@ define(function (require) {
                                                 {
                                                     image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
                                                     width: 85,
-                                                    height: 18
+                                                    height: 18, 
+                                                    alignment: 'center'
                                                 }
                                             ]
                                         ]
