@@ -165,25 +165,23 @@ define(function (require) {
                                     }                                   
                                   ],
                                   content: [  
-                                       {  
-                                          columns: [  
-                                                [  
-                                                    {  
-                                                        text: 'Customer NAme',  
-                                                        bold: true,  
-                                                        style: 'sectionHeader'
-                                                    }
-                                                ],  [],
-                                                [  
-                                                    {
-                                                        image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
-                                                        width: 65,
-                                                        height: 25
-                                                    }
-                                                ]  
-                                            ]  
-                                      },
-                                      {  
+                                    {
+                                      columns: [
+                                        {
+                                          // auto-sized columns have their widths based on their content
+                                          width: 'auto',
+                                          text: 'First column'
+                                        },
+                                        {
+                                          image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
+                                                    width: 65,
+                                                    height: 25
+                                        }
+                                      ],
+                                      // optional space between columns
+                                      columnGap: 10
+                                    }  
+                                     /* {  
                                         columns: [  
                                             [  
                                                 {  
@@ -200,7 +198,8 @@ define(function (require) {
                                                 }
                                             ]  
                                         ]  
-                                    },
+                                    }*/
+                                    ,
                                     {  
                                         text: 'Order Details',  
                                         style: 'sectionHeader'  
