@@ -6,7 +6,7 @@ define(function (require) {
     
     const pdfMake = require('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.js');
     const pdfFonts = require('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js');
-    var JsBarcode = require('https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.4/barcodes/JsBarcode.ean-upc.min.js');
+    const bwipjs = require('https://cdnjs.cloudflare.com/ajax/libs/bwip-js/3.0.0/bwip-js.js');
     
     var ordersData = [];
     var itemData = [];    
@@ -59,10 +59,24 @@ define(function (require) {
             
             $scope.getOrderDataBySomeID();
         };
-        $scope.textToBase64Barcode = function(text) {
-            var canvas = document.createElement("canvas");
-            JsBarcode(canvas, text, {format: "CODE39"});
-            return canvas.toDataURL("image/png");
+        $scope.textToBarCodeBase64 = function(text) {
+            return new Promise((resolve, reject) => {
+                    bwipjs.toBuffer({
+                        bcid: 'code128',
+                        text: text,
+                        scale: 3,
+                        height: 10,
+                        includetext: true,
+                        textxalign: 'center'
+                    }, function(error, buffer) {
+                        if(error) {
+                            reject(error)
+                        } else {
+                            let gifBase64 = `data:image/gif;base64,${buffer.toString('base64')}`
+                            resolve(gifBase64)
+                        }
+                    })
+                });
         };
          ///======
         // Try to get data by macros with type API
@@ -154,7 +168,7 @@ define(function (require) {
                                       }
                                     },
                                     {
-                                        image : $scope.textToBase64Barcode('123456789')
+                                        image : $scope.textToBarCodeBase64('123456789')
                                     }                                    
                                   ],
                                   content: [  
