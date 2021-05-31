@@ -233,7 +233,8 @@ define(function (require) {
                                             margin: [0, 15, 0, 15]  
                                       }, 
                                       sectionNotes: {
-                                            fontSize: 15,  
+                                            fontSize: 15, 
+                                            bold: false,
                                             margin: [0, 15, 0, 15]  
                                       }
                                     }  
