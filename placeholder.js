@@ -154,19 +154,6 @@ define(function (require) {
                                     subject: "Invoice",
                                     keywords: "Invoice",
                                   },
-                                  header: [
-                                    {
-                                      columns: [  
-                                          [
-                                              { 
-                                                text: 'Hello driver',  
-                                                style: 'sectionHeader'
-                                              }
-                                          ]
-                                      ],
-                                        margin: [72,40]
-                                    }                                   
-                                  ],
                                   content: [  
                                      /* {  
                                         columns: [  
@@ -186,6 +173,16 @@ define(function (require) {
                                             ]  
                                         ]  
                                     }*/
+                                    {
+                                          columns: [  
+                                          [
+                                              { 
+                                                text: 'Hello driver',  
+                                                style: 'sectionHeader'
+                                              }
+                                          ]
+                                        ]
+                                    },
                                     {
                                         columns: [
                                             {
