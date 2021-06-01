@@ -47,7 +47,7 @@ define(function (require) {
               
               var canvas = document.createElement("canvas");
               
-              var dataURL = canvas.toDataURL("image/png"),
+              var dataURL = canvas.toDataURL("image/png");
               //dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
               return callback(dataURL); // the base64 string                
         };
