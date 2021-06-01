@@ -8,8 +8,8 @@ define(function (require) {
     const pdfFonts = require('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js');
     const bwipjs = require('https://cdnjs.cloudflare.com/ajax/libs/bwip-js/3.0.0/bwip-js.js');
     
-    var ordersData = [];
-    var itemData = [];    
+    
+    var docDefinition;
     
     var placeHolder = function ($scope, $element, controlService) {
 
@@ -31,46 +31,6 @@ define(function (require) {
         this.isEnabled = (itemKey) => {
             return true;
         };
-        
-        class OrderVM {
-            DeliveryNote = '';
-            GiftNote = '';
-            ShipTo = '';
-            PrintedDate = new Date();
-            
-            ShipmentNumber = '';
-            
-            UKPlantPassportB = '';
-            UKPlantPassportC = '';
-            
-            BoxType = '';
-            PalletGroup = '';
-            
-            CarrierName = '';
-            //Barcode = '';
-            
-            packages = []; // = new PackageVM[];
-        }
-        class PackageVM {
-            items = [];
-        }
-        
-        class OrderItemVM {
-            SKU = '';
-            ItemTitle = '';
-            
-            PatchName = ''; // Patch Plant Name - Item extended property “patch_name”
-            Qty = 1; // Quantity of SKU in the package
-            
-            SupplierDoc = '';
-            ImageSource = '';
-            
-            UKPlantPassportA = ''; // Item extended property “customs_name” - added only if item is in category “Plants”
-            UKPlantPassportD = ''; // Item Extended property “country_of_original” - added only if item is in category “Plants”
-            
-            CountryOfOriginal = '';
-            CategoryName = '';
-        }
         
         this.onClick = () => {
             
@@ -107,38 +67,6 @@ define(function (require) {
             img.src = 'https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png';
         };
         
-        $scope.getStockSupplierStat = function(serviceInv, itemID) {
-            serviceInv.GetStockSupplierStat(itemID, function(suppliers) {
-                return suppliers;
-            });
-        };
-        
-        $scope.getInventoryItemExtendedProperties = async function(serviceInv, itemID) {            
-            var ext_props = [ 
-                 { 
-                     PropertyName: 'patch_name', 
-                     PropertyType: 'Attribute'
-                 }, 
-                 { 
-                     PropertyName: 'customs_name', 
-                     PropertyType: 'Attribute'
-                 }, 
-                 { 
-                     PropertyName: 'country_of_original',
-                     PropertyType: 'Attribute'
-                 }];
-            var sdlkfjgl = [];
-            
-            var props = await serviceInv.GetInventoryItemExtendedProperties(itemID, function(itemExtProps) {
-                 sdlkfjgl = itemExtProps;
-                 return itemExtProps;
-            }, null);
-            
-            var t = props;
-            
-            return sdlkfjgl;
-        };
-        
         /// ======
         // Try to get data by macros with type API
         $scope.getOrderDataBySomeID = function(){  
@@ -159,15 +87,14 @@ define(function (require) {
                 var obj = {applicationName : 'TEST_PrintInvoices', macroName : 'TEST_print_invoices', orderIds: orderIDs };
             
                 // RUN Macro to get necessary data
-                macroService.Run(obj, function(result) {
-                    alert('sdfgsdfg');
-                });
-            
-            
-                              
-                // === Creating PDF invoice
-            
-                /* var docDefinition = {
+                macroService.Run(obj, function(data) {
+                    if(data.error == null){
+                        var orders = data.result;
+                        
+                        var order = orders[0];
+                        
+                        //Creating docDefinition
+                        var docDefinition = {
                                   info: {
                                     title:
                                       "Invoice",
@@ -189,11 +116,12 @@ define(function (require) {
                                     {
                                         columns: [
                                             [{
-                                                text: 'NOTE 1 kjlksjkldfg sdfkjsdl sdlfjlsdkjerf  lskdfjlaskjferlklerkjtlsekr sldfkvdflkvdlfkvbsdlf selrijueritueroiuldkf sldkfgjlsdfkgjdlsfk lkdfjglsdkfjg ldkfjlsdfjgkldf sldfjsio xoiv xoicvuzo ;ll;klkopiopio',
-                                                style: 'sectionNotes', maxHeight: 600
+                                                text: order.DeliveryNote,
+                                                style: 'sectionNotes',
+                                                maxHeight: 600
                                             }], 
                                             [{
-                                                text: 'NOTE 2',
+                                                text: order.GiftNote,
                                                 style: 'sectionNotes'
                                             }]
                                         ]
@@ -210,14 +138,14 @@ define(function (require) {
                                                 bold: true
                                             }, 
                                             {
-                                                text: '3827978979'
+                                                text: order.ShipTo
                                             },
                                              {
                                                 text: 'Printed date', 
                                                 bold: true
                                             }, 
                                             {
-                                                text: date.toDateString(), 
+                                                text: order.PrintedDate, 
                                                 style: 'sectionShipping',
                                                 margin: [0,0, 0, 30]
                                             }],
@@ -227,23 +155,23 @@ define(function (require) {
                                                 bold: true
                                             }, 
                                             {
-                                                text: '3827978979'
+                                                text: 'B: ' + order.UKPlantPassportB
                                             }, 
                                             {
-                                                text: '3827978979', 
+                                                text: 'C: ' + order.UKPlantPassportC,
                                                 style: 'sectionShipping'
                                             }],
                                             
                                             [{
-                                                text: [ { text: 'Carrier ', bold: true }, { text: 'q231', bold: false } ], 
+                                                text: [ { text: 'Carrier ', bold: true }, { text: order.Carrier, bold: false } ], 
                                                 bold: true
                                             }, 
                                             {
-                                                text: [ { text: 'Box type ', bold: true }, { text: 'asdf213', bold: false } ],
+                                                text: [ { text: 'Box type ', bold: true }, { text: order.BoxType, bold: false } ],
                                                 bold: true
                                             }, 
                                             {
-                                                text: [ { text: 'Pallet group ', bold: true }, { text: 'lklkjljkl', bold: false } ],
+                                                text: [ { text: 'Pallet group ', bold: true }, { text: order.PalletGroup, bold: false } ],
                                                 bold: true,
                                                 style: 'sectionShipping'
                                             }],
@@ -251,12 +179,12 @@ define(function (require) {
                                             //
                                             [
                                                 {
-                                                    text: orderObjects[0].NumOrderId.toString(),
+                                                    text: order.OrderID,
                                                     bold: true, 
                                                     alignment: 'center'
                                                 },
                                                 {
-                                                    image : $scope.textToBarCodeBase64(orderObjects[0].NumOrderId.toString()),
+                                                    image : $scope.textToBarCodeBase64(order.OrderID),
                                                     width: 85,
                                                     height: 18, 
                                                     alignment: 'center'
@@ -304,7 +232,11 @@ define(function (require) {
                                 };                                
                                 
                                 //Finally, create a file.
-                                pdfMake.createPdf(docDefinition).open();*/
+                                pdfMake.createPdf(docDefinition).open();
+                    } else {
+                        alert('Errors...');
+                    } 
+                });
         };
     };
    
