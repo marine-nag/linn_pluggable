@@ -120,9 +120,10 @@ define(function (require) {
                             
                             dataRow.push(
                                 {
-                                    image : base64,
+                                    /*image : base64,
                                     width: 45,
-                                    height: 45
+                                    height: 45*/
+                                    text: base64
                                 }
                             );
                             
