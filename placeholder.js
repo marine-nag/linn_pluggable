@@ -219,15 +219,15 @@ define(function (require) {
                                             }],
                                             
                                             [{
-                                                text: [ { text: 'Carrier ', bold: true }, 'q231' ], 
+                                                text: [ { text: 'Carrier ', bold: true }, { text: 'q231', bold: false } ], 
                                                 bold: true
                                             }, 
                                             {
-                                                text: [ { text: 'Box type ', bold: true }, 'asdf213' ],
+                                                text: [ { text: 'Box type ', bold: true }, { text: 'asdf213', bold: false } ],
                                                 bold: true
                                             }, 
                                             {
-                                                text: [ { text: 'Pallet group ', bold: true }, 'lklkjljkl' ],
+                                                text: [ { text: 'Pallet group ', bold: true }, { text: 'lklkjljkl', bold: false } ],
                                                 bold: true,
                                                 style: 'sectionShipping'
                                             }],
