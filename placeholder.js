@@ -102,7 +102,12 @@ define(function (require) {
             return canvas.toDataURL('image/png');
         };
         
-        ///======
+        $scope.getImageFromURL = function(url){
+            var img = document.createElement('img');
+            img.src = 'https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png';
+         };
+        
+        /// ======
         // Try to get data by macros with type API
         $scope.getOrderDataBySomeID = function(){  
                 const self = this;
@@ -142,9 +147,20 @@ define(function (require) {
                             newOrder.UKPlantPassportC = order.NumOrderId.toString();
                             
                             newOrder.BoxType = order.ShippingInfo.PackageType;
-                            newOrder.PalletGroup = '';
+                           
+                            newOrder.CarrierName = order.ShippingInfo.PostalServiceName;     
                             
-                            newOrder.CarrierName = order.ShippingInfo.PostalServiceName;                            
+                            // === Ext props of order data
+                            // GET Order Extended Properties
+                            serviceOrder.getExtendedProperties(orderIDs[0], function(orderExtProps) {
+                                var property = orderExtProps.find(function(value, index) { return value.Name == "pallet_sort_expected"; });
+                                
+                                if(property != null)
+                                {
+                                    newOrder.PalletGroup = property.Value;
+                                }
+                            });
+                            
                             // === GET packages data
                             
                             
@@ -155,17 +171,6 @@ define(function (require) {
                         });
                         
                
-                     
-                        // === GET Notes                    
-                        
-                        
-                        
-                        // GET Order Extended Properties
-                        serviceOrder.getExtendedProperties(orderIDs[0], function(orderExtProps) {
-                            var o = orderExtProps;
-                        });
-                        
-                        
                         //================
                         // GET StockItems data (suppliers, images, etc....) 
                         var itemID = orderObjects[0].Items[0].ItemId;
@@ -278,20 +283,6 @@ define(function (require) {
                                                 style: 'sectionShipping'
                                             }],
                                             
-                                           /* [{
-                                                text: 'sldjflkgj',
-                                                alignment: 'left'
-                                            }, 
-                                            {
-                                                text: '8rieru8dfjk',
-                                                alignment: 'left'
-                                            }, 
-                                            {
-                                                text: 'sxcvmlerj',
-                                                alignment: 'left',
-                                                style: 'sectionShipping'
-                                            }],*/
-                                            
                                             //
                                             [
                                                 {
@@ -345,9 +336,7 @@ define(function (require) {
                                             margin: [0, 0, 0, 30]
                                       }
                                     }  
-                                };
-                                
-                                
+                                };                                
                                 
                                 //Finally, create a file.
                                 pdfMake.createPdf(docDefinition).open();
