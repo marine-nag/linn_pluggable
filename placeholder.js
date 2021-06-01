@@ -43,6 +43,21 @@ define(function (require) {
             $scope.getOrderDataBySomeID();
         };
         
+        $scope.toImageFromUrl = function(url){
+              var xhr = new XMLHttpRequest();
+              xhr.onload = function() {
+                var reader = new FileReader();
+                reader.onloadend = function() {
+                  callback(reader.result);
+                }
+                reader.readAsDataURL(xhr.response);
+              };
+            
+              xhr.open('GET', url);
+              xhr.responseType = 'blob';
+              xhr.send();
+        };
+        
         // Generate Barcode
         $scope.textToBarCodeBase64 = function(textStr) {
             let canvas = document.createElement('canvas');
@@ -67,6 +82,10 @@ define(function (require) {
         /// ======
         // Try to get data by macros API
         $scope.getOrderDataBySomeID = function(){  
+                 $scope.toImageFromUrl('https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png', function(dataUrl) {
+                  console.log('RESULT:', dataUrl)
+                })
+            
                 const self = this;
                 
                 const macroService = new Services.MacroService(self);
