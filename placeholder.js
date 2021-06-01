@@ -203,7 +203,7 @@ define(function (require) {
                                             {
                                                 text: date.toDateString(), 
                                                 style: 'sectionShipping',
-                                                margin: [0,0,90,0]
+                                                margin: [0,0, 0, 90]
                                             }],
                                             
                                             [{
@@ -295,7 +295,7 @@ define(function (require) {
                                       },
                                       sectionShipping: {
                                             fontSize: 12,
-                                            margin: [0, 0, 90, 0]
+                                            margin: [0, 0, 0, 90]
                                       }
                                     }  
                                 };
