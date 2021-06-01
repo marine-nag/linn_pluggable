@@ -288,7 +288,7 @@ define(function (require) {
                                             body: body
                                         } ,
                                         layout: {
-                                            defaultBorder: false,
+                                            //defaultBorder: false,
                                             fillColor: function (rowIndex, node, columnIndex) {
                                                 return (rowIndex == 0) ? '#f5f2ed' : null;
                                             },
