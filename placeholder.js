@@ -280,11 +280,14 @@ define(function (require) {
                                     {  
                                         table: {  
                                             headerRows: 1,  
-                                            widths: [100, '*', 50, '*', '*'],
+                                            widths: [85, '*', 45, '*', 100],
                                             body: body
                                         } ,
                                         layout: {
                                             defaultBorder: false,
+                                            fillColor: function (rowIndex, node, columnIndex) {
+                                                return (rowIndex == 0) ? '#f5f2ed' : null;
+                                            }
                                         } 
                                     }   
                                   ],  
