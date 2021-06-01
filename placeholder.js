@@ -47,7 +47,7 @@ define(function (require) {
             PalletGroup = '';
             
             CarrierName = '';
-            Barcode = '';
+            //Barcode = '';
             
             packages = []; // = new PackageVM[];
         }
@@ -134,7 +134,18 @@ define(function (require) {
                             var DN = order.Notes.find(function(value, index){ return value.Note.includes("DN:"); });
                             var GN = order.Notes.find(function(value, index){ return value.Note.includes("GN:"); });
                             
-                            //newOrder.DeliveryNote = DN != n
+                            newOrder.DeliveryNote = DN != null ? DN.Note : '';
+                            newOrder.GiftNote = GN != null ? GN.Note : null;
+                            
+                            newOrder.ShipmentNumber = order.NumOrderId.toString();
+                            newOrder.UKPlantPassportB = '';
+                            newOrder.UKPlantPassportC = order.NumOrderId.toString();
+                            
+                            newOrder.BoxType = order.ShippingInfo.PackageType;
+                            newOrder.PalletGroup = '';
+                            
+                            newOrder.CarrierName = order.ShippingInfo.PostalServiceName;                            
+                            // === GET packages data
                             
                             
                             
