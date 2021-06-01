@@ -280,16 +280,18 @@ define(function (require) {
                                     {  
                                         table: {  
                                             headerRows: 1,  
-                                            //widths: ['*', '*', '10%', '', ''],  
+                                            widths: [100, '*', 50, '*', '*'],
                                             body: body
-                                        }  
+                                        } ,
+                                        layout: {
+                                            defaultBorder: false,
+                                        } 
                                     }   
                                   ],  
                                   //CSS
                                   styles: {  
                                         sectionHeader: {  
                                             bold: true,  
-                                            //decoration: 'underline',  
                                             fontSize: 18,  
                                             margin: [0, 15, 10, 15]  
                                       }, 
