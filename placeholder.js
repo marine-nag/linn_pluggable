@@ -114,7 +114,11 @@ define(function (require) {
         };
         
         $scope.getInventoryItemExtendedProperties = function(serviceInv, itemID) {
-             var ext_props = [ 
+            serviceInv.GetExtendedPropertyNames(itemID, 'Attribute', function(itemExtProps) {
+                 return itemExtProps;
+            });            
+            
+            var ext_props = [ 
                  { 
                      PropertyName: 'patch_name', 
                      PropertyType: 'Attribute'
@@ -128,9 +132,9 @@ define(function (require) {
                      PropertyType: 'Attribute'
                  }];
             
-             serviceInv.GetInventoryItemExtendedProperties(itemID, ext_props, function(itemExtProps) {
+            serviceInv.GetInventoryItemExtendedProperties(itemID, ext_props, function(itemExtProps) {
                  return itemExtProps;
-             });
+            });
         };
         
         /// ======
