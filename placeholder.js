@@ -216,10 +216,11 @@ define(function (require) {
                                
                                 
                                 
-                            }).then(() => {
+                            });
+                            /*.then(() => {
                                 // finally, push all necessary data.
                                 ordersData.push(newOrder);
-                            });
+                            });*/
                             
                            
                             
