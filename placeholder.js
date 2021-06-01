@@ -86,12 +86,8 @@ define(function (require) {
         
         /// ======
         // Try to get data by macros API
-        $scope.getOrderDataBySomeID = function(){  
-                var base64Logo = $scope.toImageFromUrl('https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png', function(dataUrl) {
-                  return dataUrl;
-                })
-                
-                let base64Logo = $scope.getBase64Image(imgUrl).then(function(base64image) {
+        $scope.getOrderDataBySomeID = function(){                  
+                let base64Logo = $scope.getBase64Image('https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png').then(function(base64image) {
                   console.log(base64image);
                 }, function(reason) {
                   console.log(reason); // Error!
