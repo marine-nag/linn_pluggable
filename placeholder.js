@@ -43,21 +43,29 @@ define(function (require) {
             $scope.getOrderDataBySomeID();
         };
         
-        $scope.toImageFromUrl = function(imgUrl, callback){
+        $scope.getBase64Image = function(imgUrl, callback){
               
-             var img = new Image();
+             return new Promise(
+                function(resolve, reject) {
 
-             var canvas = document.createElement("canvas");
-              canvas.width = img.width;
-              canvas.height = img.height;
-              var ctx = canvas.getContext("2d");
-              ctx.drawImage(img, 0, 0);
-              var dataURL = canvas.toDataURL("image/png"),
-              dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-              // set attributes and src 
-              img.setAttribute('crossOrigin', 'anonymous'); //
-              img.src = imgUrl; 
-              return callback(dataURL); // the base64 string
+                  var img = new Image();
+                  img.src = imgUrl;
+                  img.setAttribute('crossOrigin', 'anonymous');
+
+                  img.onload = function() {
+                    var canvas = document.createElement("canvas");
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    var ctx = canvas.getContext("2d");
+                    ctx.drawImage(img, 0, 0);
+                    var dataURL = canvas.toDataURL("image/png");
+                    resolve(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
+                  }
+                  img.onerror = function() {
+                    reject("The image could not be loaded.");
+                  }
+
+                });
         };
         
         // Generate Barcode
@@ -82,6 +90,13 @@ define(function (require) {
                 var base64Logo = $scope.toImageFromUrl('https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png', function(dataUrl) {
                   return dataUrl;
                 })
+                
+                let base64Logo = $scope.getBase64Image(imgUrl).then(function(base64image) {
+                  console.log(base64image);
+                }, function(reason) {
+                  console.log(reason); // Error!
+                });
+
             
                 const self = this;
                 
