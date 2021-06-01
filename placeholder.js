@@ -86,10 +86,12 @@ define(function (require) {
         
         /// ======
         // Try to get data by macros API
-        $scope.getOrderDataBySomeID = function(){                  
+        $scope.getOrderDataBySomeID = function(){  
+                var img = "";
+            
                 let base64Logo = $scope.getBase64Image('https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png').then(function(base64image) {
                   //console.log(base64image);
-                  return base64image;
+                  img = base64image;
                 }, function(reason) {
                   console.log(reason); // Error!
                 });
