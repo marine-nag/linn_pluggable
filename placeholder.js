@@ -38,6 +38,8 @@ define(function (require) {
             ShipTo = '';
             PrintedDate = new Date();
             
+            ShipmentNumber = '';
+            
             UKPlantPassportB = '';
             UKPlantPassportC = '';
             
@@ -47,7 +49,7 @@ define(function (require) {
             CarrierName = '';
             Barcode = '';
             
-            packages = []; // = new OrderItemVM[];
+            packages = []; // = new PackageVM[];
         }
         class PackageVM {
             items = [];
@@ -55,8 +57,19 @@ define(function (require) {
         
         class OrderItemVM {
             SKU = '';
-            Qty = 1;
-            Supplier = '';
+            ItemTitle = '';
+            
+            PatchName = ''; // Patch Plant Name - Item extended property “patch_name”
+            Qty = 1; // Quantity of SKU in the package
+            
+            SupplierDoc = '';
+            ImageSource = '';
+            
+            UKPlantPassportA = ''; // Item extended property “customs_name” - added only if item is in category “Plants”
+            UKPlantPassportD = ''; // Item Extended property “country_of_original” - added only if item is in category “Plants”
+            
+            CountryOfOriginal = '';
+            CategoryName = '';
         }
         
         this.onClick = () => {
@@ -67,11 +80,6 @@ define(function (require) {
  
             /*if (orders.length < 1) {
                 alert('Please select at least one order');
-                return;
-            }*/
-            
-            /*if (orders.length > 30) {
-                alert('You can generate labels for 30 orders maximum');
                 return;
             }*/
             
@@ -93,7 +101,8 @@ define(function (require) {
             
             return canvas.toDataURL('image/png');
         };
-         ///======
+        
+        ///======
         // Try to get data by macros with type API
         $scope.getOrderDataBySomeID = function(){  
                 const self = this;
@@ -120,9 +129,21 @@ define(function (require) {
                         
                         orders.forEach(function(order)
                         {
+                            var newOrder = new OrderVM();
+                            
+                            var DN = order.Notes.find(function(value, index){ return value.Note.includes("DN:"); });
+                            var GN = order.Notes.find(function(value, index){ return value.Note.includes("GN:"); });
+                            
+                            //newOrder.DeliveryNote = DN != n
+                            
+                            
+                            
+                            
+                            // finally, push all necessary data.
+                            ordersData.push(newOrder);
                         });
                         
-                        ordersData.push(orders[0]);
+               
                      
                         // === GET Notes                    
                         
@@ -165,7 +186,7 @@ define(function (require) {
                               
                                 var date = new Date();
                                 
-                                 var docDefinition = {
+                                var docDefinition = {
                                   info: {
                                     title:
                                       "Invoice",
@@ -282,13 +303,6 @@ define(function (require) {
                                             ]
                                         ]
                                     },
-                                      ,
-        { 
-             text: '\n\nUnordered list with longer lines', 
-             style: 'header', 
-             pageBreak: 'before', 
-             pageOrientation: 'landscape' 
-        },
                                     // ORDER ITEMS
                                     {  
                                         table: {  
@@ -302,6 +316,7 @@ define(function (require) {
                                         }  
                                     }   
                                   ],  
+                                  //CSS
                                   styles: {  
                                         sectionHeader: {  
                                             bold: true,  
@@ -322,6 +337,8 @@ define(function (require) {
                                 };
                                 
                                 
+                                
+                                //Finally, create a file.
                                 pdfMake.createPdf(docDefinition).open();
                             } 
                             else 
