@@ -43,13 +43,13 @@ define(function (require) {
             $scope.getOrderDataBySomeID();
         };
         
-        $scope.toImageFromUrl = function(dataURL){
+        $scope.toImageFromUrl = function(dataURL, callback){
               
               var canvas = document.createElement("canvas");
               
               var dataURL = canvas.toDataURL("image/png"),
               dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-              callback(dataURL); // the base64 string                
+              return callback(dataURL); // the base64 string                
         };
         
         // Generate Barcode
