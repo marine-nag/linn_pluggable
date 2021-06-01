@@ -181,7 +181,10 @@ define(function (require) {
                                              text: 'PATCH', 
                                              margin: [10, 0, 0, 0]
                                          }
-                                      ]
+                                      ],
+                                        style: {
+                                            margin: [0, 23, 0, 40]
+                                        }
                                     },
                                     // PATCH ORDER Data
                                     {
