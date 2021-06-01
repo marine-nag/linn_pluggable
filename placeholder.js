@@ -114,9 +114,21 @@ define(function (require) {
         };
         
         $scope.getInventoryItemExtendedProperties = function(serviceInv, itemID) {
-             var ext_props = []; //['patch_name', 'customs_name', 'country_of_original'];
+             var ext_props = [ 
+                 { 
+                     PropertyName: 'patch_name', 
+                     PropertyType: 'Attribute'
+                 }, 
+                 { 
+                     PropertyName: 'customs_name', 
+                     PropertyType: 'Attribute'
+                 }, 
+                 { 
+                     PropertyName: 'country_of_original',
+                     PropertyType: 'Attribute'
+                 }];
             
-             serviceInv.GetInventoryItemExtendedProperties(itemID, null, function(itemExtProps) {
+             serviceInv.GetInventoryItemExtendedProperties(itemID, ext_props, function(itemExtProps) {
                  return itemExtProps;
              });
         };
