@@ -117,7 +117,7 @@ define(function (require) {
                             {
                                 var imgUrl = 'https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png';//row.ImageSource;
                                 
-                                var t = $scope.getBase64Image(imgUrl).then(function(base64image) {
+                                /*var t = $scope.getBase64Image(imgUrl).then(function(base64image) {
                                       console.log(base64image);
                                     
                                      dataRow.push(
@@ -129,8 +129,11 @@ define(function (require) {
                                     
                                     }, function(reason) {
                                       console.log(reason); // Error!
-                                });
+                                });*/
                                 
+                                dataRow.push({
+                                    text: 'Image'
+                                });
                                
                             }
                             else {
