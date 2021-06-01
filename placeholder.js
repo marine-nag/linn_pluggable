@@ -86,16 +86,7 @@ define(function (require) {
         
         /// ======
         // Try to get data by macros API
-        $scope.getOrderDataBySomeID = function(){  
-                var img = "";
-            
-                let base64Logo = $scope.getBase64Image('https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png').then(function(base64image) {
-                  //console.log(base64image);
-                  img = base64image;
-                }, function(reason) {
-                  console.log(reason); // Error!
-                });
-            
+        $scope.getOrderDataBySomeID = function(){              
                 const self = this;
                 
                 const macroService = new Services.MacroService(self);
@@ -125,12 +116,26 @@ define(function (require) {
                         order.Items.forEach(function(row) {
                             var dataRow = [];
                             
-                            dataRow.push(row.ImageSource);
-                            dataRow.push(row.SKU);
-                            dataRow.push(row.Qty.toString());
-                            dataRow.push(row.UKPlantPassportA);
-                            dataRow.push(row.SupplierDoc);
+                            var base64 = row.ImageSource;
                             
+                            dataRow.push(
+                                {
+                                    image : base64,
+                                    width: 45,
+                                    height: 45
+                                }
+                            );
+                            
+                            dataRow.push(
+                                {
+                                    text: [ { text: row.SKU + '\n', bold: true }, { text: row.ItemTitle + '\n', bold: false }, { text: row.PatchName + '\n', bold: false } ], 
+                                    bold:true
+                                },);
+                            dataRow.push(row.Qty.toString());
+                            dataRow.push( 'A: ' + row.UKPlantPassportA + '\n' + 'D: ' + row.UKPlantPassportD);
+                            dataRow.push('Supplier Document: ' + row.SupplierDoc + '\n' + 'ID: ' + order.OrderID + ' Printed: ' + order.PrintedDate + '.' 
+                                         + row.UKPlantPassportA + '.' + row.ItemTitle + '.' 
+                                         + row.Qty);
                             body.push(dataRow);
                         });
                         
