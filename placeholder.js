@@ -69,8 +69,6 @@ define(function (require) {
         $scope.getOrderDataBySomeID = function(){  
                 const self = this;
                 
-                const serviceOrder = new Services.OrdersService(self);
-                const serviceInv = new Services.InventoryService(self);
                 const macroService = new Services.MacroService(self);
             
                 var orderObjects = $scope.viewStats.get_selected_orders_objects();
