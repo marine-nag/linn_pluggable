@@ -115,13 +115,12 @@ define(function (require) {
                             
                             if(row.ImageSource != '')
                             {
-                                var base64 = row.ImageSource;
-                                var t = $scope.getBase64Image(row.ImageSource, function(callback){
-                                var asdf23 = callback;
-                                });
+                                var imgUrl = row.ImageSource;
                                 
-                                let t2 = $scope.getBase64Image(row.ImageSource, function(callback){
-                                var asdf = callback;
+                                var t = $scope.getBase64Image(imgUrl).then(function(base64image) {
+                                      console.log(base64image);
+                                    }, function(reason) {
+                                      console.log(reason); // Error!
                                 });
                                 
                                 dataRow.push(
