@@ -43,11 +43,7 @@ define(function (require) {
             $scope.getOrderDataBySomeID();
         };
         
-        $scope.getBase64Image = function(imgUrl, callback){
-              
-             return new Promise(
-                function(resolve, reject) {
-
+        $scope.getBase64Image = function(imgUrl, callback){ 
                   var img = new Image();
                   img.src = imgUrl;
                   img.setAttribute('crossOrigin', 'anonymous');
@@ -59,13 +55,7 @@ define(function (require) {
                     var ctx = canvas.getContext("2d");
                     ctx.drawImage(img, 0, 0);
                     var dataURL = canvas.toDataURL("image/png");
-                    resolve(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
-                  }
-                  img.onerror = function() {
-                    reject("The image could not be loaded.");
-                  }
-
-                });
+            return callback(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
         };
         
         // Generate Barcode
@@ -116,27 +106,44 @@ define(function (require) {
                         order.Items.forEach(function(row) {
                             var dataRow = [];
                             
-                            var base64 = row.ImageSource;
-                            
-                            dataRow.push(
-                                {
-                                    /*image : base64,
-                                    width: 45,
-                                    height: 45*/
-                                    text: base64
-                                }
-                            );
+                            if(row.ImageSource != '')
+                            {
+                                var base64 = row.ImageSource;
+                                var t = $scope.getBase64Image(row.ImageSource, function(callback){
+                                var asdf23 = callback;
+                                });
+                                
+                                let t2 = $scope.getBase64Image(row.ImageSource, function(callback){
+                                var asdf = callback;
+                                });
+                                
+                                dataRow.push(
+                                    {
+                                        /*image : base64,
+                                        width: 45,
+                                        height: 45*/ text: ''
+                                    }
+                                );
+                            }
+                            else {
+                                dataRow.push({
+                                    text: ''
+                                });
+                            }
                             
                             dataRow.push(
                                 {
                                     text: [ { text: row.SKU + '\n', bold: true }, { text: row.ItemTitle + '\n', bold: false }, { text: row.PatchName + '\n', bold: false } ], 
                                     bold:true
                                 },);
+                            
                             dataRow.push(row.Qty.toString());
                             dataRow.push( 'A: ' + row.UKPlantPassportA + '\n' + 'D: ' + row.UKPlantPassportD);
-                            dataRow.push('Supplier Document: ' + row.SupplierDoc + '\n' + 'ID: ' + order.OrderID + ' Printed: ' + order.PrintedDate + '.' 
+                            dataRow.push('Supplier Document: ' + row.SupplierDoc + '\n' 
+                                         + 'ID: ' + order.OrderID + ' Printed: ' + order.PrintedDate + '.' 
                                          + row.UKPlantPassportA + '.' + row.ItemTitle + '.' 
                                          + row.Qty);
+                            
                             body.push(dataRow);
                         });
                         
