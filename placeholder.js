@@ -163,7 +163,7 @@ define(function (require) {
                                             }],
                                             
                                             [{
-                                                text: [ { text: 'Carrier ', bold: true }, { text: order.Carrier, bold: false } ], 
+                                                text: [ { text: 'Carrier ', bold: true }, { text: order.CarrierName, bold: false } ], 
                                                 bold: true
                                             }, 
                                             {
