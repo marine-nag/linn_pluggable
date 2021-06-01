@@ -110,23 +110,23 @@ define(function (require) {
                         var columns = [
                             { 
                                 text: 'Image', 
-                                margin: [0, 0, 0, 35], alignment: 'center'
+                                margin: [0, 10, 0, 15], alignment: 'center'
                             },
                             {
                                 text: 'Item',  
-                                margin: [0, 0, 0, 35], alignment: 'center'
+                                margin: [0, 10, 0, 15], alignment: 'left'
                             },
                             {
                                 text: 'Qty',  
-                                margin: [0, 0, 0, 35], alignment: 'center'
+                                margin: [0, 10, 0, 15], alignment: 'center'
                             },
                             {
                                 text: 'UK Plant passport',  
-                                margin: [0, 0, 0, 35], alignment: 'center'
+                                margin: [0, 10, 0, 15], alignment: 'left'
                             },
                             {
                                 text: 'Supplier document',  
-                                margin: [0, 0, 0, 35], alignment: 'center'
+                                margin: [0, 10, 0, 15], alignment: 'left'
                             }];
                         body.push(columns);
                         
