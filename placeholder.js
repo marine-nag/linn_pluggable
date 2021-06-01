@@ -153,7 +153,7 @@ define(function (require) {
                             // === Ext props of order data
                             // GET Order Extended Properties
                             serviceOrder.getExtendedProperties(orderIDs[0], function(orderExtProps) {
-                                var property = orderExtProps.find(function(value, index) { return value.Name == "pallet_sort_expected"; });
+                                var property = orderExtProps.result.find(function(value, index) { return value.Name == "pallet_sort_expected"; });
                                 
                                 if(property != null)
                                 {
