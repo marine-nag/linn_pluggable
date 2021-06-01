@@ -182,8 +182,8 @@ define(function (require) {
                             });
                             
                             // === GET packages data
-                            var suppliers = $scope.getStockSupplierStat(serviceInv, orderObjects[0].Items[0].ItemId);
-                            var sidf = $scope.getInventoryItemExtendedProperties(serviceInv, orderObjects[0].Items[0].ItemId);
+                            var suppliers = $scope.getStockSupplierStat(serviceInv, order.Items[0].ItemId);
+                            var sidf = $scope.getInventoryItemExtendedProperties(serviceInv, order.Items[0].ItemId);
                             
                             alert(sidf.result.length);
                             
