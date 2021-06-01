@@ -138,7 +138,7 @@ define(function (require) {
                             newOrder.GiftNote = GN != null ? GN.Note : null;
                             
                             newOrder.ShipmentNumber = order.NumOrderId.toString();
-                            newOrder.UKPlantPassportB = '';
+                            newOrder.UKPlantPassportB = '127139';
                             newOrder.UKPlantPassportC = order.NumOrderId.toString();
                             
                             newOrder.BoxType = order.ShippingInfo.PackageType;
