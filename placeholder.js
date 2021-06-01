@@ -87,13 +87,12 @@ define(function (require) {
         /// ======
         // Try to get data by macros API
         $scope.getOrderDataBySomeID = function(){                  
-                let base64Logo = 'data:image/jpeg;base64,' + $scope.getBase64Image('https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png').then(function(base64image) {
-                  console.log(base64image);
+                let base64Logo = $scope.getBase64Image('https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png').then(function(base64image) {
+                  //console.log(base64image);
+                  return base64image;
                 }, function(reason) {
                   console.log(reason); // Error!
                 });
-
-                var t = $scope.textToBarCodeBase64('kfjaksdjf');
             
                 const self = this;
                 
@@ -170,7 +169,7 @@ define(function (require) {
                                     // PATCH with logotype.
                                     [
                                         {
-                                             image : base64Logo,
+                                             image : 'data:image/jpeg;base64,' + base64Logo,
                                              width: 25,
                                              height: 18, 
                                              alignment: 'center'   
