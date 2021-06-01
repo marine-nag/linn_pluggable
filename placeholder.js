@@ -178,8 +178,6 @@ define(function (require) {
                            
                             newOrder.CarrierName = order.ShippingInfo.PostalServiceName;     
                             
-                            var pallet = '';
-                            
                             // === Ext props of order data
                             // GET Order Extended Properties
                             serviceOrder.getExtendedProperties(orderIDs[0], function(orderExtProps) {
@@ -191,15 +189,15 @@ define(function (require) {
                                 }
                                 
                                 // === 
+                                var suppliers = $scope.getStockSupplierStat(serviceInv, order.Items[0].ItemId);
+                                
+                                var sidf = $scope.getInventoryItemExtendedProperties(serviceInv, order.Items[0].ItemId).then( () => { alert('DONE.'); });
+                                
+                                // === GET packages data
+                               
                                 
                                 
                             });
-                            
-                            // === GET packages data
-                            var suppliers = $scope.getStockSupplierStat(serviceInv, order.Items[0].ItemId);
-                            var sidf = $scope.getInventoryItemExtendedProperties(serviceInv, order.Items[0].ItemId);
-                            
-                            alert(sidf.result.length);
                             
                             // finally, push all necessary data.
                             ordersData.push(newOrder);
