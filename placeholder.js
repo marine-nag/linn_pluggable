@@ -201,7 +201,8 @@ define(function (require) {
                                                 bold: true
                                             }, 
                                             {
-                                                text: date.toDateString()
+                                                text: date.toDateString(), 
+                                                style: 'sectionShipping'
                                             }],
                                             
                                             [{
@@ -212,7 +213,8 @@ define(function (require) {
                                                 text: '3827978979'
                                             }, 
                                             {
-                                                text: '3827978979'
+                                                text: '3827978979', 
+                                                style: 'sectionShipping'
                                             }],
                                             
                                             [{
@@ -225,7 +227,8 @@ define(function (require) {
                                             }, 
                                             {
                                                 text: 'Pallet group ',
-                                                bold: true
+                                                bold: true,
+                                                style: 'sectionShipping'
                                             }],
                                             
                                             [{
@@ -238,7 +241,8 @@ define(function (require) {
                                             }, 
                                             {
                                                 text: 'sxcvmlerj',
-                                                alignment: 'left'
+                                                alignment: 'left',
+                                                style: 'sectionShipping'
                                             }],
                                             
                                             //
@@ -257,7 +261,8 @@ define(function (require) {
                                                 {
                                                     text: 'Parcel 1 of 2',
                                                     bold: true, 
-                                                    alignment: 'center'
+                                                    alignment: 'center',
+                                                    style: 'sectionShipping'
                                                 }
                                             ]
                                         ]
