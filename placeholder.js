@@ -219,20 +219,20 @@ define(function (require) {
                                             }],
                                             
                                             [{
-                                                text: 'Carrier ', 
+                                                text: [ { text: 'Carrier ', bold: true }, 'q231' ], 
                                                 bold: true
                                             }, 
                                             {
-                                                text: 'Box type ',
+                                                text: [ { text: 'Box type ', bold: true }, 'asdf213' ],
                                                 bold: true
                                             }, 
                                             {
-                                                text: 'Pallet group ',
+                                                text: [ { text: 'Pallet group ', bold: true }, 'lklkjljkl' ],
                                                 bold: true,
                                                 style: 'sectionShipping'
                                             }],
                                             
-                                            [{
+                                           /* [{
                                                 text: 'sldjflkgj',
                                                 alignment: 'left'
                                             }, 
@@ -244,7 +244,7 @@ define(function (require) {
                                                 text: 'sxcvmlerj',
                                                 alignment: 'left',
                                                 style: 'sectionShipping'
-                                            }],
+                                            }],*/
                                             
                                             //
                                             [
