@@ -59,7 +59,7 @@ define(function (require) {
                     var ctx = canvas.getContext("2d");
                     ctx.drawImage(img, 0, 0);
                     var dataURL = canvas.toDataURL("image/png");
-                    resolve(dataURL);
+                    resolve(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
                   }
                   img.onerror = function() {
                     reject("The image could not be loaded.");
@@ -87,7 +87,7 @@ define(function (require) {
         /// ======
         // Try to get data by macros API
         $scope.getOrderDataBySomeID = function(){                  
-                let base64Logo = $scope.getBase64Image('https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png').then(function(base64image) {
+                let base64Logo = 'data:image/jpeg;base64,' + $scope.getBase64Image('https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png').then(function(base64image) {
                   console.log(base64image);
                 }, function(reason) {
                   console.log(reason); // Error!
