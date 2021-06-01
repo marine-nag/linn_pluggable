@@ -41,6 +41,12 @@ define(function (require) {
             Barcode = '';
         }
         
+        class OrderItemVM {
+            SKU = '';
+            Qty = 1;
+            Supplier = '';
+        }
+        
         this.onClick = () => {
             
             //pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -264,7 +270,7 @@ define(function (require) {
                                             body: [  
                                                 ['Image', 'Item', 'Qty', 'UK Plant passport', 'Supplier document'],  
                                                 
-                                                ['', '', '', '', 'sdfgsdfgl;df \n']  
+                                                ['', '', 'А: влдаопдав фівдлалджіва іва ', '', 'sdfgsdfgl;df \n оадлівоалд івадлопівдо іваоп цзцщкшезц зщпізащш іваплд діполдіваполд']  
                                             ]  
                                         }  
                                     }   
