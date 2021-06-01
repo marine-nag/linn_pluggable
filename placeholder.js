@@ -148,7 +148,11 @@ define(function (require) {
                                     bold:true
                                 },);
                             
-                            dataRow.push(row.Qty.toString());
+                            dataRow.push({ 
+                                text: row.Qty.toString(), 
+                                fontSize: 16,
+                                bold: true
+                            });
                             dataRow.push( 'A: ' + row.UKPlantPassportA + '\n' + 'D: ' + row.UKPlantPassportD);
                             dataRow.push('Supplier Document: ' + row.SupplierDoc + '\n' 
                                          + 'ID: ' + order.OrderID + ' Printed: ' + order.PrintedDate + '.' 
@@ -287,6 +291,15 @@ define(function (require) {
                                             defaultBorder: false,
                                             fillColor: function (rowIndex, node, columnIndex) {
                                                 return (rowIndex == 0) ? '#f5f2ed' : null;
+                                            },
+                                            hLineColor: function (i, node) {
+                                                return (i === 0 || i === node.table.body.length) ? 'black' : 'transparent';
+                                            },
+                                            hLineWidth: function (i, node) {
+                                                return (i === 0 || i === node.table.body.length) ? 2 : 1;
+                                            },
+                                            vLineWidth: function (i, node) {
+                                                return (i === 0 || i === node.table.widths.length) ? 2 : 1;
                                             }
                                         } 
                                     }   
