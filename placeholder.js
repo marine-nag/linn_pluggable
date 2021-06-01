@@ -165,7 +165,7 @@ define(function (require) {
                             
                             
                             
-                            
+                            alert(newOrder.PalletGroup);
                             // finally, push all necessary data.
                             ordersData.push(newOrder);
                         });
