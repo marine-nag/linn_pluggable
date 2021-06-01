@@ -43,19 +43,13 @@ define(function (require) {
             $scope.getOrderDataBySomeID();
         };
         
-        $scope.toImageFromUrl = function(url){
-              var xhr = new XMLHttpRequest();
-              xhr.onload = function() {
-                var reader = new FileReader();
-                reader.onloadend = function() {
-                  callback(reader.result);
-                }
-                reader.readAsDataURL(xhr.response);
-              };
-            
-              xhr.open('GET', url);
-              xhr.responseType = 'blob';
-              xhr.send();
+        $scope.toImageFromUrl = function(dataURL){
+              
+              var canvas = document.createElement("canvas");
+              
+              var dataURL = canvas.toDataURL("image/png"),
+              dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+              callback(dataURL); // the base64 string                
         };
         
         // Generate Barcode
