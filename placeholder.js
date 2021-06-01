@@ -127,12 +127,16 @@ define(function (require) {
                      PropertyName: 'country_of_original',
                      PropertyType: 'Attribute'
                  }];
+            var sdlkfjgl = [];
             
             var props = await serviceInv.GetInventoryItemExtendedProperties(itemID, function(itemExtProps) {
+                 sdlkfjgl = itemExtProps;
                  return itemExtProps;
             }, null);
             
             var t = props;
+            
+            return sdlkfjgl;
         };
         
         /// ======
