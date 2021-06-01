@@ -148,12 +148,6 @@ define(function (require) {
                 const serviceInv = new Services.InventoryService(self);
                 const macroService = new Services.MacroService(self);
             
-                var obj = {applicationName : 'TEST_PrintInvoices', macroName : 'TEST_print_invoices'};
-            
-                macroService.Run(obj, function(result) {
-                    alert('sdfgsdfg');
-                })
-            
                 var orderObjects = $scope.viewStats.get_selected_orders_objects();
             
                 var orderIDs = [];
@@ -161,7 +155,13 @@ define(function (require) {
                 orderObjects.forEach(function(item) {
                     orderIDs.push(item.OrderId);
                 });
-                
+            
+                var obj = {applicationName : 'TEST_PrintInvoices', macroName : 'TEST_print_invoices', orderIds: orderIDs };
+            
+                macroService.Run(obj, function(result) {
+                    alert('sdfgsdfg');
+                })
+           
                 //===============
                 // GET Orders data (order Notes, etc....) 
                 serviceOrder.GetOrdersById(orderIDs, function (result) {
