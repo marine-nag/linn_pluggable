@@ -76,8 +76,8 @@ define(function (require) {
         /// ======
         // Try to get data by macros API
         $scope.getOrderDataBySomeID = function(){  
-                 $scope.toImageFromUrl('https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png', function(dataUrl) {
-                  console.log('RESULT:', dataUrl)
+                var data = $scope.toImageFromUrl('https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png', function(dataUrl) {
+                  return dataUrl;
                 })
             
                 const self = this;
