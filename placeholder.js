@@ -37,8 +37,20 @@ define(function (require) {
             GiftNote = '';
             ShipTo = '';
             PrintedDate = new Date();
+            
+            UKPlantPassportB = '';
+            UKPlantPassportC = '';
+            
+            BoxType = '';
+            PalletGroup = '';
+            
             CarrierName = '';
             Barcode = '';
+            
+            packages = []; // = new OrderItemVM[];
+        }
+        class PackageVM {
+            items = [];
         }
         
         class OrderItemVM {
@@ -89,14 +101,12 @@ define(function (require) {
                 const serviceOrder = new Services.OrdersService(self);
                 const serviceInv = new Services.InventoryService(self);
                 
-                const dash = new Services.DashboardsService(self);
-             
                 var orderObjects = $scope.viewStats.get_selected_orders_objects();
             
                 var orderIDs = [];
                
                 orderObjects.forEach(function(item) {
-                    orderIDs.push(orderObjects[0].OrderId);
+                    orderIDs.push(item.OrderId);
                 });
                 
                 //===============
@@ -106,10 +116,14 @@ define(function (require) {
                     {
                         var orders = result.result;
                         
+                        // GET Necessary data for required orders 
+                        
+                        orders.forEach(function(order)
+                        {
+                        });
+                        
                         ordersData.push(orders[0]);
-                        
-                        //alert('Something there! Notes: ' + orders.length);
-                        
+                     
                         // === GET Notes                    
                         
                         
@@ -203,7 +217,7 @@ define(function (require) {
                                             {
                                                 text: date.toDateString(), 
                                                 style: 'sectionShipping',
-                                                margin: [0,0, 0, 90]
+                                                margin: [0,0, 0, 30]
                                             }],
                                             
                                             [{
@@ -268,6 +282,13 @@ define(function (require) {
                                             ]
                                         ]
                                     },
+                                      ,
+        { 
+             text: '\n\nUnordered list with longer lines', 
+             style: 'header', 
+             pageBreak: 'before', 
+             pageOrientation: 'landscape' 
+        }
                                     // ORDER ITEMS
                                     {  
                                         table: {  
@@ -295,7 +316,7 @@ define(function (require) {
                                       },
                                       sectionShipping: {
                                             fontSize: 12,
-                                            margin: [0, 0, 0, 90]
+                                            margin: [0, 0, 0, 30]
                                       }
                                     }  
                                 };
