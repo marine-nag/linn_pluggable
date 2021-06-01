@@ -158,103 +158,16 @@ define(function (require) {
             
                 var obj = {applicationName : 'TEST_PrintInvoices', macroName : 'TEST_print_invoices', orderIds: orderIDs };
             
+                // RUN Macro to get necessary data
                 macroService.Run(obj, function(result) {
                     alert('sdfgsdfg');
-                })
-           
-                //===============
-                // GET Orders data (order Notes, etc....) 
-                serviceOrder.GetOrdersById(orderIDs, function (result) {
-                    if(result.error == null) 
-                    {
-                        var orders = result.result;
-                        
-                        // GET Necessary data for required orders 
-                        var newOrder = new OrderVM();
-                        
-                        orders.forEach(function(order)
-                        { 
-                            newOrder = new OrderVM();
-                            
-                            var DN = order.Notes.find(function(value, index){ return value.Note.includes("DN:"); });
-                            var GN = order.Notes.find(function(value, index){ return value.Note.includes("GN:"); });
-                            
-                            newOrder.DeliveryNote = DN != null ? DN.Note : '';
-                            newOrder.GiftNote = GN != null ? GN.Note : null;
-                            
-                            newOrder.ShipmentNumber = order.NumOrderId.toString();
-                            newOrder.UKPlantPassportB = '127139';
-                            newOrder.UKPlantPassportC = order.NumOrderId.toString();
-                            
-                            newOrder.BoxType = order.ShippingInfo.PackageType;
-                           
-                            newOrder.CarrierName = order.ShippingInfo.PostalServiceName;     
-                            
-                            // === Ext props of order data
-                            // GET Order Extended Properties
-                            serviceOrder.getExtendedProperties(orderIDs[0], function(orderExtProps) {
-                                var property = orderExtProps.result.find(function(value, index) { return value.Name == "pallet_sort_expected"; });
-                                
-                                if(property != null)
-                                {
-                                    newOrder.PalletGroup = property.Value;
-                                }
-                                
-                                // === GET data of items 
-                                order.Items.forEach(function(item) {
-                                    var itemID = item.ItemId;
-                                    
-                                    serviceInv.GetStockSupplierStat(itemID, function(suppliers) {
-                                        return suppliers.result;
-                                    });
-
-                                    serviceInv.GetInventoryItemExtendedProperties(itemID, function(itemExtProps) {
-                                         return itemExtProps.result;
-                                    }, null);  
-                                    
-                                    serviceInv.GetInventoryItemImages(itemID, function (resultImg) {
-                                        
-                                        
-                                        var t = resultImg.result[0].Source[0];
-                                    });
-                                    
-                                });
-
-                                
-                                // === GET packages data
-                               
-                                
-                                
-                            });
-                            /*.then(() => {
-                                // finally, push all necessary data.
-                                ordersData.push(newOrder);
-                            });*/
-                            
-                           
-                            
-                        });
-                        
-               
-                        //================
-                        // GET StockItems data (suppliers, images, etc....) 
-                        var itemID = orderObjects[0].Items[0].ItemId;
-                        
-                        serviceInv.getInventoryItemById(itemID, function (result) {
-                            
-                            if(result.error == null) 
-                            {
-                                itemData.push(result);
-                                //alert('Something there! ' + result.length + ' items.');
-                            
-                                
-                                
+                });
+            
+            
                               
-                                // === Creating PDF invoice
-                              
-                                var date = new Date();
-                                
-                               /* var docDefinition = {
+                // === Creating PDF invoice
+            
+                /* var docDefinition = {
                                   info: {
                                     title:
                                       "Invoice",
@@ -392,19 +305,6 @@ define(function (require) {
                                 
                                 //Finally, create a file.
                                 pdfMake.createPdf(docDefinition).open();*/
-                            } 
-                            else 
-                            {
-                                alert('Errors!');
-                            }
-                        });
-                    } 
-                    else 
-                    {
-                        alert('Errors!');
-                    }
-                 });
-            };
     };
    
     placeholderManager.register("OpenOrders_OrderControlButtons", placeHolder);
