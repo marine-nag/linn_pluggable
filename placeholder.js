@@ -90,9 +90,27 @@ define(function (require) {
                         
                         var order = orders[0];
                         
+                        // Create orderItem Table for pdf File
+                        var body = [];
+                        var columns = ['Image', 'Item', 'Qty', 'UK Plant passport', 'Supplier document'];
+                        body.push(columns);
+                        
+                        order.Items.forEach(function(row) {
+                            var dataRow = [];
+                            
+                            dataRow.push(row.ImageSource);
+                            dataRow.push(row.SKU);
+                            dataRow.push(row.Qty.toString());
+                            dataRow.push(row.UKPlantPassportA);
+                            dataRow.push(row.SupplierDoc);
+                            
+                            body.push(dataRow);
+                        });
+                        
                         //Creating docDefinition
                         var docDefinition = {
-                                  info: {
+                                  info: 
+                                  {
                                     title:
                                       "Invoice",
                                     author: "",
@@ -202,11 +220,7 @@ define(function (require) {
                                         table: {  
                                             headerRows: 1,  
                                             //widths: ['*', '*', '10%', '', ''],  
-                                            body: [  
-                                                ['Image', 'Item', 'Qty', 'UK Plant passport', 'Supplier document'],  
-                                                
-                                                ['', '', 'А: влдаопдав фівдлалджіва іва ', '', 'sdfgsdfgl;df \n оадлівоалд івадлопівдо іваоп цзцщкшезц зщпізащш іваплд діполдіваполд']  
-                                            ]  
+                                            body: body
                                         }  
                                     }   
                                   ],  
