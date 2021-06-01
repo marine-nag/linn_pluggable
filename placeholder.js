@@ -119,17 +119,19 @@ define(function (require) {
                                 
                                 var t = $scope.getBase64Image(imgUrl).then(function(base64image) {
                                       console.log(base64image);
+                                    
+                                     dataRow.push(
+                                        {
+                                           image : 'data:image/jpeg;base64,' + base64image,
+                                           width: 45,
+                                           height: 45
+                                        });
+                                    
                                     }, function(reason) {
                                       console.log(reason); // Error!
                                 });
                                 
-                                dataRow.push(
-                                    {
-                                        /*image : base64,
-                                        width: 45,
-                                        height: 45*/ text: ''
-                                    }
-                                );
+                               
                             }
                             else {
                                 dataRow.push({
