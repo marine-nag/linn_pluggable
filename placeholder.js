@@ -105,7 +105,21 @@ define(function (require) {
         $scope.getImageFromURL = function(url){
             var img = document.createElement('img');
             img.src = 'https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png';
-         };
+        };
+        
+        $scope.getStockSupplierStat = function(serviceInv, itemID) {
+            serviceInv.GetStockSupplierStat(itemID, function(suppliers) {
+                return suppliers;
+            });
+        };
+        
+        $scope.getInventoryItemExtendedProperties = function(serviceInv, itemID) {
+             var ext_props = ['patch_name', 'customs_name', 'country_of_original'];
+            
+             serviceInv.GetInventoryItemExtendedProperties(itemID, ext_props, function(itemExtProps) {
+                 return itemExtProps;
+             });
+        };
         
         /// ======
         // Try to get data by macros with type API
@@ -160,15 +174,19 @@ define(function (require) {
                                 if(property != null)
                                 {
                                     newOrder.PalletGroup = property.Value;
-                                    pallet = property.Value;
                                 }
+                                
+                                // === 
+                                
+                                
                             });
                             
                             // === GET packages data
+                            var suppliers = $scope.getStockSupplierStat(serviceInv, orderObjects[0].Items[0].ItemId);
+                            var sidf = $scope.getInventoryItemExtendedProperties(serviceInv, orderObjects[0].Items[0].ItemId);
                             
+                            alert(sidf.result.length);
                             
-                            
-                            alert(pallet);
                             // finally, push all necessary data.
                             ordersData.push(newOrder);
                         });
