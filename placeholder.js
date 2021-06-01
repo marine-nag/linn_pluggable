@@ -202,7 +202,7 @@ define(function (require) {
                               
                                 var date = new Date();
                                 
-                                var docDefinition = {
+                               /* var docDefinition = {
                                   info: {
                                     title:
                                       "Invoice",
@@ -339,7 +339,7 @@ define(function (require) {
                                 };                                
                                 
                                 //Finally, create a file.
-                                pdfMake.createPdf(docDefinition).open();
+                                pdfMake.createPdf(docDefinition).open();*/
                             } 
                             else 
                             {
