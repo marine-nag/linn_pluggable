@@ -33,15 +33,12 @@ define(function (require) {
         };
         
         this.onClick = () => {
-            
-            //pdfMake.vfs = pdfFonts.pdfMake.vfs;
-            
             var orders = $scope.viewStats.get_selected_orders();
  
-            /*if (orders.length < 1) {
+            if (orders.length < 1) {
                 alert('Please select at least one order');
                 return;
-            }*/
+            }
             
             $scope.getOrderDataBySomeID();
         };
@@ -68,7 +65,7 @@ define(function (require) {
         };
         
         /// ======
-        // Try to get data by macros with type API
+        // Try to get data by macros API
         $scope.getOrderDataBySomeID = function(){  
                 const self = this;
                 
@@ -107,7 +104,7 @@ define(function (require) {
                                           columns: [  
                                           [
                                               { 
-                                                text: 'Hello driver',  
+                                                text: order.DeliveryNote != '' || order.GiftNote != '' ? 'Hello driver' : '',  
                                                 style: 'sectionHeader'
                                               }
                                           ]
@@ -126,6 +123,8 @@ define(function (require) {
                                             }]
                                         ]
                                     },
+                                      
+                                    //TO DO: Add image here!!!
                                     {  
                                         text: 'PATCH',  
                                         style: 'sectionHeader'  
