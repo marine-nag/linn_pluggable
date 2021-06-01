@@ -146,7 +146,14 @@ define(function (require) {
                 
                 const serviceOrder = new Services.OrdersService(self);
                 const serviceInv = new Services.InventoryService(self);
-                
+                const macroService = new Services.MacroService(self);
+            
+                var obj = {applicatioName = 'TEST_PrintInvoices', macroName = 'TEST_print_invoices'};
+            
+                macroService.Run(obj, function(result) {
+                    alert('sdfgsdfg');
+                })
+            
                 var orderObjects = $scope.viewStats.get_selected_orders_objects();
             
                 var orderIDs = [];
