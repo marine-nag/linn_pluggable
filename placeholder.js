@@ -134,7 +134,7 @@ define(function (require) {
             
             serviceInv.GetInventoryItemExtendedProperties(itemID, function(itemExtProps) {
                  return itemExtProps;
-            }, ext_props);
+            }, null);
         };
         
         /// ======
