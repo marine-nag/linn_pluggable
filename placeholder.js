@@ -267,7 +267,7 @@ define(function (require) {
                                             bold: true,  
                                             //decoration: 'underline',  
                                             fontSize: 18,  
-                                            margin: [0, 15, 0, 15]  
+                                            margin: [0, 15, 10, 15]  
                                       }, 
                                       sectionNotes: {
                                             fontSize: 12, 
