@@ -286,6 +286,10 @@ define(function (require) {
                                             fontSize: 12, 
                                             bold: false,
                                             margin: [0, 15, 0, 15]  
+                                      },
+                                      sectionShipping {
+                                            fontSize: 12,
+                                            margin: [0, 0, 30, 0]
                                       }
                                     }  
                                 };
