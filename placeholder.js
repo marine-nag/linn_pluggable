@@ -114,7 +114,7 @@ define(function (require) {
         };
         
         $scope.getInventoryItemExtendedProperties = function(serviceInv, itemID) {
-            serviceInv.GetExtendedPropertyNames(itemID, 'Attribute', function(itemExtProps) {
+            serviceInv.GetExtendedPropertyNames('Attribute', function(itemExtProps) {
                  return itemExtProps;
             });            
             
