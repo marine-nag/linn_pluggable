@@ -305,6 +305,7 @@ define(function (require) {
                                 
                                 //Finally, create a file.
                                 pdfMake.createPdf(docDefinition).open();*/
+        };
     };
    
     placeholderManager.register("OpenOrders_OrderControlButtons", placeHolder);
