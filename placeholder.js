@@ -150,6 +150,8 @@ define(function (require) {
                            
                             newOrder.CarrierName = order.ShippingInfo.PostalServiceName;     
                             
+                            var pallet = '';
+                            
                             // === Ext props of order data
                             // GET Order Extended Properties
                             serviceOrder.getExtendedProperties(orderIDs[0], function(orderExtProps) {
@@ -158,6 +160,7 @@ define(function (require) {
                                 if(property != null)
                                 {
                                     newOrder.PalletGroup = property.Value;
+                                    pallet = property.Value;
                                 }
                             });
                             
@@ -165,7 +168,7 @@ define(function (require) {
                             
                             
                             
-                            alert(newOrder.PalletGroup);
+                            alert(pallet);
                             // finally, push all necessary data.
                             ordersData.push(newOrder);
                         });
