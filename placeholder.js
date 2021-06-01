@@ -198,15 +198,17 @@ define(function (require) {
                                     var itemID = item.ItemId;
                                     
                                     serviceInv.GetStockSupplierStat(itemID, function(suppliers) {
-                                        return suppliers;
+                                        return suppliers.result;
                                     });
 
                                     serviceInv.GetInventoryItemExtendedProperties(itemID, function(itemExtProps) {
-                                         return itemExtProps;
+                                         return itemExtProps.result;
                                     }, null);  
                                     
                                     serviceInv.GetInventoryItemImages(itemID, function (resultImg) {
-                                        var t = resultImg;
+                                        
+                                        
+                                        var t = resultImg.result[0].Source[0];
                                     });
                                     
                                 });
