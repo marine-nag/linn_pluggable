@@ -113,7 +113,7 @@ define(function (require) {
             });
         };
         
-        $scope.getInventoryItemExtendedProperties = function(serviceInv, itemID) {            
+        $scope.getInventoryItemExtendedProperties = async function(serviceInv, itemID) {            
             var ext_props = [ 
                  { 
                      PropertyName: 'patch_name', 
@@ -128,7 +128,7 @@ define(function (require) {
                      PropertyType: 'Attribute'
                  }];
             
-            var props = serviceInv.GetInventoryItemExtendedProperties(itemID, function(itemExtProps) {
+            var props = await serviceInv.GetInventoryItemExtendedProperties(itemID, function(itemExtProps) {
                  return itemExtProps;
             }, null);
             
