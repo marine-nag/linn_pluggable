@@ -288,7 +288,7 @@ define(function (require) {
              style: 'header', 
              pageBreak: 'before', 
              pageOrientation: 'landscape' 
-        }
+        },
                                     // ORDER ITEMS
                                     {  
                                         table: {  
