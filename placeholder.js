@@ -48,7 +48,7 @@ define(function (require) {
               var canvas = document.createElement("canvas");
               
               var dataURL = canvas.toDataURL("image/png"),
-              dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+              //dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
               return callback(dataURL); // the base64 string                
         };
         
@@ -68,15 +68,10 @@ define(function (require) {
             return canvas.toDataURL('image/png');
         };
         
-        $scope.getImageFromURL = function(url){
-            var img = document.createElement('img');
-            img.src = 'https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png';
-        };
-        
         /// ======
         // Try to get data by macros API
         $scope.getOrderDataBySomeID = function(){  
-                var data = $scope.toImageFromUrl('https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png', function(dataUrl) {
+                var base64Logo = $scope.toImageFromUrl('https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png', function(dataUrl) {
                   return dataUrl;
                 })
             
@@ -152,12 +147,20 @@ define(function (require) {
                                             }]
                                         ]
                                     },
-                                      
-                                    //TO DO: Add image here!!!
-                                    {  
-                                        text: 'PATCH',  
-                                        style: 'sectionHeader'  
-                                    },
+                                    // PATCH with logotype.
+                                    [
+                                        {
+                                             image : base64Logo,
+                                             width: 25,
+                                             height: 18, 
+                                             alignment: 'center'   
+                                        }
+                                        ,
+                                        {  
+                                            text: 'PATCH',  
+                                            style: 'sectionHeader'  
+                                        }
+                                    ],
                                     // PATCH ORDER Data
                                     {
                                         columns: [
