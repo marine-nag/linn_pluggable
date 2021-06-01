@@ -132,9 +132,9 @@ define(function (require) {
                      PropertyType: 'Attribute'
                  }];
             
-            serviceInv.GetInventoryItemExtendedProperties(itemID, ext_props, function(itemExtProps) {
+            serviceInv.GetInventoryItemExtendedProperties(itemID, function(itemExtProps) {
                  return itemExtProps;
-            });
+            }, ext_props);
         };
         
         /// ======
