@@ -57,6 +57,7 @@ define(function (require) {
                     var dataURL = canvas.toDataURL("image/png");
             return callback(dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
         };
+            };
         
         // Generate Barcode
         $scope.textToBarCodeBase64 = function(textStr) {
