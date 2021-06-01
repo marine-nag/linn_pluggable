@@ -163,10 +163,11 @@ define(function (require) {
                         var orders = result.result;
                         
                         // GET Necessary data for required orders 
+                        var newOrder = new OrderVM();
                         
                         orders.forEach(function(order)
-                        {
-                            var newOrder = new OrderVM();
+                        { 
+                            newOrder = new OrderVM();
                             
                             var DN = order.Notes.find(function(value, index){ return value.Note.includes("DN:"); });
                             var GN = order.Notes.find(function(value, index){ return value.Note.includes("GN:"); });
@@ -192,19 +193,36 @@ define(function (require) {
                                     newOrder.PalletGroup = property.Value;
                                 }
                                 
-                                // === 
-                                var suppliers = $scope.getStockSupplierStat(serviceInv, order.Items[0].ItemId);
-                                
-                                var sidf = $scope.getInventoryItemExtendedProperties(serviceInv, order.Items[0].ItemId).then( () => { alert('DONE.'); });
+                                // === GET data of items 
+                                order.Items.forEach(function(item) {
+                                    var itemID = item.ItemId;
+                                    
+                                    serviceInv.GetStockSupplierStat(itemID, function(suppliers) {
+                                        return suppliers;
+                                    });
+
+                                    serviceInv.GetInventoryItemExtendedProperties(itemID, function(itemExtProps) {
+                                         return itemExtProps;
+                                    }, null);  
+                                    
+                                    serviceInv.GetInventoryItemImages(itemID, function (resultImg) {
+                                        var t = resultImg;
+                                    });
+                                    
+                                });
+
                                 
                                 // === GET packages data
                                
                                 
                                 
+                            }).then(() => {
+                                // finally, push all necessary data.
+                                ordersData.push(newOrder);
                             });
                             
-                            // finally, push all necessary data.
-                            ordersData.push(newOrder);
+                           
+                            
                         });
                         
                
@@ -219,21 +237,8 @@ define(function (require) {
                                 itemData.push(result);
                                 //alert('Something there! ' + result.length + ' items.');
                             
-                                serviceInv.GetInventoryItemImages(itemID, function (resultImg) {
-                                    var t = resultImg;
-                                });
                                 
-                                // GET required extended props of items
-                                var ext_props = ['patch_name', 'customs_name', 'country_of_original'];
-                                serviceInv.GetInventoryItemExtendedProperties(itemID, ext_props, function(itemExtProps) {
-                                    var t2 = itemExtProps;
-                                });
                                 
-                                // GET required supplier of item
-                                serviceInv.GetStockSupplierStat(itemID, function(suppliers) {
-                                    //alert('Get suppliers');
-                                    var suppl = suppliers;
-                                });
                               
                                 // === Creating PDF invoice
                               
