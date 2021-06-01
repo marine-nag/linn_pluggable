@@ -93,6 +93,7 @@ define(function (require) {
                   console.log(reason); // Error!
                 });
 
+                var t = $scope.textToBarCodeBase64('kfjaksdjf');
             
                 const self = this;
                 
