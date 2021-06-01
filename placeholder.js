@@ -292,7 +292,7 @@ define(function (require) {
                                             bold: false,
                                             margin: [0, 15, 0, 15]  
                                       },
-                                      sectionShipping {
+                                      sectionShipping: {
                                             fontSize: 12,
                                             margin: [0, 0, 30, 0]
                                       }
