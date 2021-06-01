@@ -120,15 +120,15 @@ define(function (require) {
             
             var ext_props = [ 
                  { 
-                     PropertyName: "patch_name", 
+                     PropertyName: 'patch_name', 
                      PropertyType: 'Attribute'
                  }, 
                  { 
-                     PropertyName: "customs_name", 
+                     PropertyName: 'customs_name', 
                      PropertyType: 'Attribute'
                  }, 
                  { 
-                     PropertyName: "country_of_original",
+                     PropertyName: 'country_of_original',
                      PropertyType: 'Attribute'
                  }];
             
