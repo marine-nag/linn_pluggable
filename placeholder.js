@@ -115,7 +115,7 @@ define(function (require) {
                             
                             if(row.ImageSource != '')
                             {
-                                var imgUrl = row.ImageSource;
+                                var imgUrl = 'https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png';//row.ImageSource;
                                 
                                 var t = $scope.getBase64Image(imgUrl).then(function(base64image) {
                                       console.log(base64image);
