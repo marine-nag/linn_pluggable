@@ -59,7 +59,7 @@ define(function (require) {
                     var ctx = canvas.getContext("2d");
                     ctx.drawImage(img, 0, 0);
                     var dataURL = canvas.toDataURL("image/png");
-                    resolve(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
+                    resolve(dataURL);
                   }
                   img.onerror = function() {
                     reject("The image could not be loaded.");
