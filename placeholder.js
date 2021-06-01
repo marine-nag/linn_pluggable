@@ -293,13 +293,13 @@ define(function (require) {
                                                 return (rowIndex == 0) ? '#f5f2ed' : null;
                                             },
                                             hLineColor: function (i, node) {
-                                                return (i === 0 || i === node.table.body.length) ? 'black' : 'transparent';
+                                                return (i === 0 || i === node.table.body.length) ? '#808080' : 'white';
                                             },
                                             hLineWidth: function (i, node) {
-                                                return (i === 0 || i === node.table.body.length) ? 2 : 1;
+                                                return (i === 0 || i === node.table.body.length) ? 1 : 0;
                                             },
                                             vLineWidth: function (i, node) {
-                                                return (i === 0 || i === node.table.widths.length) ? 2 : 1;
+                                                return (i === 0 || i === node.table.widths.length) ? 1 : 0;
                                             }
                                         } 
                                     }   
