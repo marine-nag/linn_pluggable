@@ -113,11 +113,7 @@ define(function (require) {
             });
         };
         
-        $scope.getInventoryItemExtendedProperties = function(serviceInv, itemID) {
-            /*serviceInv.GetExtendedPropertyNames('Attribute', function(itemExtProps) {
-                 return itemExtProps;
-            });            */
-            
+        $scope.getInventoryItemExtendedProperties = function(serviceInv, itemID) {            
             var ext_props = [ 
                  { 
                      PropertyName: 'patch_name', 
@@ -201,7 +197,7 @@ define(function (require) {
                             var suppliers = $scope.getStockSupplierStat(serviceInv, order.Items[0].ItemId);
                             var sidf = $scope.getInventoryItemExtendedProperties(serviceInv, order.Items[0].ItemId);
                             
-                            //alert(sidf.result.length);
+                            alert(sidf.result.length);
                             
                             // finally, push all necessary data.
                             ordersData.push(newOrder);
