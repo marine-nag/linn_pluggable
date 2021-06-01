@@ -185,7 +185,7 @@ define(function (require) {
                             var suppliers = $scope.getStockSupplierStat(serviceInv, order.Items[0].ItemId);
                             var sidf = $scope.getInventoryItemExtendedProperties(serviceInv, order.Items[0].ItemId);
                             
-                            alert(sidf.result.length);
+                            //alert(sidf.result.length);
                             
                             // finally, push all necessary data.
                             ordersData.push(newOrder);
