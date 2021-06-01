@@ -114,27 +114,27 @@ define(function (require) {
         };
         
         $scope.getInventoryItemExtendedProperties = function(serviceInv, itemID) {
-            serviceInv.GetExtendedPropertyNames('Attribute', function(itemExtProps) {
+            /*serviceInv.GetExtendedPropertyNames('Attribute', function(itemExtProps) {
                  return itemExtProps;
-            });            
+            });            */
             
             var ext_props = [ 
                  { 
-                     PropertyName: 'patch_name', 
+                     PropertyName: "patch_name", 
                      PropertyType: 'Attribute'
                  }, 
                  { 
-                     PropertyName: 'customs_name', 
+                     PropertyName: "customs_name", 
                      PropertyType: 'Attribute'
                  }, 
                  { 
-                     PropertyName: 'country_of_original',
+                     PropertyName: "country_of_original",
                      PropertyType: 'Attribute'
                  }];
             
-            /*serviceInv.GetInventoryItemExtendedProperties(itemID, ext_props, function(itemExtProps) {
+            serviceInv.GetInventoryItemExtendedProperties(itemID, ext_props, function(itemExtProps) {
                  return itemExtProps;
-            });*/
+            });
         };
         
         /// ======
