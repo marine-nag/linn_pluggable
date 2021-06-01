@@ -107,7 +107,27 @@ define(function (require) {
                         
                         // Create orderItem Table for pdf File
                         var body = [];
-                        var columns = ['Image', 'Item', 'Qty', 'UK Plant passport', 'Supplier document'];
+                        var columns = [
+                            { 
+                                text: 'Image', 
+                                margin: [0, 0, 0, 35]
+                            },
+                            {
+                                text: 'Item',  
+                                margin: [0, 0, 0, 35]
+                            },
+                            {
+                                text: 'Qty',  
+                                margin: [0, 0, 0, 35]
+                            },
+                            {
+                                text: 'UK Plant passport',  
+                                margin: [0, 0, 0, 35]
+                            },
+                            {
+                                text: 'Supplier document',  
+                                margin: [0, 0, 0, 35]
+                            }];
                         body.push(columns);
                         
                         order.Items.forEach(function(row) {
