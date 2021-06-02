@@ -157,13 +157,15 @@ define(function (require) {
                                 });*/
                                 
                                 dataRow.push({
-                                    text: 'Image'
+                                    text: 'Image',
+                                    margin: [0, 10, 0, 10]
                                 });
                                
                             }
                             else {
                                 dataRow.push({
-                                    text: ''
+                                    text: '',
+                                    margin: [0, 10, 0, 10]
                                 });
                             }
                             
@@ -174,19 +176,27 @@ define(function (require) {
                                         { text: row.ItemTitle + '\n', bold: false }, 
                                         { text: row.PatchName + '\n', bold: false } 
                                     ], 
-                                    bold:true
+                                    bold:true,
+                                    margin: [0, 10, 0, 10]
                                 },);
                             
                             dataRow.push({ 
                                 text: row.Qty.toString(), 
                                 fontSize: 16,
-                                bold: true
+                                bold: true,
+                                margin: [0, 10, 0, 10]
                             });
-                            dataRow.push( 'A: ' + row.UKPlantPassportA + '\n' + 'D: ' + row.UKPlantPassportD);
-                            dataRow.push('Supplier Document: ' + row.SupplierDoc + '\n' 
+                            dataRow.push( { 
+                                text: 'A: ' + row.UKPlantPassportA + '\n' + 'D: ' + row.UKPlantPassportD,
+                                margin: [0, 10, 0, 10]
+                            });
+                            dataRow.push({
+                                text: 'Supplier Document: ' + row.SupplierDoc + '\n' 
                                          + 'ID: ' + order.OrderID + ' Printed: ' + order.PrintedDate + '.' 
                                          + row.UKPlantPassportA + '.' + row.ItemTitle + '.' 
-                                         + row.Qty);
+                                         + row.Qty,
+                                margin: [0, 10, 0, 10]
+                            });
                             
                             body.push(dataRow);
                         });
