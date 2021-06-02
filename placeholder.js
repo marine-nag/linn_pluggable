@@ -88,7 +88,11 @@ define(function (require) {
                 },
                 content: [],
                 footer: {  
-                    columns: [{ 
+                    columns: [
+                      'Left part',
+                      { text: 'Right part', alignment: 'right' }
+                    ]
+                    /*columns: [{ 
                         text: 'Thanks for shopping with Patch',
                         alignment: 'center',
                         bold: true
@@ -97,7 +101,7 @@ define(function (require) {
                         text: 'If you have any questions, send us an email at: help@patchplants.com',
                         alignment: 'center',
                         bold: false
-                    }]
+                    }]*/
                 },
                 /*footer: {
                     canvas: [
