@@ -92,8 +92,8 @@ define(function (require) {
                         text: 'Thanks for shopping with Patch',
                         alignment: 'center',
                         bold: true
-                    }],
-                    columns: [{
+                    },
+                    {
                         text: 'If you have any questions, send us an email at: help@patchplants.com',
                         alignment: 'center',
                         bold: false
@@ -405,16 +405,16 @@ define(function (require) {
                             };
                             newContent.push(footer);*/
                            
-                            var cnt = order.Packages.length - 1;
+                            //var cnt = order.Packages.length - 1;
                             // if this is not last package add new page.
-                            if (index != cnt) {
+                            /*if (index != cnt) {
                                 var pagebreak = {
                                     text: '',
                                     pageBreak: "after"
                                 };
 
                                 newContent.push(pagebreak);
-                            }
+                            }*/
 
                             docDefinition.content.push(newContent);
                         }
