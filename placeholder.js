@@ -87,22 +87,19 @@ define(function (require) {
                     keywords: "Invoice",
                 },
                 content: [],
-                footer: function(page, pages) {
-                  return {
-                    margin: [5, 0, 10, 0],
-                    height: 30,
-                    columns: [{
-                      alignment: "left",
-                      text: 'This is your left footer column',
-                    }, {
-                      alignment: "right",
-                      text: [
-                        { text: page.toString(), italics: true },
-                          " of ",
-                        { text: pages.toString(), italics: true }
-                      ]
-                    }]
-                  }
+                footer: {  
+                    text: 'ljflkasdjfkljasdklfj',
+                    canvas: [
+                        {
+                            type: 'line',
+                            x1: 0,
+                            y1: 5,
+                            x2: 450,
+                            y2: 5,
+                            color: '#808080',
+                            lineWidth: 0.5
+                        }
+                    ]
                 },
                 /*footer: {
                     canvas: [
@@ -208,7 +205,8 @@ define(function (require) {
                                 }
                                 else {
                                     dataRow.push({
-                                        text: '', fontSize: 10,
+                                        text: '',
+                                        fontSize: 10,
                                         margin: [0, 10, 0, 10]
                                     });
                                 }
@@ -220,20 +218,21 @@ define(function (require) {
                                             { text: row.SKU + '\n', bold: false },
                                             { text: row.ItemTitle + '\n', bold: false }
                                         ],
-                                        bold: true, fontSize: 10,
+                                        bold: true,
+                                        fontSize: 10,
                                         margin: [0, 10, 0, 10]
                                     });
 
                                 dataRow.push({
                                     text: row.Qty.toString(),
-                                    fontSize: 14,
+                                    fontSize: 10,
                                     bold: true,
                                     margin: [0, 10, 0, 10]
                                 });
                                 dataRow.push({
                                     text: 'A: ' + row.UKPlantPassportA + '\n' + 'D: ' + row.UKPlantPassportD,
-                                    fontSize: 10,
-                                    margin: [0, 10, 0, 10]
+                                    margin: [0, 10, 0, 10],
+                                    fontSize: 10
                                 });
 
                                 var SupplierDoc = 'Supplier Document: EU Quality. UK. EW. 127129. Patch Plants Ltd. \n';
@@ -242,7 +241,7 @@ define(function (require) {
                                 SupplierDoc += row.ItemTitle + '.' + row.Qty;
 
                                 dataRow.push({
-                                    text: SupplierDoc,
+                                    text: SupplierDoc, fontSize: 10,
                                     margin: [0, 10, 0, 10]
                                 });
 
@@ -390,13 +389,23 @@ define(function (require) {
                                     }
                                 }];
 
+                            /*
+                             table: {
+                            widths: '*',
+                            body: [
+                                [
+                                    { text: "Page " + currentPage.toString() + ' of ' + pageCount, alignment: 'right', style: 'normalText', margin: [0, 20, 50, 0], aligment: 'left' }
+                                        ]
+                                    ]
+                                }
+                                */
                             // ADD footer 
-                            var footer = {
+                            /*var footer = {
                                 text: '',
                                 pageBreak: 'after'
-                            };
-                            newContent.push(footer);
+                            };*/
 
+                           
                             var cnt = order.Packages.length - 1;
                             // if this is not last package add new page.
                             if (index != cnt) {
