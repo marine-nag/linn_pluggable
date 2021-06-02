@@ -93,7 +93,7 @@ define(function (require) {
                             widths: '*',
                             body: [
                                 [
-                                    { text: "Page " + currentPage.toString() + ' of ' + pageCount, alignment: 'right', style: 'normalText', margin: [0, 20, 50, 0], aligment: 'left' }
+                                    { text: "Page " + currentPage.toString() + ' of ' + pageCount, alignment: 'right', margin: [0, 20, 50, 0] }
                                 ]
                                 /*,
                                 [
