@@ -352,17 +352,33 @@ define(function (require) {
 
                             // ADD footer 
                             var footer = {
-                                
-                                    text: 'Footer',
-                                    alignment: 'center'
-                                
-                                /*{
-                                    text: 'Footer2',
-                                    alignment: 'center'
-                                }]*/
+                                columns: [
+                                    'But what if there is a column?',
+                                    {
+                                        stack: [
+                                            'Ideally this line would be below just the text',
+                                            {
+                                                canvas: [
+                                                    {
+                                                        type: 'line',
+                                                        x1: 0,
+                                                        y1: 5,
+                                                        x2: 250,
+                                                        y2: 5,
+                                                        lineWidth: 0.5
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        text: 'Footer',
+                                        alignment: 'center'
+                                    }
+                                ]
                             };
                             newContent.push(footer);
-                            
+
                             // if this is not last package add new page.
                             if (pkg.SKU != order.Packages.pop().SKU) {
                                 var pagebreak = {
