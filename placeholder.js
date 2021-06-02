@@ -379,8 +379,9 @@ define(function (require) {
                             };
                             newContent.push(footer);
 
+                            var cnt = order.Packages.length - 1;
                             // if this is not last package add new page.
-                            if (pkg.SKU != order.Packages.pop().SKU) {
+                            if (index != cnt) {
                                 var pagebreak = {
                                     //text: 'sdgsdfgsdf',
                                     pageBreak: "after"
