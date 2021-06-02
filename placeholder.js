@@ -164,7 +164,11 @@ define(function (require) {
                             
                             dataRow.push(
                                 {
-                                    text: [ { text: row.SKU + '\n', bold: true }, { text: row.ItemTitle + '\n', bold: false }, { text: row.PatchName + '\n', bold: false } ], 
+                                    text: [ 
+                                        { text: row.SKU + '\n', bold: true, margin: [0, 0, 0, 15] }, 
+                                        { text: row.ItemTitle + '\n', bold: false }, 
+                                        { text: row.PatchName + '\n', bold: false } 
+                                    ], 
                                     bold:true
                                 },);
                             
