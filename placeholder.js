@@ -90,11 +90,15 @@ define(function (require) {
                 footer: function (currentPage, pageCount) {
                     return {
                         table: {
+                            widths: '*',
                             body: [
                                 [
-                                    //{ image: 'sampleImage.jpg', alignment: 'center', fit: [400, 400] },
-                                    { text: "Page " + currentPage.toString() + ' of ' + pageCount, alignment: 'right', style: 'normalText', margin: [0, 20, 50, 0] }
-                                ],
+                                    { text: "Page " + currentPage.toString() + ' of ' + pageCount, alignment: 'right', style: 'normalText', margin: [0, 20, 50, 0], aligment: 'left' }
+                                ]
+                                /*,
+                                [
+                                    { image: 'sampleImage.jpg', alignment: 'center', width: 200 },
+                                ]*/
                             ]
                         },
                         layout: 'noBorders'
