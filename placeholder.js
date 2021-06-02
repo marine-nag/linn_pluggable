@@ -116,21 +116,25 @@ define(function (require) {
                             {
                                 text: 'Item',  
                                 bold: true,
+                                fontSize: 12,
                                 margin: [10, 10, 0, 15]
                             },
                             {
                                 text: 'Qty',  
                                 bold: true,
+                                fontSize: 15,
                                 margin: [0, 10, 0, 15]
                             },
                             {
                                 text: 'UK Plant passport',  
                                 bold: true,
+                                fontSize: 12,
                                 margin: [10, 10, 0, 15]
                             },
                             {
                                 text: 'Supplier document',
                                 bold: true,
+                                fontSize: 12,
                                 margin: [10, 10, 0, 15]
                             }];
                         body.push(columns);
