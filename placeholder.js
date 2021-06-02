@@ -356,10 +356,11 @@ define(function (require) {
 
                             docDefinition.content.push(newContent);
                         });
-                    }).then(() => {
+                    });
+                        /*.then(() => {
                         //Finally, create a file.
                         pdfMake.createPdf(docDefinition).open();
-                    });
+                    });*/
 
                 } else {
                     alert('Errors...');
