@@ -87,11 +87,11 @@ define(function (require) {
                     keywords: "Invoice",
                 },
                 content: [],
-                footer: {  
-                    columns: [
+                footer: {},
+                    /*columns: [
                       'Left part',
                       { text: 'Right part', alignment: 'right' }
-                    ]
+                    ]*/
                     /*columns: [{ 
                         text: 'Thanks for shopping with Patch',
                         alignment: 'center',
@@ -102,7 +102,7 @@ define(function (require) {
                         alignment: 'center',
                         bold: false
                     }]*/
-                },
+                //},
                 /*footer: {
                     canvas: [
                         {
@@ -419,7 +419,12 @@ define(function (require) {
 
                                 newContent.push(pagebreak);
                             }*/
-
+                            docDefinition.footer = {
+                                columns: [
+                                  'Left part',
+                                  { text: 'Right part', alignment: 'right' }
+                                ]
+                            };
                             docDefinition.content.push(newContent);
                         }
                     }
