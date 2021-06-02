@@ -363,21 +363,21 @@ define(function (require) {
                                                 y2: 5,
                                                 lineWidth: 0.5
                                             }
-                                        ]
+                                        ], alignment: 'center'
                                     }
                                 ],
-
-                                columns: [
-                                    { 
-                                        text: 'Thanks for shopping with Patch \n',
-                                        alignment: 'center',
-                                        bold: true
-                                    },
-                                    {
-                                        text: 'If you have any questions, send us an email at: help@patchplants.com',
-                                        alignment: 'center'
-                                    }
-                                ], pageBreak: 'after'
+                                text: 'Thanks for shopping with Patch \n',
+                                text: 'If you have any questions, send us an email at: help@patchplants.com',
+                                // { 
+                                //     text: 'Thanks for shopping with Patch \n',
+                                //     alignment: 'center',
+                                //     bold: true
+                                // },
+                                // {
+                                //     text: 'If you have any questions, send us an email at: help@patchplants.com',
+                                //     alignment: 'center'
+                                // }
+                                pageBreak: 'after'
                             };
                             newContent.push(footer);
 
