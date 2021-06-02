@@ -109,7 +109,7 @@ define(function (require) {
 
             // RUN Macro to get necessary data
             macroService.Run(obj, function (data) {
-                if ((data.error == null) && (data.result != null)) {
+                if ((data.error == null) && (data.result != null) && (data.result.length != 0)) {
                     var orders = data.result;
 
                     //var order = orders[0];
@@ -356,11 +356,10 @@ define(function (require) {
 
                             docDefinition.content.push(newContent);
                         });
-                    });
-                        /*.then(() => {
+                    }).then(() => {
                         //Finally, create a file.
                         pdfMake.createPdf(docDefinition).open();
-                    });*/
+                    });
 
                 } else {
                     alert('Errors...');
