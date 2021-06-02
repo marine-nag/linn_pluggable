@@ -87,6 +87,28 @@ define(function (require) {
                     keywords: "Invoice",
                 },
                 content: [],
+                footer: {
+                    canvas: [
+                        {
+                            type: 'line',
+                            x1: 0,
+                            y1: 5,
+                            x2: 250,
+                            y2: 5,
+                            color: '#808080',
+                            lineWidth: 0.5
+                        }
+                    ],
+                    columns: [{ 
+                        text: 'Thanks for shopping with Patch \n',
+                        alignment: 'center',
+                        bold: true
+                    }],
+                    columns: [{
+                        text: 'If you have any questions, send us an email at: help@patchplants.com',
+                        alignment: 'center'
+                    }]
+                },
                 //CSS
                 styles: {
                     sectionHeader: {
@@ -352,31 +374,15 @@ define(function (require) {
 
                             // ADD footer 
                             var footer = {
-                                stack: [
-                                    {
-                                        canvas: [
-                                            {
-                                                type: 'line',
-                                                x1: 0,
-                                                y1: 5,
-                                                x2: 250,
-                                                y2: 5,
-                                                lineWidth: 0.5
-                                            }
-                                        ], alignment: 'center'
-                                    }
-                                ],
-                                text: 'Thanks for shopping with Patch \n',
-                                text: 'If you have any questions, send us an email at: help@patchplants.com',
-                                // { 
-                                //     text: 'Thanks for shopping with Patch \n',
-                                //     alignment: 'center',
-                                //     bold: true
-                                // },
-                                // {
-                                //     text: 'If you have any questions, send us an email at: help@patchplants.com',
-                                //     alignment: 'center'
-                                // }
+                            //    footer: { 
+                            //         text: 'Thanks for shopping with Patch \n',
+                            //         alignment: 'center',
+                            //         bold: true
+                            //     },
+                            //     {
+                            //         text: 'If you have any questions, send us an email at: help@patchplants.com',
+                            //         alignment: 'center'
+                            //     }
                                 pageBreak: 'after'
                             };
                             newContent.push(footer);
