@@ -87,21 +87,22 @@ define(function (require) {
                     keywords: "Invoice",
                 },
                 content: [],
-                footer: function (currentPage, pageCount) {
-                    return {
-                        table: {
-                            widths: '*',
-                            body: [
-                                [
-                                    { text: "Page " + currentPage.toString() + ' of ' + pageCount, alignment: 'right', margin: [0, 20, 50, 0] }
-                                ]
-                                /*,
-                                [
-                                    { image: 'sampleImage.jpg', alignment: 'center', width: 200 },
-                                ]*/
-                            ]
-                        }
-                    };
+                footer: function(page, pages) {
+                  return {
+                    margin: [5, 0, 10, 0],
+                    height: 30,
+                    columns: [{
+                      alignment: "left",
+                      text: 'This is your left footer column',
+                    }, {
+                      alignment: "right",
+                      text: [
+                        { text: page.toString(), italics: true },
+                          " of ",
+                        { text: pages.toString(), italics: true }
+                      ]
+                    }]
+                  }
                 },
                 /*footer: {
                     canvas: [
