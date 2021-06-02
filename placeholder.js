@@ -213,7 +213,7 @@ define(function (require) {
                                     columns: [
                                         [
                                             {
-                                                text: order.DeliveryNote != '' || order.GiftNote != '' ? 'Hello driver' : '',
+                                                text: (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? 'Hello driver' : '',
                                                 style: 'sectionHeader'
                                             }
                                         ]
@@ -223,14 +223,14 @@ define(function (require) {
                                 {
                                     columns: [
                                         [{
-                                            text: order.DeliveryNote,
+                                            text: (order.DeliveryNote != '' && order.DeliveryNote != null) ? order.DeliveryNote : '',
                                             maxHeight: 600,
                                             width: 272,
                                             height: 159,
                                             margin: [0, 15, 0, 15]
                                         }],
                                         [{
-                                            text: order.GiftNote,
+                                            text: (order.GiftNote != '' && order.GiftNote != null) ? order.GiftNote : '',
                                             width: 272,
                                             height: 159,
                                             margin: [20, 15, 0, 15]
@@ -350,7 +350,8 @@ define(function (require) {
                             // if this is not last package add new page.
                             if (index != (order.Packages.length - 1)) {
                                 var pagebreak = {
-                                    pageBreak: "before"
+                                    text: '',
+                                    pageBreak: "after"
                                 };
 
                                 newContent.push(pagebreak);
@@ -359,7 +360,7 @@ define(function (require) {
                             docDefinition.content.push(newContent);
                         });
                     }
-                    
+
                     //});
 
                     //Finally, create a file.
