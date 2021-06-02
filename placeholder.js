@@ -110,22 +110,27 @@ define(function (require) {
                         var columns = [
                             { 
                                 text: 'Image', 
+                                bold: true,
                                 margin: [10, 10, 0, 15]
                             },
                             {
                                 text: 'Item',  
+                                bold: true,
                                 margin: [10, 10, 0, 15]
                             },
                             {
                                 text: 'Qty',  
+                                bold: true,
                                 margin: [10, 10, 0, 15]
                             },
                             {
                                 text: 'UK Plant passport',  
+                                bold: true,
                                 margin: [10, 10, 0, 15]
                             },
                             {
-                                text: 'Supplier document',  
+                                text: 'Supplier document',
+                                bold: true,
                                 margin: [10, 10, 0, 15]
                             }];
                         body.push(columns);
@@ -341,7 +346,7 @@ define(function (require) {
                                       },
                                       sectionShipping: {
                                             fontSize: 12,
-                                            margin: [0, 0, 0, 30]
+                                            margin: [0, 0, 0, 20]
                                       }
                                     }  
                                 };                                
