@@ -109,7 +109,7 @@ define(function (require) {
 
             // RUN Macro to get necessary data
             macroService.Run(obj, function (data) {
-                if (data.error == null) {
+                if ((data.error == null) && (data.result != null)) {
                     var orders = data.result;
 
                     var order = orders[0];
