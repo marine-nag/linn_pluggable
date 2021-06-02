@@ -128,11 +128,7 @@ namespace LinnworksMacro
                 Logger.WriteInfo("Sending request to get image ...");
                 var response = ProxyFactory.WebRequest(request);
 
-                string fileString = response.GetStringResponse();
-
-                var bytes = Encoding.UTF8.GetBytes(fileString);
-
-                string base64 = Convert.ToBase64String(bytes);
+                string base64 = Convert.ToBase64String(response.RawResponse);
 
                 return base64;
             }
