@@ -139,9 +139,9 @@ define(function (require) {
                             dataRow.push(
                                 {
                                     text: [ 
-                                        { text: row.SKU + '\n', bold: true, margin: [0, 0, 0, 15] }, 
-                                        { text: row.ItemTitle + '\n', bold: false }, 
-                                        { text: row.PatchName + '\n', bold: false } 
+                                        { text: row.PatchName + '\n', bold: true, margin: [0, 0, 0, 15] }, 
+                                        { text: row.SKU + '\n', bold: false }, 
+                                        { text: row.ItemTitle + '\n', bold: false } 
                                     ], 
                                     bold:true,
                                     margin: [0, 10, 0, 10]
@@ -157,11 +157,14 @@ define(function (require) {
                                 text: 'A: ' + row.UKPlantPassportA + '\n' + 'D: ' + row.UKPlantPassportD,
                                 margin: [0, 10, 0, 10]
                             });
+                            
+                            var SupplierDoc = 'Supplier Document: EU Quality. UK. EW. 127129. Patch Plants Ltd. \n';
+                            SupplierDoc += 'ID: ' + order.OrderID + ' Printed: ' + order.PrintedDate + '.';
+                            SupplierDoc += row.UKPlantPassportA != null && row.UKPlantPassportA != '' ? row.UKPlantPassportA  + '.' : '';
+                            SupplierDoc += row.ItemTitle + '.' + row.Qty;
+                            
                             dataRow.push({
-                                text: 'Supplier Document: ' + row.SupplierDoc + '\n' 
-                                         + 'ID: ' + order.OrderID + ' Printed: ' + order.PrintedDate + '.' 
-                                         + row.UKPlantPassportA + '.' + row.ItemTitle + '.' 
-                                         + row.Qty,
+                                text: SupplierDoc,
                                 margin: [0, 10, 0, 10]
                             });
                             
