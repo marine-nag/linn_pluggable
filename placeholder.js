@@ -100,8 +100,7 @@ define(function (require) {
                                     { image: 'sampleImage.jpg', alignment: 'center', width: 200 },
                                 ]*/
                             ]
-                        },
-                        layout: 'noBorders'
+                        }
                     };
                 },
                 /*footer: {
