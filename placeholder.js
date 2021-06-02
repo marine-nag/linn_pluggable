@@ -87,7 +87,20 @@ define(function (require) {
                     keywords: "Invoice",
                 },
                 content: [],
-                footer: {
+                footer: function (currentPage, pageCount) {
+                    return {
+                        table: {
+                            body: [
+                                [
+                                    //{ image: 'sampleImage.jpg', alignment: 'center', fit: [400, 400] },
+                                    { text: "Page " + currentPage.toString() + ' of ' + pageCount, alignment: 'right', style: 'normalText', margin: [0, 20, 50, 0] }
+                                ],
+                            ]
+                        },
+                        layout: 'noBorders'
+                    };
+                },
+                /*footer: {
                     canvas: [
                         {
                             type: 'line',
@@ -108,7 +121,7 @@ define(function (require) {
                         text: 'If you have any questions, send us an email at: help@patchplants.com',
                         alignment: 'center'
                     }]
-                },
+                },*/
                 //CSS
                 styles: {
                     sectionHeader: {
@@ -374,15 +387,6 @@ define(function (require) {
 
                             // ADD footer 
                             var footer = {
-                            //    footer: { 
-                            //         text: 'Thanks for shopping with Patch \n',
-                            //         alignment: 'center',
-                            //         bold: true
-                            //     },
-                            //     {
-                            //         text: 'If you have any questions, send us an email at: help@patchplants.com',
-                            //         alignment: 'center'
-                            //     }
                                 text: '',
                                 pageBreak: 'after'
                             };
