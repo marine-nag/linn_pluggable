@@ -352,27 +352,29 @@ define(function (require) {
 
                             // ADD footer 
                             var footer = {
-                                columns: [
-                                    'But what if there is a column?',
+                                stack: [
                                     {
-                                        stack: [
-                                            'Ideally this line would be below just the text',
+                                        canvas: [
                                             {
-                                                canvas: [
-                                                    {
-                                                        type: 'line',
-                                                        x1: 0,
-                                                        y1: 5,
-                                                        x2: 250,
-                                                        y2: 5,
-                                                        lineWidth: 0.5
-                                                    }
-                                                ]
+                                                type: 'line',
+                                                x1: 0,
+                                                y1: 5,
+                                                x2: 250,
+                                                y2: 5,
+                                                lineWidth: 0.5
                                             }
                                         ]
+                                    }
+                                ],
+
+                                columns: [
+                                    { 
+                                        text: 'Thanks for shopping with Patch \n',
+                                        alignment: 'center',
+                                        bold: true
                                     },
                                     {
-                                        text: 'Footer',
+                                        text: 'If you have any questions, send us an email at: help@patchplants.com',
                                         alignment: 'center'
                                     }
                                 ], pageBreak: 'after'
