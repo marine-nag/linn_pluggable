@@ -76,7 +76,6 @@ define(function (require) {
 
             var obj = { applicationName: 'TEST_PrintInvoices', macroName: 'TEST_print_invoices', orderIds: orderIDs };
 
-
             // Init docDefinition
             docDefinition = {
                 info:
@@ -113,7 +112,10 @@ define(function (require) {
                     var orders = data.result;
 
                     //var order = orders[0];
-                    orders.forEach(function (order) {
+                    //orders.forEach(function (order) {
+
+                    for (let i = 0; i < orders.length; i++) {
+                        var order = orders[i];
 
                         order.Packages.forEach(function (pkg, index) {
                             // Create body and columns for order items in package...
@@ -356,11 +358,12 @@ define(function (require) {
 
                             docDefinition.content.push(newContent);
                         });
-                    }).then(() => {
-                        //Finally, create a file.
-                        pdfMake.createPdf(docDefinition).open();
-                    });
+                    }
+                    
+                    //});
 
+                    //Finally, create a file.
+                    pdfMake.createPdf(docDefinition).open();
                 } else {
                     alert('Errors...');
                 }
