@@ -399,18 +399,19 @@ define(function (require) {
                                     ]
                                 }
                                 */
+                            
                             // ADD footer 
-                            /*var footer = {
+                            var footer = {
                                 text: '',
                                 pageBreak: 'after'
-                            };*/
-
+                            };
+                            newContent.push(footer);
                            
                             var cnt = order.Packages.length - 1;
                             // if this is not last package add new page.
                             if (index != cnt) {
                                 var pagebreak = {
-                                    //text: 'sdgsdfgsdf',
+                                    text: '',
                                     pageBreak: "after"
                                 };
 
