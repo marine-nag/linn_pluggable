@@ -350,7 +350,7 @@ define(function (require) {
                             // if this is not last package add new page.
                             if (index != (order.Packages.length - 1)) {
                                 var pagebreak = {
-                                    text: '',
+                                    text: 'sdfadfas',
                                     pageBreak: "after"
                                 };
 
