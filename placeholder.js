@@ -250,8 +250,9 @@ define(function (require) {
                                              margin: [0, 15, 90, 15]
                                          },
                                          {
-                                             text: '  PATCH',  
+                                             text: '  PATCH', 
                                              style: 'sectionHeader'
+                                             , paddingLeft: 25
                                          }
                                       ]
                                     },
