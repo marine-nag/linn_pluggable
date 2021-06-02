@@ -165,30 +165,31 @@ define(function (require) {
                                 {
                                     text: 'Image',
                                     bold: true,
+                                    fontSize: 11,
                                     margin: [10, 10, 0, 15]
                                 },
                                 {
                                     text: 'Item',
                                     bold: true,
-                                    fontSize: 12,
+                                    fontSize: 11,
                                     margin: [10, 10, 0, 15]
                                 },
                                 {
                                     text: 'Qty',
                                     bold: true,
-                                    fontSize: 15,
+                                    fontSize: 14,
                                     margin: [0, 10, 0, 15]
                                 },
                                 {
                                     text: 'UK Plant passport',
                                     bold: true,
-                                    fontSize: 12,
+                                    fontSize: 11,
                                     margin: [10, 10, 0, 15]
                                 },
                                 {
                                     text: 'Supplier document',
                                     bold: true,
-                                    fontSize: 12,
+                                    fontSize: 11,
                                     margin: [10, 10, 0, 15]
                                 }];
                             body.push(columns);
