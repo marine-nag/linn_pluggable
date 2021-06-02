@@ -112,7 +112,7 @@ define(function (require) {
                 if ((data.error == null) && (data.result != null)) {
                     var orders = data.result;
 
-                    var order = orders[0];
+                    //var order = orders[0];
                     orders.forEach(function (order) {
 
                         order.Packages.forEach(function (pkg, index) {
