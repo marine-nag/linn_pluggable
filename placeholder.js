@@ -43,28 +43,6 @@ define(function (require) {
             $scope.getOrderDataBySomeID();
         };
         
-        $scope.getBase64Image = function(imgUrl, callback){ 
-                  return new Promise(
-                        function(resolve, reject) {
-                          var img = new Image();
-                          img.src = imgUrl;
-                          img.setAttribute('crossOrigin', 'anonymous');
-
-                          img.onload = function() {
-                            var canvas = document.createElement("canvas");
-                            canvas.width = img.width;
-                            canvas.height = img.height;
-                            var ctx = canvas.getContext("2d");
-                            ctx.drawImage(img, 0, 0);
-                            var dataURL = canvas.toDataURL("image/png");
-                            resolve(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
-                          }
-                          img.onerror = function() {
-                            reject("The image could not be loaded.");
-                          }
-                        });
-            };
-        
         // Generate Barcode
         $scope.textToBarCodeBase64 = function(textStr) {
             let canvas = document.createElement('canvas');
@@ -216,10 +194,14 @@ define(function (require) {
                                             [{
                                                 text: order.DeliveryNote,
                                                 maxHeight: 600,
+                                                width: 272,
+                                                height: 159,
                                                 margin: [0, 15, 0, 15] 
                                             }], 
                                             [{
                                                 text: order.GiftNote,
+                                                width: 272,
+                                                height: 159,
                                                 margin: [20, 15, 0, 15] 
                                             }]
                                         ]
@@ -339,7 +321,7 @@ define(function (require) {
                                       sectionHeader: {  
                                             bold: true,  
                                             fontSize: 18,  
-                                            margin: [0, 15, 40, 15]  
+                                            //margin: [0, 15, 40, 15]  
                                       }, 
                                       sectionNotes: {
                                             fontSize: 12, 
@@ -349,7 +331,8 @@ define(function (require) {
                                             fontSize: 12,
                                             margin: [0, 0, 0, 20]
                                       }
-                                    }  
+                                    },
+                                    pageMargins: [ 68, 68, 68, 0 ]
                                 };                                
                                 
                                 //Finally, create a file.
