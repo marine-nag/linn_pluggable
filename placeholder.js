@@ -250,7 +250,7 @@ define(function (require) {
                                              margin: [0, 15, 40, 15] 
                                          },
                                          {
-                                             text: 'PATCH',  
+                                             text: '  PATCH',  
                                              margin: [0, 15, 0, 15] 
                                          }
                                       ]
