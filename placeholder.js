@@ -117,7 +117,10 @@ define(function (require) {
                     for (let i = 0; i < orders.length; i++) {
                         var order = orders[i];
 
-                        order.Packages.forEach(function (pkg, index) {
+                        //order.Packages.forEach(function (pkg, index) {
+                        for (let index = 0; index < order.Packages.length; index++) {
+                            var pkg = order.Packages[index];
+
                             // Create body and columns for order items in package...
                             var body = [];
                             var columns = [
@@ -350,7 +353,7 @@ define(function (require) {
                             // if this is not last package add new page.
                             if (index != (order.Packages.length - 1)) {
                                 var pagebreak = {
-                                    text: 'sdfadfas',
+                                    //text: 'sdgsdfgsdf',
                                     pageBreak: "after"
                                 };
 
@@ -358,10 +361,8 @@ define(function (require) {
                             }
 
                             docDefinition.content.push(newContent);
-                        });
+                        }
                     }
-
-                    //});
 
                     //Finally, create a file.
                     pdfMake.createPdf(docDefinition).open();
