@@ -350,8 +350,21 @@ define(function (require) {
                                     }
                                 }];
 
+                            // ADD footer 
+                            var footer = {
+                                
+                                    text: 'Footer',
+                                    alignment: 'center'
+                                
+                                /*{
+                                    text: 'Footer2',
+                                    alignment: 'center'
+                                }]*/
+                            };
+                            newContent.push(footer);
+                            
                             // if this is not last package add new page.
-                            if (pkg != order.Packages.pop()) {
+                            if (pkg.SKU != order.Packages.pop().SKU) {
                                 var pagebreak = {
                                     //text: 'sdgsdfgsdf',
                                     pageBreak: "after"
