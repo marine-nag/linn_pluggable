@@ -375,7 +375,7 @@ define(function (require) {
                                         text: 'Footer',
                                         alignment: 'center'
                                     }
-                                ]
+                                ], pageBreak: 'after'
                             };
                             newContent.push(footer);
 
