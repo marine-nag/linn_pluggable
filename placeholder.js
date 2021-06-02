@@ -349,10 +349,10 @@ define(function (require) {
                                   ],  
                                   //CSS
                                   styles: {  
-                                        sectionHeader: {  
+                                      sectionHeader: {  
                                             bold: true,  
                                             fontSize: 18,  
-                                            margin: [0, 15, 10, 15]  
+                                            margin: [0, 15, 40, 15]  
                                       }, 
                                       sectionNotes: {
                                             fontSize: 12, 
