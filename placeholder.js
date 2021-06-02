@@ -211,12 +211,12 @@ define(function (require) {
                                         columns: [
                                             [{
                                                 text: order.DeliveryNote,
-                                                style: 'sectionNotes',
-                                                maxHeight: 600
+                                                maxHeight: 600,
+                                                margin: [0, 15, 0, 15] 
                                             }], 
                                             [{
                                                 text: order.GiftNote,
-                                                style: 'sectionNotes'
+                                                margin: [20, 15, 0, 15] 
                                             }]
                                         ]
                                     },
@@ -337,8 +337,7 @@ define(function (require) {
                                       }, 
                                       sectionNotes: {
                                             fontSize: 12, 
-                                            bold: false,
-                                            margin: [0, 15, 0, 15]  
+                                            bold: false
                                       },
                                       sectionShipping: {
                                             fontSize: 12,
