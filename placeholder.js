@@ -82,8 +82,8 @@ define(function (require) {
                         var orders = data.result;
                         
                         var order = orders[0];
-                        
-                        // Create orderItem Table for pdf File
+                        orders.forEach(function(order) {
+                            // Create orderItem Table for pdf File
                         var body = [];
                         var columns = [
                             { 
@@ -143,7 +143,7 @@ define(function (require) {
                                         { text: row.SKU + '\n', bold: false }, 
                                         { text: row.ItemTitle + '\n', bold: false } 
                                     ], 
-                                    bold:true,
+                                    bold: true,
                                     margin: [0, 10, 0, 10]
                                 },);
                             
@@ -171,8 +171,8 @@ define(function (require) {
                             body.push(dataRow);
                         });
                         
-                        //Creating docDefinition
-                        var docDefinition = {
+                        //Add to docDefinition
+                        docDefinition = {
                                   info: 
                                   {
                                     title:
@@ -336,10 +336,11 @@ define(function (require) {
                                       }
                                     },
                                     pageMargins: [ 68, 68, 68, 0 ]
-                                };                                
+                                };                                                          
+                        });
                                 
-                                //Finally, create a file.
-                                pdfMake.createPdf(docDefinition).open();
+                        //Finally, create a file.
+                        pdfMake.createPdf(docDefinition).open();
                     } else {
                         alert('Errors...');
                     } 
