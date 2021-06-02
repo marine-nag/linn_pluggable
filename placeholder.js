@@ -383,6 +383,7 @@ define(function (require) {
                             //         text: 'If you have any questions, send us an email at: help@patchplants.com',
                             //         alignment: 'center'
                             //     }
+                                text: '',
                                 pageBreak: 'after'
                             };
                             newContent.push(footer);
