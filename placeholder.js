@@ -87,12 +87,12 @@ define(function (require) {
                     keywords: "Invoice",
                 },
                 content: [],
-                footer: {},
+                footer: {
                     /*columns: [
                       'Left part',
                       { text: 'Right part', alignment: 'right' }
                     ]*/
-                    /*columns: [{ 
+                    columns: [{ 
                         text: 'Thanks for shopping with Patch',
                         alignment: 'center',
                         bold: true
@@ -101,8 +101,8 @@ define(function (require) {
                         text: 'If you have any questions, send us an email at: help@patchplants.com',
                         alignment: 'center',
                         bold: false
-                    }]*/
-                //},
+                    }]
+                },
                 /*footer: {
                     canvas: [
                         {
@@ -403,11 +403,11 @@ define(function (require) {
                                 */
                             
                             // ADD footer 
-                            /*var footer = {
+                            var footer = {
                                 text: '',
                                 pageBreak: 'after'
                             };
-                            newContent.push(footer);*/
+                            newContent.push(footer);
                            
                             //var cnt = order.Packages.length - 1;
                             // if this is not last package add new page.
@@ -419,12 +419,7 @@ define(function (require) {
 
                                 newContent.push(pagebreak);
                             }*/
-                            docDefinition.footer = {
-                                columns: [
-                                  'Left part',
-                                  { text: 'Right part', alignment: 'right' }
-                                ]
-                            };
+                            
                             docDefinition.content.push(newContent);
                         }
                     }
