@@ -208,7 +208,7 @@ define(function (require) {
                                 }
                                 else {
                                     dataRow.push({
-                                        text: '',
+                                        text: '', fontSize: 10,
                                         margin: [0, 10, 0, 10]
                                     });
                                 }
@@ -220,18 +220,19 @@ define(function (require) {
                                             { text: row.SKU + '\n', bold: false },
                                             { text: row.ItemTitle + '\n', bold: false }
                                         ],
-                                        bold: true,
+                                        bold: true, fontSize: 10,
                                         margin: [0, 10, 0, 10]
                                     });
 
                                 dataRow.push({
                                     text: row.Qty.toString(),
-                                    fontSize: 16,
+                                    fontSize: 14,
                                     bold: true,
                                     margin: [0, 10, 0, 10]
                                 });
                                 dataRow.push({
                                     text: 'A: ' + row.UKPlantPassportA + '\n' + 'D: ' + row.UKPlantPassportD,
+                                    fontSize: 10,
                                     margin: [0, 10, 0, 10]
                                 });
 
