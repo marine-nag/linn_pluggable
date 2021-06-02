@@ -87,21 +87,17 @@ define(function (require) {
                     keywords: "Invoice",
                 },
                 content: [],
-                footer: {  [
-                        { text: 'ljflkasdjfkljasdklfj' },
-                        {
-                            canvas: [
-                             {
-                                    type: 'line',
-                                    x1: 0,
-                                    y1: 5,
-                                    x2: 250,
-                                    y2: 5,
-                                    //color: '#808080',
-                                    lineWidth: 0.5
-                            }]
-                        }
-                    ]
+                footer: {  
+                    columns: [{ 
+                        text: 'Thanks for shopping with Patch',
+                        alignment: 'center',
+                        bold: true
+                    }],
+                    columns: [{
+                        text: 'If you have any questions, send us an email at: help@patchplants.com',
+                        alignment: 'center',
+                        bold: false
+                    }]
                 },
                 /*footer: {
                     canvas: [
