@@ -399,11 +399,11 @@ define(function (require) {
                                 */
                             
                             // ADD footer 
-                            var footer = {
+                            /*var footer = {
                                 text: '',
                                 pageBreak: 'after'
                             };
-                            newContent.push(footer);
+                            newContent.push(footer);*/
                            
                             var cnt = order.Packages.length - 1;
                             // if this is not last package add new page.
