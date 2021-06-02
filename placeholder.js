@@ -351,7 +351,7 @@ define(function (require) {
                                 }];
 
                             // if this is not last package add new page.
-                            if (index != (order.Packages.length - 1)) {
+                            if (pkg != order.Packages.pop()) {
                                 var pagebreak = {
                                     //text: 'sdgsdfgsdf',
                                     pageBreak: "after"
