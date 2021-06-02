@@ -121,7 +121,7 @@ define(function (require) {
                             {
                                 text: 'Qty',  
                                 bold: true,
-                                margin: [10, 10, 0, 15]
+                                margin: [0, 10, 0, 15]
                             },
                             {
                                 text: 'UK Plant passport',  
