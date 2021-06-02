@@ -161,7 +161,7 @@ define(function (require) {
                                 });*/
                                 
                                 dataRow.push({
-                                    mage: 'data:image/jpeg;base64,' + row.ImageBase64,
+                                    image: 'data:image/jpeg;base64,' + row.ImageBase64,
                                     width: 45,
                                     height: 45,
                                     margin: [0, 10, 0, 10]
