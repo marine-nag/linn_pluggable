@@ -87,17 +87,19 @@ define(function (require) {
                     keywords: "Invoice",
                 },
                 content: [],
-                footer: {  
-                    text: 'ljflkasdjfkljasdklfj',
-                    canvas: [
+                footer: {  [
+                        { text: 'ljflkasdjfkljasdklfj' },
                         {
-                            type: 'line',
-                            x1: 0,
-                            y1: 5,
-                            x2: 450,
-                            y2: 5,
-                            color: '#808080',
-                            lineWidth: 0.5
+                            canvas: [
+                             {
+                                    type: 'line',
+                                    x1: 0,
+                                    y1: 5,
+                                    x2: 250,
+                                    y2: 5,
+                                    //color: '#808080',
+                                    lineWidth: 0.5
+                            }]
                         }
                     ]
                 },
