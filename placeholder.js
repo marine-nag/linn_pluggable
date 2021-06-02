@@ -142,36 +142,14 @@ define(function (require) {
                         order.Items.forEach(function(row) {
                             var dataRow = [];
                             
-                            if(row.ImageSource != '')
-                            {
-                                var imgUrl = 'https://marine-nag.github.io/linn_pluggable.github.io/PP_logo2.png';//row.ImageSource;
-                                
-                                /*var t = $scope.getBase64Image(imgUrl).then(function(base64image) {
-                                      console.log(base64image);
-                                    
-                                     dataRow.push(
-                                        {
-                                           image : 'data:image/jpeg;base64,' + base64image,
-                                           width: 45,
-                                           height: 45
-                                        });
-                                    
-                                    }, function(reason) {
-                                      console.log(reason); // Error!
-                                });*/
-                                
+                            if(row.ImageSource != '' && row.ImageSource != null)
+                            {                                
                                 dataRow.push({
-                                    image: row.ImageBase64,
+                                    image: 'data:image/' + row.ImageExtension + ';base64,' + row.ImageBase64,
                                     width: 45,
                                     height: 45,
                                     margin: [0, 10, 0, 10]
-                                });
-                                
-                                /*dataRow.push({
-                                    text: 'Image',
-                                    margin: [0, 10, 0, 10]
-                                });*/
-                               
+                                });                               
                             }
                             else {
                                 dataRow.push({
