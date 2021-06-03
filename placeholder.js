@@ -391,35 +391,16 @@ define(function (require) {
                                         }
                                     }
                                 }];
-
-                            /*
-                             table: {
-                            widths: '*',
-                            body: [
-                                [
-                                    { text: "Page " + currentPage.toString() + ' of ' + pageCount, alignment: 'right', style: 'normalText', margin: [0, 20, 50, 0], aligment: 'left' }
-                                        ]
-                                    ]
-                                }
-                                */
-                            
-                            // ADD footer 
-                            var footer = {
-                                text: '',
-                                pageBreak: 'after'
-                            };
-                            newContent.push(footer);
                            
-                            //var cnt = order.Packages.length - 1;
                             // if this is not last package add new page.
-                            /*if (index != cnt) {
+                            if (pkg != order.Packages[order.Packages.length - 1]) {
                                 var pagebreak = {
                                     text: '',
                                     pageBreak: "after"
                                 };
 
                                 newContent.push(pagebreak);
-                            }*/
+                            }
                             
                             docDefinition.content.push(newContent);
                         }
