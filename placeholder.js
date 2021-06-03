@@ -394,14 +394,14 @@ define(function (require) {
                                 }];
 
                             // ADD footer
-                            var footer = {
+                            newContent.push({
                                 canvas:
                                     [
                                         { type: 'line', x1: 10, y1: 10, x2: 595 - 10, y2: 10, color: '#808080', lineWidth: 0.5 }
                                     ] //, margin: [0, 0, 0, 15]
                             };
 
-                            footer.push({
+                            newContent.push({
                                 "text": [
                                     {
                                         "text": "Thanks for shopping with Patch",
@@ -412,7 +412,7 @@ define(function (require) {
                                 margin: [0, 0, 0, 7]
                             });
 
-                            footer.push({
+                            newContent.push({
                                 "text": [
                                     {
                                         "text": "If you have any questions, send us an email at: help@patchplants.com",
@@ -420,8 +420,6 @@ define(function (require) {
                                     }
                                 ], margin: [0, 0, 0, 7]
                             });
-
-                            newContent.push(footer);
 
                             // if this is not last package add new page.
                             if (pkg != order.Packages[order.Packages.length - 1]) {
