@@ -275,6 +275,9 @@ define(function (require) {
                                         [
                                             {
                                                 text: (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? 'Hello driver' : ''
+                                                , bold: true,
+                                                fontSize: 14
+
                                                 //,
                                                 //margin: [68, 68, 68, 0]
                                             }
@@ -311,6 +314,8 @@ define(function (require) {
                                             },
                                             {
                                                 text: 'PATCH',
+                                                bold: true,
+                                                fontSize: 14,
                                                 margin: [0, 0, 0, 20]
                                             }
                                         ],
