@@ -92,7 +92,7 @@ define(function (require) {
                       'Left part',
                       { text: 'Right part', alignment: 'right' }
                     ]*/
-                    columns: [{ 
+                    columns: [{
                         text: 'Thanks for shopping with Patch',
                         alignment: 'center',
                         bold: true
@@ -258,8 +258,9 @@ define(function (require) {
                                     columns: [
                                         [
                                             {
-                                                text: (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? 'Hello driver' : '',
-                                                margin: [68, 68, 68, 0]
+                                                text: (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? 'Hello driver' : ''
+                                                //,
+                                                //margin: [68, 68, 68, 0]
                                             }
                                         ]
                                     ]
@@ -304,7 +305,7 @@ define(function (require) {
                                 {
                                     columns: [
                                         [{
-                                            text: 'Ship to', 
+                                            text: 'Ship to',
                                             fontSize: 10,
                                             bold: true
                                         },
@@ -365,7 +366,7 @@ define(function (require) {
                                                 alignment: 'center'
                                             },
                                             {
-                                                text: 'Parcel ' + (index + 1).toString() + 'of ' + order.Packages.length.toString(),
+                                                text: 'Parcel ' + (index + 1).toString() + ' of ' + order.Packages.length.toString(),
                                                 bold: true,
                                                 alignment: 'center',
                                                 fontSize: 10,
@@ -397,7 +398,7 @@ define(function (require) {
                                         }
                                     }
                                 }];
-                           
+
                             // if this is not last package add new page.
                             if (pkg != order.Packages[order.Packages.length - 1]) {
                                 var pagebreak = {
@@ -407,7 +408,7 @@ define(function (require) {
 
                                 newContent.push(pagebreak);
                             }
-                            
+
                             docDefinition.content.push(newContent);
                         }
                     }
