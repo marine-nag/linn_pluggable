@@ -112,9 +112,6 @@ define(function (require) {
                 if ((data.error == null) && (data.result != null) && (data.result.length != 0)) {
                     var orders = data.result;
 
-                    //var order = orders[0];
-                    //orders.forEach(function (order) {
-
                     for (let i = 0; i < orders.length; i++) {
                         var order = orders[i];
 
@@ -122,44 +119,57 @@ define(function (require) {
                         for (let index = 0; index < order.Packages.length; index++) {
                             var pkg = order.Packages[index];
 
-                            // Create body and columns for order items in package...
-                            var body = [];
-                            var columns = [
-                                {
-                                    text: 'Image',
-                                    bold: true,
-                                    fontSize: 11,
-                                    margin: [0, 10, 0, 15],
-                                    alignment: 'center'
-                                },
-                                {
-                                    text: 'Item',
-                                    bold: true,
-                                    fontSize: 11,
-                                    margin: [0, 10, 0, 15]
-                                },
-                                {
-                                    text: 'Qty',
-                                    bold: true,
-                                    fontSize: 13,
-                                    margin: [0, 10, 0, 15]
-                                },
-                                {
-                                    text: 'UK Plant passport',
-                                    bold: true,
-                                    fontSize: 11,
-                                    margin: [0, 10, 0, 15]
-                                },
-                                {
-                                    text: 'Supplier document',
-                                    bold: true,
-                                    fontSize: 11,
-                                    margin: [0, 10, 0, 15]
-                                }];
-                            body.push(columns);
+                            // if package have more than 5 order items we will separate them
+                            var bodies = [];
 
-                            // Create orderItem Table for pdf File
-                            pkg.Items.forEach(function (row) {
+                            var separateItems = [];
+                            for (i = 0; i < pkg.Items.length; i += 5) {
+                                var chunk = i + 5;
+                                if (chunk > (pkg.Items.length - 1)) {
+                                    chunk = pkg.Items.length - 1;
+                                }
+
+                                separateItems.push(pkg.Items.slice(i, i + 5));
+                            }
+
+                            separateItems.forEach(function (row) {
+                                // create separate body
+                                // Create body and columns for order items in package...
+                                var body = [];
+                                var columns = [
+                                    {
+                                        text: 'Image',
+                                        bold: true,
+                                        fontSize: 11,
+                                        margin: [0, 10, 0, 15],
+                                        alignment: 'center'
+                                    },
+                                    {
+                                        text: 'Item',
+                                        bold: true,
+                                        fontSize: 11,
+                                        margin: [0, 10, 0, 15]
+                                    },
+                                    {
+                                        text: 'Qty',
+                                        bold: true,
+                                        fontSize: 13,
+                                        margin: [0, 10, 0, 15]
+                                    },
+                                    {
+                                        text: 'UK Plant passport',
+                                        bold: true,
+                                        fontSize: 11,
+                                        margin: [0, 10, 0, 15]
+                                    },
+                                    {
+                                        text: 'Supplier document',
+                                        bold: true,
+                                        fontSize: 11,
+                                        margin: [0, 10, 0, 15]
+                                    }];
+                                body.push(columns);
+
                                 var dataRow = [];
 
                                 if (row.ImageSource != '' && row.ImageSource != null) {
@@ -213,6 +223,8 @@ define(function (require) {
                                 });
 
                                 body.push(dataRow);
+
+                                bodies.push(body);
                             });
 
                             var marginForNotes = (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? [0, 0, 0, 20] : [0, 160, 0, 0];
@@ -332,31 +344,45 @@ define(function (require) {
                                             }
                                         ]
                                     ]
-                                },
-                                // ORDER ITEMS
-                                {
-                                    table: {
-                                        headerRows: 1,
-                                        widths: [65, '*', 31, '*', 140],
-                                        body: body
-                                    },
-                                    layout: {
-                                        //defaultBorder: false,
-                                        fillColor: function (rowIndex, node, columnIndex) {
-                                            return (rowIndex == 0) ? '#f5f2ed' : null;
-                                        },
-                                        hLineColor: function (i, node) {
-                                            return (i === 0 || i === node.table.body.length) ? '#808080' : 'white';
-                                        },
-                                        hLineWidth: function (i, node) {
-                                            return (i === 0 || i === node.table.body.length) ? 1 : 0;
-                                        },
-                                        vLineWidth: function (i, node) {
-                                            return (i === 0 || i === node.table.widths.length) ? 1 : 0;
-                                        }
-                                    }
                                 }];
 
+                            // ORDER ITEMS
+                            bodies.forEach(function (body) {
+
+                                //if it not the last body - just go to the nex page
+                                if (body !== bodies[bodies.length - 1]) {
+                                    var pagebreak = {
+                                        text: '',
+                                        pageBreak: "after"
+                                    };
+
+                                    newContent.push(pagebreak);
+                                }
+
+                                newContent.push(
+                                    {
+                                        table: {
+                                            headerRows: 1,
+                                            widths: [65, '*', 31, '*', 140],
+                                            body: body
+                                        },
+                                        layout: {
+                                            //defaultBorder: false,
+                                            fillColor: function (rowIndex, node, columnIndex) {
+                                                return (rowIndex == 0) ? '#f5f2ed' : null;
+                                            },
+                                            hLineColor: function (i, node) {
+                                                return (i === 0 || i === node.table.body.length) ? '#808080' : 'white';
+                                            },
+                                            hLineWidth: function (i, node) {
+                                                return (i === 0 || i === node.table.body.length) ? 1 : 0;
+                                            },
+                                            vLineWidth: function (i, node) {
+                                                return (i === 0 || i === node.table.widths.length) ? 1 : 0;
+                                            }
+                                        }
+                                    });
+                            });
 
                             // if this is not last package add new page.
                             if (pkg !== order.Packages[order.Packages.length - 1]) {
