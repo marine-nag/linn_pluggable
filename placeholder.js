@@ -138,7 +138,7 @@ define(function (require) {
                     },
                     sectionShipping: {
                         fontSize: 12,
-                        margin: [0, 0, 0, 5]
+                        margin: [0, 0, 0, 15]
                     }
                 },
                 pageMargins: [68, 68, 68, 0]
