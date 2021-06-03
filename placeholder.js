@@ -476,11 +476,13 @@ define(function (require) {
                             }
 
                             docDefinition.content.push(newContent);
+
+                            if ((order === orders[orders.length - 1]) && pkg === order.Packages[order.Packages.length - 1]) {
+                                //Finally, create a file.
+                                pdfMake.createPdf(docDefinition).open();
+                            }
                         }
                     }
-
-                    //Finally, create a file.
-                    pdfMake.createPdf(docDefinition).open();
                 } else {
                     alert('Errors...');
                 }
