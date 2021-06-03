@@ -116,7 +116,7 @@ define(function (require) {
                         var order = orders[i];
 
                         //order.Packages.forEach(function (pkg, index) {
-                        for (let index = 0; index < order.Packages.length; index++) {
+                        for (var index = 0; index < order.Packages.length; index++) {
                             var pkg = order.Packages[index];
 
                             // if package have more than 5 order items we will separate them
@@ -132,7 +132,7 @@ define(function (require) {
                                 separateItems.push(pkg.Items.slice(i, i + 5));
                             }
 
-                            for (let indexSeparateItem = 0; i < separateItems.length; indexSeparateItem++) {
+                            for (var indexSeparateItem = 0; i < separateItems.length; indexSeparateItem++) {
                                 var items = separateItems[indexSeparateItem];
 
                                 // create separate body
@@ -172,7 +172,7 @@ define(function (require) {
                                     }];
                                 body.push(columns);
 
-                                for (let indexItems = 0; indexItems < items.length; indexItems++) {
+                                for (var indexItems = 0; indexItems < items.length; indexItems++) {
                                     var row = items[indexItems];
                                     var dataRow = [];
 
@@ -353,7 +353,7 @@ define(function (require) {
                                 }];
 
                             // ORDER ITEMS
-                            for (let indexTable = 0; indexTable < bodies.length; indexTable++) {
+                            for (var indexTable = 0; indexTable < bodies.length; indexTable++) {
                                 var body = bodies[indexTable];
                                 newContent.push(
                                     {
