@@ -140,8 +140,8 @@ define(function (require) {
                         fontSize: 12,
                         margin: [0, 0, 0, 15]
                     }
-                },
-                pageMargins: [68, 68, 68, 0]
+                }//,
+                //pageMargins: [68, 68, 68, 0]
             };
 
             // RUN Macro to get necessary data
@@ -259,7 +259,7 @@ define(function (require) {
                                         [
                                             {
                                                 text: (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? 'Hello driver' : '',
-                                                style: 'sectionHeader'
+                                                margin: [68, 68, 68, 0]
                                             }
                                         ]
                                     ]
