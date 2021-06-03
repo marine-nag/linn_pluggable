@@ -132,7 +132,7 @@ define(function (require) {
                                 separateItems.push(pkg.Items.slice(i, i + 5));
                             }
 
-                            separateItems.forEach(function (row) {
+                            separateItems.forEach(function (items) {
                                 // create separate body
                                 // Create body and columns for order items in package...
                                 var body = [];
@@ -170,59 +170,62 @@ define(function (require) {
                                     }];
                                 body.push(columns);
 
-                                var dataRow = [];
+                                items.forEach(function (row) {
 
-                                if (row.ImageSource != '' && row.ImageSource != null) {
+                                    var dataRow = [];
+
+                                    if (row.ImageSource != '' && row.ImageSource != null) {
+                                        dataRow.push({
+                                            image: 'data:image/' + row.ImageExtension + ';base64,' + row.ImageBase64,
+                                            width: 45,
+                                            height: 45,
+                                            margin: [0, 10, 0, 10]
+                                        });
+                                    }
+                                    else {
+                                        dataRow.push({
+                                            text: '',
+                                            fontSize: 10,
+                                            margin: [0, 10, 0, 10]
+                                        });
+                                    }
+
+                                    dataRow.push(
+                                        {
+                                            text: [
+                                                { text: row.PatchName + '\n', bold: true, margin: [0, 0, 0, 15] },
+                                                { text: row.SKU + '\n', bold: false },
+                                                { text: row.ItemTitle + '\n', bold: false }
+                                            ],
+                                            bold: true,
+                                            fontSize: 10,
+                                            margin: [0, 10, 0, 10]
+                                        });
+
                                     dataRow.push({
-                                        image: 'data:image/' + row.ImageExtension + ';base64,' + row.ImageBase64,
-                                        width: 45,
-                                        height: 45,
-                                        margin: [0, 10, 0, 10]
-                                    });
-                                }
-                                else {
-                                    dataRow.push({
-                                        text: '',
+                                        text: row.Qty.toString(),
                                         fontSize: 10,
-                                        margin: [0, 10, 0, 10]
-                                    });
-                                }
-
-                                dataRow.push(
-                                    {
-                                        text: [
-                                            { text: row.PatchName + '\n', bold: true, margin: [0, 0, 0, 15] },
-                                            { text: row.SKU + '\n', bold: false },
-                                            { text: row.ItemTitle + '\n', bold: false }
-                                        ],
                                         bold: true,
-                                        fontSize: 10,
+                                        margin: [0, 10, 0, 10]
+                                    });
+                                    dataRow.push({
+                                        text: 'A: ' + row.UKPlantPassportA + '\n' + 'D: ' + row.UKPlantPassportD,
+                                        margin: [0, 10, 0, 10],
+                                        fontSize: 10
+                                    });
+
+                                    var SupplierDoc = 'Supplier Document: EU Quality. UK. EW. 127129. Patch Plants Ltd. \n';
+                                    SupplierDoc += 'ID: ' + order.OrderID + ' Printed: ' + order.PrintedDate + '.';
+                                    SupplierDoc += row.UKPlantPassportA != null && row.UKPlantPassportA != '' ? row.UKPlantPassportA + '.' : '';
+                                    SupplierDoc += row.ItemTitle + '.' + row.Qty;
+
+                                    dataRow.push({
+                                        text: SupplierDoc, fontSize: 10,
                                         margin: [0, 10, 0, 10]
                                     });
 
-                                dataRow.push({
-                                    text: row.Qty.toString(),
-                                    fontSize: 10,
-                                    bold: true,
-                                    margin: [0, 10, 0, 10]
+                                    body.push(dataRow);
                                 });
-                                dataRow.push({
-                                    text: 'A: ' + row.UKPlantPassportA + '\n' + 'D: ' + row.UKPlantPassportD,
-                                    margin: [0, 10, 0, 10],
-                                    fontSize: 10
-                                });
-
-                                var SupplierDoc = 'Supplier Document: EU Quality. UK. EW. 127129. Patch Plants Ltd. \n';
-                                SupplierDoc += 'ID: ' + order.OrderID + ' Printed: ' + order.PrintedDate + '.';
-                                SupplierDoc += row.UKPlantPassportA != null && row.UKPlantPassportA != '' ? row.UKPlantPassportA + '.' : '';
-                                SupplierDoc += row.ItemTitle + '.' + row.Qty;
-
-                                dataRow.push({
-                                    text: SupplierDoc, fontSize: 10,
-                                    margin: [0, 10, 0, 10]
-                                });
-
-                                body.push(dataRow);
 
                                 bodies.push(body);
                             });
