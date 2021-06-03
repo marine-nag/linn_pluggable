@@ -304,45 +304,49 @@ define(function (require) {
                                 {
                                     columns: [
                                         [{
-                                            text: 'Ship to',
+                                            text: 'Ship to', 
+                                            fontSize: 10,
                                             bold: true
                                         },
                                         {
-                                            text: order.ShipTo
+                                            fontSize: 10, text: order.ShipTo
                                         },
                                         {
-                                            text: 'Printed date',
+                                            text: 'Printed date', fontSize: 10,
                                             bold: true
                                         },
                                         {
-                                            text: order.PrintedDate,
+                                            text: order.PrintedDate, fontSize: 10,
                                             style: 'sectionShipping'
                                             //margin: [0, 0, 0, 30]
                                         }],
 
                                         [{
-                                            text: 'UK Plant passport',
+                                            text: 'UK Plant passport', fontSize: 10,
                                             bold: true
                                         },
                                         {
-                                            text: 'B: GB-' + order.UKPlantPassportB
+                                            fontSize: 10, text: 'B: GB-' + order.UKPlantPassportB
                                         },
                                         {
-                                            text: 'C: ' + order.UKPlantPassportC,
+                                            text: 'C: ' + order.UKPlantPassportC, fontSize: 10,
                                             style: 'sectionShipping'
                                         }],
 
                                         [{
                                             text: [{ text: 'Carrier ', bold: true }, { text: order.CarrierName, bold: false }],
+                                            fontSize: 10,
                                             bold: true
                                         },
                                         {
                                             text: [{ text: 'Box type ', bold: true }, { text: order.BoxType, bold: false }],
+                                            fontSize: 10,
                                             bold: true
                                         },
                                         {
                                             text: [{ text: 'Pallet group ', bold: true }, { text: order.PalletGroup, bold: false }],
                                             bold: true,
+                                            fontSize: 10,
                                             style: 'sectionShipping'
                                         }],
 
@@ -351,6 +355,7 @@ define(function (require) {
                                             {
                                                 text: order.OrderID,
                                                 bold: true,
+                                                fontSize: 10,
                                                 alignment: 'center'
                                             },
                                             {
@@ -363,6 +368,7 @@ define(function (require) {
                                                 text: 'Parcel ' + (index + 1).toString() + 'of ' + order.Packages.length.toString(),
                                                 bold: true,
                                                 alignment: 'center',
+                                                fontSize: 10,
                                                 style: 'sectionShipping'
                                             }
                                         ]
