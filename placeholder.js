@@ -378,7 +378,7 @@ define(function (require) {
                                 {
                                     table: {
                                         headerRows: 1,
-                                        widths: [65, '*', 31, '*', 150],
+                                        widths: [65, '*', 31, '*', 140],
                                         body: body
                                     },
                                     layout: {
