@@ -478,12 +478,12 @@ define(function (require) {
                             docDefinition.content.push(newContent);
                         }
                     }
-
-                    //Finally, create a file.
-                    pdfMake.createPdf(docDefinition).open();
                 } else {
                     alert('Errors...');
                 }
+            }).then(() => {
+                //Finally, create a file.
+                pdfMake.createPdf(docDefinition).open();
             });
         };
     };
