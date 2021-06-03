@@ -121,7 +121,7 @@ define(function (require) {
             });
         };
 
-        $scope.getOrderItemsTable = function (pkg) {
+        $scope.getOrderItemsTable = function (pkg, order) {
             var bodies = [];
 
             // if package have more than 5 order items we will separate them
@@ -135,9 +135,7 @@ define(function (require) {
                 separateItems.push(pkg.Items.slice(i, i + 5));
             }
 
-            for (var indexSeparateItem = 0; i < separateItems.length; indexSeparateItem++) {
-                var items = separateItems[indexSeparateItem];
-
+            separateItems.forEach(function (items) {
                 // create separate body
                 // Create body and columns for order items in package...
                 var body = [];
@@ -177,6 +175,8 @@ define(function (require) {
 
                 for (var indexItems = 0; indexItems < items.length; indexItems++) {
                     var row = items[indexItems];
+
+
                     var dataRow = [];
 
                     if (row.ImageSource != '' && row.ImageSource != null) {
@@ -235,7 +235,8 @@ define(function (require) {
                 }
 
                 bodies.push(body);
-            }
+
+            });
 
             console.log('push row ');
 
@@ -249,7 +250,7 @@ define(function (require) {
                 for (var index = 0; index < order.Packages.length; index++) {
                     var pkg = order.Packages[index];
 
-                    var bodies = $scope.getOrderItemsTable(pkg);
+                    var bodies = $scope.getOrderItemsTable(pkg, order);
 
                     var marginForNotes = (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? [0, 0, 0, 20] : [0, 160, 0, 0];
 
