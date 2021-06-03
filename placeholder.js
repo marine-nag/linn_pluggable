@@ -113,13 +113,133 @@ define(function (require) {
                     var orders = data.result;
 
                     $scope.formInvoice(orders);
-                    console.log('push pdf.');
                     //Finally, create a file.
                     pdfMake.createPdf(docDefinition).open();
                 } else {
                     alert('Errors...');
                 }
             });
+        };
+
+        $scope.getOrderItemsTable = function (pkg) {
+            var bodies = [];
+
+            // if package have more than 5 order items we will separate them
+            var separateItems = [];
+            for (i = 0; i < pkg.Items.length; i += 5) {
+                var chunk = i + 5;
+                if (chunk > (pkg.Items.length - 1)) {
+                    chunk = pkg.Items.length - 1;
+                }
+
+                separateItems.push(pkg.Items.slice(i, i + 5));
+            }
+
+            for (var indexSeparateItem = 0; i < separateItems.length; indexSeparateItem++) {
+                var items = separateItems[indexSeparateItem];
+
+                // create separate body
+                // Create body and columns for order items in package...
+                var body = [];
+                var columns = [
+                    {
+                        text: 'Image',
+                        bold: true,
+                        fontSize: 11,
+                        margin: [0, 10, 0, 15],
+                        alignment: 'center'
+                    },
+                    {
+                        text: 'Item',
+                        bold: true,
+                        fontSize: 11,
+                        margin: [0, 10, 0, 15]
+                    },
+                    {
+                        text: 'Qty',
+                        bold: true,
+                        fontSize: 13,
+                        margin: [0, 10, 0, 15]
+                    },
+                    {
+                        text: 'UK Plant passport',
+                        bold: true,
+                        fontSize: 11,
+                        margin: [0, 10, 0, 15]
+                    },
+                    {
+                        text: 'Supplier document',
+                        bold: true,
+                        fontSize: 11,
+                        margin: [0, 10, 0, 15]
+                    }];
+                body.push(columns);
+
+                for (var indexItems = 0; indexItems < items.length; indexItems++) {
+                    var row = items[indexItems];
+                    var dataRow = [];
+
+                    if (row.ImageSource != '' && row.ImageSource != null) {
+                        dataRow.push({
+                            image: 'data:image/' + row.ImageExtension + ';base64,' + row.ImageBase64,
+                            width: 45,
+                            height: 45,
+                            margin: [0, 10, 0, 10]
+                        });
+                    }
+                    else {
+                        dataRow.push({
+                            text: '',
+                            fontSize: 10,
+                            margin: [0, 10, 0, 10]
+                        });
+                    }
+
+                    dataRow.push(
+                        {
+                            text: [
+                                { text: row.PatchName + '\n', bold: true, margin: [0, 0, 0, 15] },
+                                { text: row.SKU + '\n', bold: false },
+                                { text: row.ItemTitle + '\n', bold: false }
+                            ],
+                            bold: true,
+                            fontSize: 10,
+                            margin: [0, 10, 0, 10]
+                        });
+
+                    dataRow.push({
+                        text: row.Qty.toString(),
+                        fontSize: 10,
+                        bold: true,
+                        margin: [0, 10, 0, 10]
+                    });
+
+                    dataRow.push({
+                        text: 'A: ' + row.UKPlantPassportA + '\n' + 'D: ' + row.UKPlantPassportD,
+                        margin: [0, 10, 0, 10],
+                        fontSize: 10
+                    });
+
+                    var SupplierDoc = 'Supplier Document: EU Quality. UK. EW. 127129. Patch Plants Ltd. \n';
+                    SupplierDoc += 'ID: ' + order.OrderID + ' Printed: ' + order.PrintedDate + '.';
+                    SupplierDoc += row.UKPlantPassportA != null && row.UKPlantPassportA != '' ? row.UKPlantPassportA + '.' : '';
+                    SupplierDoc += row.ItemTitle + '.' + row.Qty;
+
+                    dataRow.push({
+                        text: SupplierDoc, fontSize: 10,
+                        margin: [0, 10, 0, 10]
+                    });
+
+                    console.log('pushing...');
+                    body.push(dataRow);
+                }
+
+                bodies.push(body);
+            }
+
+            console.log('push row ');
+
+            return bodies;
         };
 
         $scope.formInvoice = function (orders) {
@@ -129,120 +249,7 @@ define(function (require) {
                 for (var index = 0; index < order.Packages.length; index++) {
                     var pkg = order.Packages[index];
 
-                    // if package have more than 5 order items we will separate them
-                    var bodies = [];
-
-                    var separateItems = [];
-                    for (i = 0; i < pkg.Items.length; i += 5) {
-                        var chunk = i + 5;
-                        if (chunk > (pkg.Items.length - 1)) {
-                            chunk = pkg.Items.length - 1;
-                        }
-
-                        separateItems.push(pkg.Items.slice(i, i + 5));
-                    }
-
-                    for (var indexSeparateItem = 0; i < separateItems.length; indexSeparateItem++) {
-                        var items = separateItems[indexSeparateItem];
-
-                        // create separate body
-                        // Create body and columns for order items in package...
-                        var body = [];
-                        var columns = [
-                            {
-                                text: 'Image',
-                                bold: true,
-                                fontSize: 11,
-                                margin: [0, 10, 0, 15],
-                                alignment: 'center'
-                            },
-                            {
-                                text: 'Item',
-                                bold: true,
-                                fontSize: 11,
-                                margin: [0, 10, 0, 15]
-                            },
-                            {
-                                text: 'Qty',
-                                bold: true,
-                                fontSize: 13,
-                                margin: [0, 10, 0, 15]
-                            },
-                            {
-                                text: 'UK Plant passport',
-                                bold: true,
-                                fontSize: 11,
-                                margin: [0, 10, 0, 15]
-                            },
-                            {
-                                text: 'Supplier document',
-                                bold: true,
-                                fontSize: 11,
-                                margin: [0, 10, 0, 15]
-                            }];
-                        body.push(columns);
-
-                        for (var indexItems = 0; indexItems < items.length; indexItems++) {
-                            var row = items[indexItems];
-                            var dataRow = [];
-
-                            if (row.ImageSource != '' && row.ImageSource != null) {
-                                dataRow.push({
-                                    image: 'data:image/' + row.ImageExtension + ';base64,' + row.ImageBase64,
-                                    width: 45,
-                                    height: 45,
-                                    margin: [0, 10, 0, 10]
-                                });
-                            }
-                            else {
-                                dataRow.push({
-                                    text: '',
-                                    fontSize: 10,
-                                    margin: [0, 10, 0, 10]
-                                });
-                            }
-
-                            dataRow.push(
-                                {
-                                    text: [
-                                        { text: row.PatchName + '\n', bold: true, margin: [0, 0, 0, 15] },
-                                        { text: row.SKU + '\n', bold: false },
-                                        { text: row.ItemTitle + '\n', bold: false }
-                                    ],
-                                    bold: true,
-                                    fontSize: 10,
-                                    margin: [0, 10, 0, 10]
-                                });
-
-                            dataRow.push({
-                                text: row.Qty.toString(),
-                                fontSize: 10,
-                                bold: true,
-                                margin: [0, 10, 0, 10]
-                            });
-
-                            dataRow.push({
-                                text: 'A: ' + row.UKPlantPassportA + '\n' + 'D: ' + row.UKPlantPassportD,
-                                margin: [0, 10, 0, 10],
-                                fontSize: 10
-                            });
-
-                            var SupplierDoc = 'Supplier Document: EU Quality. UK. EW. 127129. Patch Plants Ltd. \n';
-                            SupplierDoc += 'ID: ' + order.OrderID + ' Printed: ' + order.PrintedDate + '.';
-                            SupplierDoc += row.UKPlantPassportA != null && row.UKPlantPassportA != '' ? row.UKPlantPassportA + '.' : '';
-                            SupplierDoc += row.ItemTitle + '.' + row.Qty;
-
-                            dataRow.push({
-                                text: SupplierDoc, fontSize: 10,
-                                margin: [0, 10, 0, 10]
-                            });
-
-                            body.push(dataRow);
-                            console.log('push row.');
-                        }
-
-                        bodies.push(body);
-                    }
+                    var bodies = $scope.getOrderItemsTable(pkg);
 
                     var marginForNotes = (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? [0, 0, 0, 20] : [0, 160, 0, 0];
 
@@ -485,7 +492,7 @@ define(function (require) {
 
                         newContent.push(pagebreak);
                     }
-                    console.log('push new content.');
+
                     docDefinition.content.push(newContent);
                 }
             }
