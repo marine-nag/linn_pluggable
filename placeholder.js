@@ -287,7 +287,7 @@ define(function (require) {
                                             {
                                                 text: 'PATCH',
                                                 bold: true,
-                                                fontSize: 14,
+                                                fontSize: 18,
                                                 margin: [0, 0, 0, 20]
                                             }
                                         ],
