@@ -298,7 +298,8 @@ define(function (require) {
                                             }
                                         ],
                                     // optional space between columns
-                                    columnGap: 9
+                                    columnGap: 9,
+                                    margin: [0, 0, 0, 25]
                                 },
                                 // PATCH ORDER Data
                                 {
