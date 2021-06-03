@@ -116,7 +116,7 @@ define(function (require) {
                         var order = orders[i];
 
                         //order.Packages.forEach(function (pkg, index) {
-                        for (var index = 0; index < order.Packages.length; index++) {
+                        for (let index = 0; index < order.Packages.length; index++) {
                             var pkg = order.Packages[index];
 
                             // if package have more than 5 order items we will separate them
@@ -132,7 +132,7 @@ define(function (require) {
                                 separateItems.push(pkg.Items.slice(i, i + 5));
                             }
 
-                            for (var indexSeparateItem = 0; i < separateItems.length; indexSeparateItem++) {
+                            for (let indexSeparateItem = 0; i < separateItems.length; indexSeparateItem++) {
                                 var items = separateItems[indexSeparateItem];
 
                                 // create separate body
@@ -172,7 +172,7 @@ define(function (require) {
                                     }];
                                 body.push(columns);
 
-                                for (var indexItems = 0; indexItems < items.length; indexItems++) {
+                                for (let indexItems = 0; indexItems < items.length; indexItems++) {
                                     var row = items[indexItems];
                                     var dataRow = [];
 
@@ -353,8 +353,7 @@ define(function (require) {
                                 }];
 
                             // ORDER ITEMS
-                            for (var indexTable = 0; indexTable < bodies.length; indexTable++) {
-                                var body = bodies[indexTable];
+                            bodies.forEach(function (body) {
                                 newContent.push(
                                     {
                                         table: {
@@ -379,6 +378,7 @@ define(function (require) {
                                         }
                                     });
 
+
                                 //if it not the last body - just go to the next page to another table. 
                                 if (body !== bodies[bodies.length - 1]) {
                                     var pagebreak = {
@@ -388,7 +388,7 @@ define(function (require) {
 
                                     newContent.push(pagebreak);
                                 }
-                            }
+                            });
 
                             // if this is not last package add new page.
                             if (pkg !== order.Packages[order.Packages.length - 1]) {
@@ -428,6 +428,7 @@ define(function (require) {
                                     ], margin: [0, 0, 0, 5]
                                 });
                             }
+
 
                             // We need to show notes only on the 1st page.
                             if (pkg === order.Packages[0]) {
