@@ -87,39 +87,6 @@ define(function (require) {
                     keywords: "Invoice",
                 },
                 content: [
-                    // Hello driver
-                    {
-                        columns: [
-                            [
-                                {
-                                    text: (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? 'Hello driver' : ''
-                                    , bold: true,
-                                    fontSize: 18
-
-                                    //,
-                                    //margin: [68, 68, 68, 0]
-                                }
-                            ]
-                        ]
-                    },
-                    // Notes...
-                    {
-                        columns: [
-                            [{
-                                text: (order.DeliveryNote != '' && order.DeliveryNote != null) ? order.DeliveryNote : '',
-                                maxHeight: 600,
-                                width: 272,
-                                height: 159,
-                                margin: [0, 15, 0, 15]
-                            }],
-                            [{
-                                text: (order.GiftNote != '' && order.GiftNote != null) ? order.GiftNote : '',
-                                width: 272,
-                                height: 159,
-                                margin: [20, 15, 0, 15]
-                            }]
-                        ]
-                    }
                 ],
                 //CSS
                 styles: {
@@ -426,6 +393,43 @@ define(function (require) {
                                 };
 
                                 newContent.push(pagebreak);
+                            }
+
+
+                            // We need to show notes only on the 1st page.
+                            if (pkg == order.Packages[0]) {
+                                docDefinition.content.push(
+                                    // Hello driver
+                                    {
+                                        columns: [
+                                            [
+                                                {
+                                                    text: (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? 'Hello driver' : '', bold: true,
+                                                    fontSize: 18
+                                                }
+                                            ]
+                                        ]
+                                    });
+
+                                docDefinition.content.push(
+                                    // Notes...
+                                    {
+                                        columns: [
+                                            [{
+                                                text: (order.DeliveryNote != '' && order.DeliveryNote != null) ? order.DeliveryNote : '',
+                                                maxHeight: 600,
+                                                width: 272,
+                                                height: 159,
+                                                margin: [0, 10, 0, 15]
+                                            }],
+                                            [{
+                                                text: (order.GiftNote != '' && order.GiftNote != null) ? order.GiftNote : '',
+                                                width: 272,
+                                                height: 159,
+                                                margin: [20, 10, 0, 15]
+                                            }]
+                                        ]
+                                    });
                             }
 
                             docDefinition.content.push(newContent);
