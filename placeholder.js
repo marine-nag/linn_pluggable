@@ -316,8 +316,8 @@ define(function (require) {
                                         },
                                         {
                                             text: order.PrintedDate,
-                                            style: 'sectionShipping',
-                                            margin: [0, 0, 0, 30]
+                                            style: 'sectionShipping'
+                                            //margin: [0, 0, 0, 30]
                                         }],
 
                                         [{
