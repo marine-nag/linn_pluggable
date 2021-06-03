@@ -176,7 +176,6 @@ define(function (require) {
                 for (var indexItems = 0; indexItems < items.length; indexItems++) {
                     var row = items[indexItems];
 
-
                     var dataRow = [];
 
                     if (row.ImageSource != '' && row.ImageSource != null) {
@@ -214,16 +213,26 @@ define(function (require) {
                         margin: [0, 10, 0, 10]
                     });
 
+                    var stringA = '';
+
+                    var SupplierDoc = 'Supplier Document: EU Quality. UK. EW. 127129. Patch Plants Ltd. \n';
+                    SupplierDoc += 'ID: ' + order.OrderID + ' Printed: ' + order.PrintedDate + '. \n';
+
+                    if (row.CategoryName == 'Plants') {
+                        SupplierDoc += row.UKPlantPassportA != null && row.UKPlantPassportA != '' ? row.UKPlantPassportA + '.' : '';
+
+                        stringA = 'A: ' + row.UKPlantPassportA + '\n';
+                    }
+
+                    stringA += 'D: ' + row.UKPlantPassportD;
+
+                    SupplierDoc += row.ItemTitle + '.' + row.Qty;
+
                     dataRow.push({
-                        text: 'A: ' + row.UKPlantPassportA + '\n' + 'D: ' + row.UKPlantPassportD,
+                        text: stringA,
                         margin: [0, 10, 0, 10],
                         fontSize: 10
                     });
-
-                    var SupplierDoc = 'Supplier Document: EU Quality. UK. EW. 127129. Patch Plants Ltd. \n';
-                    SupplierDoc += 'ID: ' + order.OrderID + ' Printed: ' + order.PrintedDate + '.';
-                    SupplierDoc += row.UKPlantPassportA != null && row.UKPlantPassportA != '' ? row.UKPlantPassportA + '.' : '';
-                    SupplierDoc += row.ItemTitle + '.' + row.Qty;
 
                     dataRow.push({
                         text: SupplierDoc, fontSize: 10,
