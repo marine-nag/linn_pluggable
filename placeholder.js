@@ -325,7 +325,7 @@ define(function (require) {
                                             bold: true
                                         },
                                         {
-                                            text: 'B: ' + order.UKPlantPassportB
+                                            text: 'B: GB-' + order.UKPlantPassportB
                                         },
                                         {
                                             text: 'C: ' + order.UKPlantPassportC,
