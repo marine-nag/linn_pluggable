@@ -132,7 +132,9 @@ define(function (require) {
                                 separateItems.push(pkg.Items.slice(i, i + 5));
                             }
 
-                            separateItems.forEach(function (items) {
+                            for (let indexSeparateItem = 0; i < separateItems.length; indexSeparateItem++) {
+                                var items = separateItems[indexSeparateItem];
+
                                 // create separate body
                                 // Create body and columns for order items in package...
                                 var body = [];
@@ -170,8 +172,8 @@ define(function (require) {
                                     }];
                                 body.push(columns);
 
-                                items.forEach(function (row) {
-
+                                for (let indexItems = 0; indexItems < items.length; indexItems++) {
+                                    var row = items[indexItems];
                                     var dataRow = [];
 
                                     if (row.ImageSource != '' && row.ImageSource != null) {
@@ -208,6 +210,7 @@ define(function (require) {
                                         bold: true,
                                         margin: [0, 10, 0, 10]
                                     });
+
                                     dataRow.push({
                                         text: 'A: ' + row.UKPlantPassportA + '\n' + 'D: ' + row.UKPlantPassportD,
                                         margin: [0, 10, 0, 10],
@@ -225,10 +228,10 @@ define(function (require) {
                                     });
 
                                     body.push(dataRow);
-                                });
+                                }
 
                                 bodies.push(body);
-                            });
+                            }
 
                             var marginForNotes = (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? [0, 0, 0, 20] : [0, 160, 0, 0];
 
