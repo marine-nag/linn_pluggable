@@ -434,6 +434,16 @@ define(function (require) {
                                     });
                             }
 
+                            // If this is not last order we add break 
+                            if (order !== orders[orders.length - 1]) {
+                                var pagebreak = {
+                                    text: '',
+                                    pageBreak: "after"
+                                };
+
+                                newContent.push(pagebreak);
+                            }
+
                             docDefinition.content.push(newContent);
                         }
                     }
