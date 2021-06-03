@@ -99,7 +99,7 @@ define(function (require) {
                             "text": [
                                 {
                                     "text": "Thanks for shopping with Patch",
-                                    "style": "center"
+                                    "alignment": "center"
                                 }
                             ]
                         },
