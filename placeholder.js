@@ -351,17 +351,6 @@ define(function (require) {
 
                             // ORDER ITEMS
                             bodies.forEach(function (body) {
-
-                                //if it not the last body - just go to the nex page
-                                if (body !== bodies[bodies.length - 1]) {
-                                    var pagebreak = {
-                                        text: '',
-                                        pageBreak: "after"
-                                    };
-
-                                    newContent.push(pagebreak);
-                                }
-
                                 newContent.push(
                                     {
                                         table: {
@@ -385,6 +374,17 @@ define(function (require) {
                                             }
                                         }
                                     });
+
+
+                                //if it not the last body - just go to the next page to another table. 
+                                if (body !== bodies[bodies.length - 1]) {
+                                    var pagebreak = {
+                                        text: '',
+                                        pageBreak: "after"
+                                    };
+
+                                    newContent.push(pagebreak);
+                                }
                             });
 
                             // if this is not last package add new page.
