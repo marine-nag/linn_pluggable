@@ -112,7 +112,7 @@ define(function (require) {
                 if ((data.error == null) && (data.result != null) && (data.result.length != 0)) {
                     var orders = data.result;
 
-                    for (let i = 0; i < orders.length; i++) {
+                    for (var i = 0; i < orders.length; i++) {
                         var order = orders[i];
 
                         //order.Packages.forEach(function (pkg, index) {
@@ -476,13 +476,11 @@ define(function (require) {
                             }
 
                             docDefinition.content.push(newContent);
-
-                            if ((order === orders[orders.length - 1]) && pkg === order.Packages[order.Packages.length - 1]) {
-                                //Finally, create a file.
-                                pdfMake.createPdf(docDefinition).open();
-                            }
                         }
                     }
+
+                    //Finally, create a file.
+                    pdfMake.createPdf(docDefinition).open();
                 } else {
                     alert('Errors...');
                 }
