@@ -100,7 +100,11 @@ define(function (require) {
                                 {
                                     "text": "Thanks for shopping with Patch",
                                     "style": "center"
-                                },
+                                }
+                            ]
+                        },
+                        {
+                            "text": [
                                 {
                                     "text": "If you have any questions, send us an email at: help@patchplants.com",
                                     "alignment": "center"
