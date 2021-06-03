@@ -394,38 +394,34 @@ define(function (require) {
                                 }];
 
                             // ADD footer
-                            var footer = function () {
-                                return [
-                                    {
-                                        canvas:
-                                            [
-                                                { type: 'line', x1: 10, y1: 10, x2: 595 - 10, y2: 10, color: '#808080', lineWidth: 0.5 }
-                                            ],
-                                        margin: [0, 0, 0, 15]
-                                    },
-                                    {
-                                        "text": [
-                                            {
-                                                "text": "Thanks for shopping with Patch",
-                                                bold: true,
-                                                "alignment": "center"
-                                            }
-                                        ],
-                                        margin: [0, 0, 0, 7]
-                                    },
-                                    {
-                                        "text": [
-                                            {
-                                                "text": "If you have any questions, send us an email at: help@patchplants.com",
-                                                "alignment": "center"
-                                            }
-                                        ]
-                                    }
-                                ];
+                            var footer = {
+                                canvas:
+                                    [
+                                        { type: 'line', x1: 10, y1: 10, x2: 595 - 10, y2: 10, color: '#808080', lineWidth: 0.5 }
+                                    ] //, margin: [0, 0, 0, 15]
                             };
 
-                            newContent.push(footer);
+                            footer.push({
+                                "text": [
+                                    {
+                                        "text": "Thanks for shopping with Patch",
+                                        bold: true,
+                                        "alignment": "center"
+                                    }
+                                ],
+                                margin: [0, 0, 0, 7]
+                            });
 
+                            footer.push({
+                                "text": [
+                                    {
+                                        "text": "If you have any questions, send us an email at: help@patchplants.com",
+                                        "alignment": "center"
+                                    }
+                                ], margin: [0, 0, 0, 7]
+                            });
+
+                            newContent.push(footer);
 
                             // if this is not last package add new page.
                             if (pkg != order.Packages[order.Packages.length - 1]) {
