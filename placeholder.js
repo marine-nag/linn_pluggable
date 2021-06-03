@@ -88,11 +88,27 @@ define(function (require) {
                 },
                 content: [],
                 footer: {
-                    /*columns: [
-                      'Left part',
-                      { text: 'Right part', alignment: 'right' }
-                    ]*/
+                    canvas: [
+                        {
+                            type: 'line',
+                            x1: 0,
+                            y1: 5,
+                            x2: 250,
+                            y2: 5,
+                            color: '#808080',
+                            lineWidth: 0.5
+                        }
+                    ],
                     columns: [{
+                        text: 'Thanks for shopping with Patch \n',
+                        alignment: 'center',
+                        bold: true
+                    }],
+                    columns: [{
+                        text: 'If you have any questions, send us an email at: help@patchplants.com',
+                        alignment: 'center'
+                    }]
+                    /*columns: [{
                         text: 'Thanks for shopping with Patch',
                         alignment: 'center',
                         bold: true
@@ -101,7 +117,7 @@ define(function (require) {
                         text: 'If you have any questions, send us an email at: help@patchplants.com',
                         alignment: 'center',
                         bold: false
-                    }]
+                    }]*/
                 },
                 /*footer: {
                     canvas: [
