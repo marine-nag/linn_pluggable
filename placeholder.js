@@ -299,7 +299,7 @@ define(function (require) {
                                         ],
                                     // optional space between columns
                                     columnGap: 9,
-                                    margin: [0, 0, 0, 25]
+                                    margin: [0, 0, 0, 15]
                                 },
                                 // PATCH ORDER Data
                                 {
