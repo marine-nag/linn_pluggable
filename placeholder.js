@@ -155,7 +155,8 @@ define(function (require) {
                                     text: 'Image',
                                     bold: true,
                                     fontSize: 11,
-                                    margin: [0, 10, 0, 15]
+                                    margin: [0, 10, 0, 15],
+                                    alignment: 'center'
                                 },
                                 {
                                     text: 'Item',
@@ -166,7 +167,7 @@ define(function (require) {
                                 {
                                     text: 'Qty',
                                     bold: true,
-                                    fontSize: 11,
+                                    fontSize: 13,
                                     margin: [0, 10, 0, 15]
                                 },
                                 {
@@ -329,17 +330,33 @@ define(function (require) {
                                         }],
 
                                         [{
-                                            text: [{ text: 'Carrier ', bold: true }, { text: order.CarrierName, bold: false }],
+                                            text: [{ text: 'Carrier: ', bold: true }, { text: order.CarrierName, bold: false }],
                                             fontSize: 10,
                                             bold: true
                                         },
                                         {
-                                            text: [{ text: 'Box type ', bold: true }, { text: order.BoxType, bold: false }],
+                                            text: [
+                                                {
+                                                    text: 'Box type: ',
+                                                    bold: true
+                                                },
+                                                {
+                                                    text: order.BoxType != '' && order.BoxType != null ? order.BoxType : '',
+                                                    bold: false
+                                                }],
                                             fontSize: 10,
                                             bold: true
                                         },
                                         {
-                                            text: [{ text: 'Pallet group ', bold: true }, { text: order.PalletGroup, bold: false }],
+                                            text: [
+                                                {
+                                                    text: 'Pallet group: ',
+                                                    bold: true
+                                                },
+                                                {
+                                                    text: order.PalletGroup != '' && order.PalletGroup != null ? order.PalletGroup : '',
+                                                    bold: false
+                                                }],
                                             bold: true,
                                             fontSize: 10,
                                             style: 'sectionShipping'
