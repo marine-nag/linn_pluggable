@@ -399,7 +399,7 @@ define(function (require) {
                                     [
                                         { type: 'line', x1: 10, y1: 10, x2: 595 - 10, y2: 10, color: '#808080', lineWidth: 0.5 }
                                     ] //, margin: [0, 0, 0, 15]
-                            };
+                            });
 
                             newContent.push({
                                 "text": [
