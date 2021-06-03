@@ -215,7 +215,7 @@ define(function (require) {
                                 body.push(dataRow);
                             });
 
-                            var marginForNotes = (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? [0, 0, 0, 20] : [160, 0, 0, 0];
+                            var marginForNotes = (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? [0, 0, 0, 20] : [0, 160, 0, 0];
 
                             // ADD page to doc definition
                             var newContent = [
