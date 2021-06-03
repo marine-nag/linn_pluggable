@@ -397,7 +397,7 @@ define(function (require) {
                             newContent.push({
                                 canvas:
                                     [
-                                        { type: 'line', x1: 0, y1: 10, x2: 530, y2: 10, color: '#808080', lineWidth: 0.5 }
+                                        { type: 'line', x1: 0, y1: 10, x2: 515, y2: 10, color: '#808080', lineWidth: 0.5 }
                                     ], margin: [0, 10, 0, 15]
                             });
 
