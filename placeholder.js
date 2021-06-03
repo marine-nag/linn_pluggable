@@ -359,7 +359,7 @@ define(function (require) {
 
 
                             // if this is not last package add new page.
-                            if (pkg != order.Packages[order.Packages.length - 1]) {
+                            if (pkg !== order.Packages[order.Packages.length - 1]) {
                                 var pagebreak = {
                                     text: '',
                                     pageBreak: "after"
@@ -399,7 +399,7 @@ define(function (require) {
 
 
                             // We need to show notes only on the 1st page.
-                            if (pkg == order.Packages[0]) {
+                            if (pkg === order.Packages[0]) {
                                 docDefinition.content.push(
                                     // Hello driver
                                     {
