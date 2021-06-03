@@ -112,11 +112,10 @@ define(function (require) {
                 if ((data.error == null) && (data.result != null) && (data.result.length != 0)) {
                     var orders = data.result;
 
-                    $scope.formInvoice(orders).then((msg) => {
-                        //Finally, create a file.
-                        pdfMake.createPdf(docDefinition).open();
-                    });
-
+                    $scope.formInvoice(orders);
+                    console.log('push pdf.');
+                    //Finally, create a file.
+                    pdfMake.createPdf(docDefinition).open();
                 } else {
                     alert('Errors...');
                 }
@@ -127,7 +126,6 @@ define(function (require) {
             for (var i = 0; i < orders.length; i++) {
                 var order = orders[i];
 
-                //order.Packages.forEach(function (pkg, index) {
                 for (var index = 0; index < order.Packages.length; index++) {
                     var pkg = order.Packages[index];
 
@@ -240,6 +238,7 @@ define(function (require) {
                             });
 
                             body.push(dataRow);
+                            console.log('push row.');
                         }
 
                         bodies.push(body);
@@ -486,12 +485,10 @@ define(function (require) {
 
                         newContent.push(pagebreak);
                     }
-
+                    console.log('push new content.');
                     docDefinition.content.push(newContent);
                 }
             }
-
-            return Promise.resolve("Success");
         }
     };
 
