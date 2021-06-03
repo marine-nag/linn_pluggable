@@ -112,7 +112,7 @@ define(function (require) {
                 if ((data.error == null) && (data.result != null) && (data.result.length != 0)) {
                     var orders = data.result;
 
-                    $scope.formInvoice(orders).then(() => {
+                    $scope.formInvoice(orders).then((msg) => {
                         //Finally, create a file.
                         pdfMake.createPdf(docDefinition).open();
                     });
@@ -490,6 +490,8 @@ define(function (require) {
                     docDefinition.content.push(newContent);
                 }
             }
+
+            return Promise.resolve("Success");
         }
     };
 
