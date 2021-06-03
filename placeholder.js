@@ -353,7 +353,8 @@ define(function (require) {
                                 }];
 
                             // ORDER ITEMS
-                            bodies.forEach(function (body) {
+                            for (let indexTable = 0; indexTable < bodies.length; indexTable++) {
+                                var body = bodies[indexTable];
                                 newContent.push(
                                     {
                                         table: {
@@ -378,7 +379,6 @@ define(function (require) {
                                         }
                                     });
 
-
                                 //if it not the last body - just go to the next page to another table. 
                                 if (body !== bodies[bodies.length - 1]) {
                                     var pagebreak = {
@@ -388,7 +388,7 @@ define(function (require) {
 
                                     newContent.push(pagebreak);
                                 }
-                            });
+                            }
 
                             // if this is not last package add new page.
                             if (pkg !== order.Packages[order.Packages.length - 1]) {
@@ -428,7 +428,6 @@ define(function (require) {
                                     ], margin: [0, 0, 0, 5]
                                 });
                             }
-
 
                             // We need to show notes only on the 1st page.
                             if (pkg === order.Packages[0]) {
