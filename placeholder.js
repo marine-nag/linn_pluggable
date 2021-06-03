@@ -87,12 +87,12 @@ define(function (require) {
                     keywords: "Invoice",
                 },
                 content: [],
-                footer: function () {
+                /*footer: function () {
                     return [
                         {
                             canvas:
                                 [
-                                    { type: 'line', x1: 10, y1: 10, x2: 595 - 10, y2: 10, lineWidth: 0.5 }
+                                    { type: 'line', x1: 10, y1: 10, x2: 595 - 10, y2: 10, color: '#808080', lineWidth: 0.5 }
                                 ]
                         },
                         {
@@ -113,7 +113,7 @@ define(function (require) {
                             ]
                         }
                     ];
-                },
+                },*/
                 //CSS
                 styles: {
                     sectionHeader: {
@@ -363,7 +363,7 @@ define(function (require) {
                                                 text: 'Parcel ' + (index + 1).toString() + ' of ' + order.Packages.length.toString(),
                                                 bold: true,
                                                 alignment: 'center',
-                                                fontSize: 10,
+                                                fontSize: 9,
                                                 style: 'sectionShipping'
                                             }
                                         ]
@@ -392,6 +392,40 @@ define(function (require) {
                                         }
                                     }
                                 }];
+
+                            // ADD footer
+                            var footer = function () {
+                                return [
+                                    {
+                                        canvas:
+                                            [
+                                                { type: 'line', x1: 10, y1: 10, x2: 595 - 10, y2: 10, color: '#808080', lineWidth: 0.5 }
+                                            ],
+                                        margin: [0, 0, 0, 15]
+                                    },
+                                    {
+                                        "text": [
+                                            {
+                                                "text": "Thanks for shopping with Patch",
+                                                bold: true,
+                                                "alignment": "center"
+                                            }
+                                        ],
+                                        margin: [0, 0, 0, 7]
+                                    },
+                                    {
+                                        "text": [
+                                            {
+                                                "text": "If you have any questions, send us an email at: help@patchplants.com",
+                                                "alignment": "center"
+                                            }
+                                        ]
+                                    }
+                                ];
+                            };
+
+                            newContent.push(footer);
+
 
                             // if this is not last package add new page.
                             if (pkg != order.Packages[order.Packages.length - 1]) {
