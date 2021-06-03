@@ -104,7 +104,7 @@ define(function (require) {
                         margin: [0, 0, 0, 15]
                     }
                 }
-                , pageMargins: [68, 68, 68, 0]
+                , pageMargins: [51, 51, 51, 0]
             };
 
             // RUN Macro to get necessary data
@@ -478,15 +478,14 @@ define(function (require) {
                                 columns: [
                                     [{
                                         text: (order.DeliveryNote != '' && order.DeliveryNote != null) ? order.DeliveryNote : '',
-                                        maxHeight: 600,
-                                        width: 272,
-                                        height: 159,
+                                        width: 204,
+                                        maxHeight: 120,
                                         margin: [0, 10, 0, 15]
                                     }],
                                     [{
                                         text: (order.GiftNote != '' && order.GiftNote != null) ? order.GiftNote : '',
-                                        width: 272,
-                                        height: 159,
+                                        width: 204,
+                                        maxHeight: 120,
                                         margin: [20, 10, 0, 15]
                                     }]
                                 ]
