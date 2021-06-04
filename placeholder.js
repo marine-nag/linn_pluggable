@@ -261,7 +261,7 @@ define(function (require) {
 
                     var bodies = $scope.getOrderItemsTable(pkg, order);
 
-                    var marginForNotes = (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? [0, 0, 0, 20] : [0, 160, 0, 0];
+                    var marginForNotes = [0, 0, 0, 20];
 
                     // ADD page to doc definition
                     var newContent = [
