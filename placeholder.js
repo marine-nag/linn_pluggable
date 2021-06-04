@@ -477,13 +477,13 @@ define(function (require) {
                                             text: (order.DeliveryNote != '' && order.DeliveryNote != null) ? order.DeliveryNote : '',
                                             width: 204,
                                             maxHeight: 120,
-                                            margin: [0, 0, 0, 15]
+                                            margin: [0, 0, 0, 8]
                                         },
                                         {
                                             text: (order.GiftNote != '' && order.GiftNote != null) ? order.GiftNote : '',
                                             width: 204,
                                             maxHeight: 120,
-                                            margin: [45, 0, 0, 15]
+                                            margin: [45, 0, 0, 8]
                                         }
                                     ]
                                 ]
