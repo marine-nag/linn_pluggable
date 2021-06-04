@@ -496,7 +496,7 @@ define(function (require) {
                                 paddingTop: function (i, node) { return 5; },
                                 paddingBottom: function (i, node) { return 5; },
                             }
-                        }
+                        };
 
                         docDefinition.content.push(tableHeader);
                     }
