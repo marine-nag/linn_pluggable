@@ -74,7 +74,7 @@ define(function (require) {
                 orderIDs.push(item.OrderId);
             });
 
-            var obj = { applicationName: 'TEST_PrintInvoices', macroName: 'TEST_print_invoices', orderIds: orderIDs };
+            var obj = { applicationName: 'Print Invoices', macroName: 'Print_Invoices_Macro', orderIds: orderIDs };
 
             // Init docDefinition
             docDefinition = {
