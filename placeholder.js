@@ -483,7 +483,7 @@ define(function (require) {
                                             text: (order.GiftNote != '' && order.GiftNote != null) ? order.GiftNote : '',
                                             width: 204,
                                             maxHeight: 120,
-                                            margin: [20, 0, 0, 15]
+                                            margin: [45, 0, 0, 15]
                                         }
                                     ]
                                 ]
