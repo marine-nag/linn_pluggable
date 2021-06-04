@@ -459,37 +459,46 @@ define(function (require) {
 
                     // We need to show notes only on the 1st page.
                     if (pkg === order.Packages[0]) {
-                        docDefinition.content.push(
-                            // Hello driver
-                            {
-                                columns: [
+
+                        var tableHeader = {
+                            table: {
+                                widths: [204, 204],
+                                heights: [10, 120],
+                                body: [
                                     [
                                         {
                                             text: (order.DeliveryNote != '' && order.DeliveryNote != null) || (order.GiftNote != '' && order.GiftNote != null) ? 'Hello driver' : '', bold: true,
                                             fontSize: 18
+                                        }, ''
+                                    ],
+
+                                    [
+                                        {
+                                            text: (order.DeliveryNote != '' && order.DeliveryNote != null) ? order.DeliveryNote : '',
+                                            width: 204,
+                                            maxHeight: 120,
+                                            margin: [0, 0, 0, 15]
+                                        },
+                                        {
+                                            text: (order.GiftNote != '' && order.GiftNote != null) ? order.GiftNote : '',
+                                            width: 204,
+                                            maxHeight: 120,
+                                            margin: [20, 0, 0, 15]
                                         }
                                     ]
                                 ]
-                            });
 
-                        docDefinition.content.push(
-                            // Notes...
-                            {
-                                columns: [
-                                    [{
-                                        text: (order.DeliveryNote != '' && order.DeliveryNote != null) ? order.DeliveryNote : '',
-                                        width: 204,
-                                        maxHeight: 120,
-                                        margin: [0, 10, 0, 15]
-                                    }],
-                                    [{
-                                        text: (order.GiftNote != '' && order.GiftNote != null) ? order.GiftNote : '',
-                                        width: 204,
-                                        maxHeight: 120,
-                                        margin: [20, 10, 0, 15]
-                                    }]
-                                ]
-                            });
+                            },
+                            layout: {
+                                defaultBorder: false,
+                                paddingLeft: function (i, node) { return 1; },
+                                paddingRight: function (i, node) { return 1; },
+                                paddingTop: function (i, node) { return 5; },
+                                paddingBottom: function (i, node) { return 5; },
+                            }
+                        }
+
+                        docDefinition.content.push(tableHeader);
                     }
 
                     // If this is not last order we add break 
