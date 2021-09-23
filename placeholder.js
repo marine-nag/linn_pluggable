@@ -439,7 +439,7 @@ define(function (require) {
                             console.log(resultSubSource.nextElementSibling);
                         }
                         
-                        debugger;
+                        //debugger;
 
                         //#region Shipping address
 
