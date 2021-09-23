@@ -246,6 +246,21 @@ define(function (require) {
             return null;
         }
 
+        function searchTreeHTML(element, matchingTitle) {
+            if (element.innerHTML == matchingTitle) {
+                return element;
+            }
+            else if (element.children != null) {
+                var i;
+                var result = null;
+                for (i = 0; result == null && i < element.children.length; i++) {
+                    result = searchTree(element.children[i], matchingTitle);
+                }
+                return result;
+            }
+            return null;
+        }
+
         function searchTreeWithParent(element, matchingTitle, parentNodeName) {
             if (element.innerText == matchingTitle && element.parentNode.parentNode.parentNode.parentNode.innerText.includes(parentNodeName)) {
                 return element;
@@ -431,8 +446,9 @@ define(function (require) {
                         // Get subsource 
                         const dashService = new Services.DashboardsService(self);
                         // Sub source  
-                        var resultSubSource = searchTree(node, "SubSource");
+                        var resultSubSource = searchTreeHTML(node, "\n                                                    Subsource\n                                                ");
 
+                        
                         if (resultSubSource) {
                             console.log("resultSubSource has been found! And how we transform it to dropdown?");
                             console.log(resultSubSource);
